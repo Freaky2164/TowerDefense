@@ -60,8 +60,8 @@ This towers can then be placed on the map and automatically shoot the enemies wa
 
 | Title                                                              | Date       | Publishing organization   |
 | -------------------------------------------------------------------|:----------:| ------------------------- |
-| [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions)   | 18.10.2018 | TowerDefense Team    |
-| [GitHub](https://github.com/argastle/TowerDefense)              | 18.10.2018 | TowerDefense Team    |
+| [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions)   | 20.10.2022 | TowerDefense Team    |
+| [GitHub](https://github.com/argastle/TowerDefense)              | 20.10.2022 | TowerDefense Team    |
 
 
 ### 1.5 Overview
@@ -80,16 +80,16 @@ Inspired by games like Bloons TD we want to make a unique take on the Tower Defe
 The technology we use is:
 
 Game Engine:
--Unity
+- Unity
 
 IDE:
--Unity Hub
--Rider
--Visual Studio Code
+- Unity Hub
+- Rider
+- Visual Studio Code
 
 Project Management:
--YouTrack
--GitHub
+- YouTrack
+- GitHub
 
 ## 3. Specific Requirements
 
@@ -243,12 +243,13 @@ The logo is licensed to the Common Playground Team and is only allowed to use fo
 The development will follow the common clean code standards and naming conventions. Also we will create a definition of d which will be added here as soon as its complete.
 
 ## 4. Supporting Information
-For any further information you can contact the Common Playground Team or check our [Common Playground Blog](http://commonplayground.wordpress.com). 
+For any further information you can contact the TowerDefense Team or check our [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions). 
 The Team Members are:
-- Celina Adam
-- Inga Batton
-- Nils Krehl 
-- Denis Reibel
+- Paul Faller
+- Lukas Weber
+- Tim Wäckerle
+- Nico Argast
+- Johannes Methfessel
 
 <!-- Picture-Link definitions: -->
 [OUCD]: https://github.com/IB-KA/CommonPlayground/blob/master/UseCaseDiagramCP.png "Overall Use Case Diagram"
