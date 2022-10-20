@@ -120,10 +120,10 @@ Until June, we want to implement:
 - 3.1.9 Unlock new Towers
 - 3.1.10 Player Settings
 
-#### 3.1.1 Start Game
+#### 3.1.1 Create Game
 This feature is the essential one of our project. The user gets the possibility to post a session. Therefore, they have to select a game and also set the time when they want to play.For offline games, they have to set a location, too. For online games the location can be a server for example or simply be tagged as 'online'.
 
-[Start Game](./UseCases/Start_Game.md)
+[Create Game](./UseCases/Start_Game.md)
 
 #### 3.1.2 Start Round
 This feature provides a basic overview over all current sessions. All posted sessions are added here. From this overview you can select a session and from there join this session.
