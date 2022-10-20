@@ -110,6 +110,8 @@ Until December we plan to implement:
 - 3.1.3 Place Towers
 - 3.1.4 Upgrade Towers
 
+![OUCD](./GameMockUp.png) Mock-Up
+
 Until June, we want to implement:
 - 3.1.5 Increase Wave Speed
 - 3.1.6 Save Game
