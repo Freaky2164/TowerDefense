@@ -66,8 +66,8 @@ We need a tag system so everyone looking to join a game can search for the kind 
 
 | Title                                                              | Date       | Publishing organization   |
 | -------------------------------------------------------------------|:----------:| ------------------------- |
-| [Common Playground Blog](http://commonplayground.wordpress.com)    | 18.10.2018 | Common Playground Team    |
-| [GitHub](https://github.com/nilskre/CommonPlayground)              | 18.10.2018 | Common Playground Team    |
+| [Tower Defense Blog](https://github.com/argastle/TowerDefense/discussions)   | 18.10.2018 | Common Playground Team    |
+| [GitHub](https://github.com/argastle/TowerDefense)              | 18.10.2018 | Common Playground Team    |
 
 
 ### 1.5 Overview
@@ -114,65 +114,59 @@ Until June, we want to implement:
 - 3.1.5 Increase Wave Speed
 - 3.1.6 Save Game
 - 3.1.7 Load Game
-- 3.1.8 Map Selection
-- 3.1.9 Player Level
-- 3.1.10 Unlock new Towers
-- 3.1.11 Player Settings
+- 3.1.8 Player Level
+- 3.1.9 Unlock new Towers
+- 3.1.10 Player Settings
 
 #### 3.1.1 Start Game
 This feature is the essential one of our project. The user gets the possibility to post a session. Therefore, they have to select a game and also set the time when they want to play.For offline games, they have to set a location, too. For online games the location can be a server for example or simply be tagged as 'online'.
 
-[Start Game](./use_cases/UC1_Post_Session.md)
+[Start Game](./UseCases/Start_Game.md)
 
 #### 3.1.2 Start Round
 This feature provides a basic overview over all current sessions. All posted sessions are added here. From this overview you can select a session and from there join this session.
 
-[Start Round](./use_cases/UC1_Post_Session.md)
+[Start Round](./UseCases/Start_Round.md)
 
 #### 3.1.3 Place Towers
 To identify all useres we need an account system. This account system enables us to build important functions such as joining a session, leaving a session or a personalized overview over all sessions (Keeping track of your sessions).
 
-[Place Towers](./use_cases/UC3_Session_Overview.md)
+[Place Towers](./UseCases/Place_Towers.md)
 
 #### 3.1.4 Upgrade Towers
 The app will provide the possibility to register and log in. This will also make the usability easier when a user wants to manage his sessions, post or join a session because they don't have to enter their mail address every time.
 
-[Upgrade Towers](./use_cases/UC4_Create_Account.md)
+[Upgrade Towers](./UseCases/Upgrade_Towers.md)
 
 #### 3.1.5 Increase Wave Speed
 In case you share your phone, have multiple accounts or just want to be cautius about your privacy you should be able to manually log out.
 
-[Increase Wave Speed](./use_cases/UC5_Login.md)
+[Increase Wave Speed](./UseCases/Increase_Wave_Speed.md)
 
 #### 3.1.6 Save Game
 There is also the possibility to join an existing game session. Therefore, the user can select a specific session.
 
-[Save Game](./use_cases/UC6_Logout.md)
+[Save Game](./UseCases/Save_Game.md)
 
 #### 3.1.7 Load Game
 The app provides the user with a seperate page view where they get an overview of all sessions they posted or joined. When the user clicks on a session, he can also see who joined his posted sessions.
 
-[Load Game](./use_cases/UC2_Join_Session.md)
+[Load Game](./UseCases/Load_Game.md)
 
-#### 3.1.8 Map Selection
-The user gets also the possibility to delete a session he posted or to leave a session he joined.
-
-[Map Selection](./use_cases/UC7_Keeping_Track.md)
-
-#### 3.1.9 Player Level
+#### 3.1.8 Player Level
 Based on the overview over all sessions this features enables the user to find sessions by specific parameters. Therefore, the user can find a session by tags or other parameters like date. Later on, finding a session will be provided by geolocalization that the users can search for a session in a specific area.
 
-[Player Level](./use_cases/UC8_Leave_Session.md)
+[Player Level](./UseCases/Player_Level.md)
 
-#### 3.1.10 Unlock new Towers
+#### 3.1.9 Unlock new Towers
 There must be the possibility that two people who want to play together can communicate with each other. The player who joins the session gets the possibility to contact the owner and vice versa. Later on, when we will have implemented profiles, then they will form another way to communicate with each other.
 
-[Unlock new Towers](./use_cases/UC9_Find_Session.md)
+[Unlock new Towers](./UseCases/Unlock_new_Towers.md)
 
-#### 3.1.11 Player Settings
+#### 3.1.10 Player Settings
 With the possibility to log in there comes another functionality, the profile. Every user will have their own profile where they can write some informations about themselves. Because of the privacy policy in Europe, the user has the possibility to only write the information they want other people to see. Using the profile, users can also check out other players and learn e.g. their favorite games.
 
-[Player Settings](./use_cases/UC10_Getting_In_Touch.md)
+[Player Settings](./UseCases/Player_Settings.md)
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.
