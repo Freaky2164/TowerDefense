@@ -1,4 +1,4 @@
-Common Playground - Software Requirements Specification 
+TowerDefense - Software Requirements Specification 
 
 ## Table of contents
 - [Table of contents](#table-of-contents)
@@ -44,6 +44,7 @@ The map should be split in 2 Parts:
     - A place where you can place your turrets to defend your base!
 
 The main goal is to survive multiple waves of enemies which can be achieved by buying and upgrading towers.
+This towers can then be placed on the map and automatically shoot the enemies walking along the path
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 | Abbrevation | Explanation                            |
@@ -59,8 +60,8 @@ The main goal is to survive multiple waves of enemies which can be achieved by b
 
 | Title                                                              | Date       | Publishing organization   |
 | -------------------------------------------------------------------|:----------:| ------------------------- |
-| [Tower Defense Blog](https://github.com/argastle/TowerDefense/discussions)   | 18.10.2018 | Common Playground Team    |
-| [GitHub](https://github.com/argastle/TowerDefense)              | 18.10.2018 | Common Playground Team    |
+| [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions)   | 18.10.2018 | TowerDefense Team    |
+| [GitHub](https://github.com/argastle/TowerDefense)              | 18.10.2018 | TowerDefense Team    |
 
 
 ### 1.5 Overview
@@ -69,14 +70,11 @@ The following chapter provides an overview of this project with vision and Overa
 ## 2. Overall Description
 
 ### 2.1 Vision
-Inspired by carpool coordination services like ‘BlaBlaCar’ or ‘Mitfahrzentrale’ we want to build an application to coordinate game sessions. We plan to create a platform for people who are looking for other people to play games with. Covering online multiplayer games, tabletop, pen and paper or regular board games we want to provide a kind of bulletin board where people can state what they want to play, when and where they want to do it and how many people they are looking for. Others can then react to the postings and virtually join the play session to be connected by us so everyone can coordinate the actual play session together on a Common Playground.
+Inspired by games like Bloons TD we want to make a unique take on the Tower Defense genre. To achieve that we create our own individual design for the map, towers and enemies. Additionally we try to add new features which popular Tower Defense games haven't implemented yet. But the most important thing is that our game is entertaining and fun to play!
 
 ### 2.2 Use Case Diagram
 
 ![OUCD](./UseCaseDiagramCP.png)
-
-- Green: Planned till end of december
-- Yellow: Planned till end of june
 
 ### 2.3 Technology Stack
 The technology we use is:
