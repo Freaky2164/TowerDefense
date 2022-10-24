@@ -74,7 +74,7 @@ Inspired by games like Bloons TD we want to make a unique take on the Tower Defe
 
 ### 2.2 Use Case Diagram
 
-[Use Case Diagram](./Use Case Diagram.png)
+![OUCD](./Use Case Diagram.png)
 
 ### 2.3 Technology Stack
 The technology we use is:
