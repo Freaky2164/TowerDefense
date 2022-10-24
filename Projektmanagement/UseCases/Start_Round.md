@@ -8,7 +8,7 @@ This is a necessary feature for the game since the game pauses after every wave.
 So the player can decide when he is ready for the next wave.
 
 ## 1.2 Mockup 
-![Mockup Start Round](../MockUps/Start_Round)
+![Mockup Start Round](../MockUps/Start_Round.png)
 
 # 2. Flow of Events
 
