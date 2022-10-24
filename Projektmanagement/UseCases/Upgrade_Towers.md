@@ -8,7 +8,7 @@ This is a necessary feature for the game since the enemies in a level are gettin
 Since the space to place towers on the map is limited, the only way for the player to be able to handle stronger waves is to upgrade to stronger towers.
 
 ## 1.2 Mockup 
-![Upgrade Towers](../mockups/post_a_session_mockup.png)
+![Upgrade Towers](../MockUps/Upgrade_Towers.png)
 
 # 2. Flow of Events
 
