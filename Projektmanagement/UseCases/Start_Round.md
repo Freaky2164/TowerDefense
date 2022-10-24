@@ -29,3 +29,7 @@ The preconditions for this use case are:
 # 5. Postconditions
 The postconditions for this use case are:
 n/a
+
+# 6. Story Points
+
+The total amount of story points: 5
