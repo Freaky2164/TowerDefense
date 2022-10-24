@@ -134,32 +134,20 @@ The app will provide the possibility to register and log in. This will also make
 #### 3.1.5 Increase Wave Speed
 In case you share your phone, have multiple accounts or just want to be cautius about your privacy you should be able to manually log out.
 
-[Increase Wave Speed](./UseCases/Increase_Wave_Speed.md)
-
 #### 3.1.6 Save Game
 There is also the possibility to join an existing game session. Therefore, the user can select a specific session.
-
-[Save Game](./UseCases/Save_Game.md)
 
 #### 3.1.7 Load Game
 The app provides the user with a seperate page view where they get an overview of all sessions they posted or joined. When the user clicks on a session, he can also see who joined his posted sessions.
 
-[Load Game](./UseCases/Load_Game.md)
-
 #### 3.1.8 Player Level
 Based on the overview over all sessions this features enables the user to find sessions by specific parameters. Therefore, the user can find a session by tags or other parameters like date. Later on, finding a session will be provided by geolocalization that the users can search for a session in a specific area.
-
-[Player Level](./UseCases/Player_Level.md)
 
 #### 3.1.9 Unlock new Towers
 There must be the possibility that two people who want to play together can communicate with each other. The player who joins the session gets the possibility to contact the owner and vice versa. Later on, when we will have implemented profiles, then they will form another way to communicate with each other.
 
-[Unlock new Towers](./UseCases/Unlock_new_Towers.md)
-
 #### 3.1.10 Player Settings
 With the possibility to log in there comes another functionality, the profile. Every user will have their own profile where they can write some informations about themselves. Because of the privacy policy in Europe, the user has the possibility to only write the information they want other people to see. Using the profile, users can also check out other players and learn e.g. their favorite games.
-
-[Player Settings](./UseCases/Player_Settings.md)
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.
