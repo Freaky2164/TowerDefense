@@ -26,6 +26,7 @@ n/a
 # 5. Postconditions
 The postconditions for this use case are:
 1. The tower is unlocked for the player and can no longer be unlocked in the menu.
+2. The player can use the tower in new games
 
 # 6. Story Points
 
