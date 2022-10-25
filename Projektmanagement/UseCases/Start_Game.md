@@ -7,7 +7,7 @@
 This use case allows users to start a game. He can either create a new game or load an existing one. This is neccecary for playing the game, since you can't play without an existing game. 
 
 ## 1.2 Mockup 
-![Start Game](../MockUps/Start_Round.png)
+![Start Game](../MockUps/Start_Game.png)
 
 
 # 2. Flow of events
@@ -32,6 +32,6 @@ The preconditions for this use case are:
 # 5. Postconditions
 The postconditions for this use case are:
 1. A new game is created
-2. A already existing game is loaded
+2. An already existing game is loaded
 
 
