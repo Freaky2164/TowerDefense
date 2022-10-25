@@ -102,42 +102,24 @@ Until June, we want to implement:
 - 3.1.10 Player Settings
 
 #### 3.1.1 Create Game
-This feature is the essential one of our project. The user gets the possibility to post a session. Therefore, they have to select a game and also set the time when they want to play.For offline games, they have to set a location, too. For online games the location can be a server for example or simply be tagged as 'online'.
+This use case allows users to start a game. He can either create a new game or load an existing one. This is neccecary for playing the game, since you can't play without an existing game.
 
 [Create Game](./UseCases/Create_Game.md)
 
 #### 3.1.2 Start Round
-This feature provides a basic overview over all current sessions. All posted sessions are added here. From this overview you can select a session and from there join this session.
+This use case allows players to start a new round while playing the game. This is a necessary feature for the game since the game pauses after every wave. So the player can decide when he is ready for the next wave.
 
 [Start Round](./UseCases/Start_Round.md)
 
 #### 3.1.3 Place Towers
-To identify all useres we need an account system. This account system enables us to build important functions such as joining a session, leaving a session or a personalized overview over all sessions (Keeping track of your sessions).
+This use case allows players to place towers on the map. The player can choose on from a verarity of different towers and place it anywere on the grid. This is important as it is the essential functionality for the game.
 
 [Place Towers](./UseCases/Place_Towers.md)
 
 #### 3.1.4 Upgrade Towers
-The app will provide the possibility to register and log in. This will also make the usability easier when a user wants to manage his sessions, post or join a session because they don't have to enter their mail address every time.
+This use case allows players to upgrade towers that they have already placed on the map. This is a necessary feature for the game since the enemies in a level are getting stronger with each wave. Since the space to place towers on the map is limited, the only way for the player to be able to handle stronger waves is to upgrade to stronger towers.
 
 [Upgrade Towers](./UseCases/Upgrade_Towers.md)
-
-#### 3.1.5 Increase Wave Speed
-In case you share your phone, have multiple accounts or just want to be cautius about your privacy you should be able to manually log out.
-
-#### 3.1.6 Save Game
-There is also the possibility to join an existing game session. Therefore, the user can select a specific session.
-
-#### 3.1.7 Load Game
-The app provides the user with a seperate page view where they get an overview of all sessions they posted or joined. When the user clicks on a session, he can also see who joined his posted sessions.
-
-#### 3.1.8 Player Level
-Based on the overview over all sessions this features enables the user to find sessions by specific parameters. Therefore, the user can find a session by tags or other parameters like date. Later on, finding a session will be provided by geolocalization that the users can search for a session in a specific area.
-
-#### 3.1.9 Unlock new Towers
-There must be the possibility that two people who want to play together can communicate with each other. The player who joins the session gets the possibility to contact the owner and vice versa. Later on, when we will have implemented profiles, then they will form another way to communicate with each other.
-
-#### 3.1.10 Player Settings
-With the possibility to log in there comes another functionality, the profile. Every user will have their own profile where they can write some informations about themselves. Because of the privacy policy in Europe, the user has the possibility to only write the information they want other people to see. Using the profile, users can also check out other players and learn e.g. their favorite games.
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.
