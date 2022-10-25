@@ -86,7 +86,7 @@ Project Management:
 ### 3.1 Functionality
 This section will explain the different use cases, you could see in the Use Case Diagram, and their functionality.  
 Until December we plan to implement:
-- 3.1.1 Start Game
+- 3.1.1 Create Game
 - 3.1.2 Start Round
 - 3.1.3 Place Towers
 - 3.1.4 Upgrade Towers
