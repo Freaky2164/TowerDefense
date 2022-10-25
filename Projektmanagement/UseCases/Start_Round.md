@@ -1,6 +1,6 @@
 # Use-Case Specification: Start Round
 
-# 1. Upgrade Towers
+# 1. Start Round
 
 ## 1.1 Brief Description
 This use case allows players to start a new round/wave while playing the game. 
