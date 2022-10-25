@@ -33,4 +33,4 @@ n/a
 
 # 6. Story Points
 
-Total number of story points: 11
+Total number of story points: 13
