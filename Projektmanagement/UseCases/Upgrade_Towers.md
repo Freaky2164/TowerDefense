@@ -33,4 +33,4 @@ The postconditions for this use case are:
 
 # 6. Story Points
 
-Total number of story points: 14
+Total number of story points: 8
