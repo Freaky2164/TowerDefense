@@ -28,8 +28,8 @@ The preconditions for this use case are:
 1. The player has enough money
 
 # 5. Postconditions
-The postconditions for this use case are:
-(If the user had enought money)
+The postconditions for this use case are
+(If the user had enought money):
 1. The players money is reduced
 2. A tower is placed on the map
 
