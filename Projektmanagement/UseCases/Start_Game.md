@@ -7,7 +7,7 @@
 This use case allows users to start a game. He can either create a new game or load an existing one. This is neccecary for playing the game, since you can't play without an existing game. 
 
 ## 1.2 Mockup 
-![Start Game](../MockUps/Start_Game.png)
+![Start Game](../MockUps/Menu.png)
 
 
 # 2. Flow of events
