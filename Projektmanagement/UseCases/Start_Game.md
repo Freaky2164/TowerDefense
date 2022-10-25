@@ -1,13 +1,13 @@
-# Use-Case Specification: Start Game
+# Use-Case Specification: Create Game
 
-# 1. Start Game
+# 1. Create Game
 
 ## 1.1 Brief Description
 
 This use case allows users to start a game. He can either create a new game or load an existing one. This is neccecary for playing the game, since you can't play without an existing game. 
 
 ## 1.2 Mockup 
-![Start Game](../MockUps/Menu.png)
+![Start Game](../MockUps/Create_Game.png)
 
 
 # 2. Flow of events
@@ -16,11 +16,6 @@ This use case allows users to start a game. He can either create a new game or l
 
 - User clicks on create new game
 - a new game is started
-
-## 2.2 Advanced Flow
-
-- User clicks on load game
-- a new menu opens up where he can choose which game he wants to load
 
 # 3. Special Requirements
 n/a
@@ -33,5 +28,8 @@ The preconditions for this use case are:
 The postconditions for this use case are:
 1. A new game is created
 2. An already existing game is loaded
+
+# 6. Storypoints
+Total number of storypoints: 5
 
 
