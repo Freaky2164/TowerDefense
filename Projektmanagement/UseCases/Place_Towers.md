@@ -29,7 +29,9 @@ The preconditions for this use case are:
 
 # 5. Postconditions
 The postconditions for this use case are:
-n/a
+(If the user had enought money)
+1. The players money is reduced
+2. A tower is placed on the map
 
 # 6. Story Points
 
