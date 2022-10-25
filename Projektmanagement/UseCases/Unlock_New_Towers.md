@@ -8,7 +8,7 @@ their level which leads to them being able to unlock new towers. In a seperate m
 For each level the player can only unlock one new tower.
 
 ## 1.2 Mockup 
-![Upgrade Towers](../MockUps/Unlock_new_Towers.png)
+![Unlock new Towers](../MockUps/Unlock_new_Towers.png)
 
 # 2. Flow of Events
 
