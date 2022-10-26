@@ -30,8 +30,8 @@ If you start or load the game you get forwarded to the game map.
 
 The map should be split in 2 Parts:
 
-    - The way through the map where enemies walk to your base to decrease your HP
-    - A place where you can place your turrets to defend your base!
+- The way through the map where enemies walk to your base to decrease your HP
+- A place where you can place your turrets to defend your base!
 
 The main goal is to survive multiple waves of enemies which can be achieved by buying and upgrading towers.
 This towers can then be placed on the map and automatically shoot the enemies walking along the path
