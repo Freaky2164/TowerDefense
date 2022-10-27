@@ -53,7 +53,7 @@ The following chapter provides an overview of this project with vision and Overa
 
 ## 2. Flow of Events-Design
 
-![OUCD](.SequenceDiagrams/Play_Rounds_Sequence_Diagram.png)
+[Sequence Diagram](.SequenceDiagrams/Play_Rounds_Sequence_Diagram.png)
 
 ## 3. Derived Requirements
 n/a
