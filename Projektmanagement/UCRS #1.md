@@ -1,4 +1,4 @@
-TowerDefense - Use-Case-Realization Specification: Create Game
+TowerDefense - Use-Case-Realization Specification: Create Game & Load Game
 
 ## Table of contents
 - [Table of contents](#table-of-contents)
@@ -53,6 +53,7 @@ The following chapter provides an overview of this project with vision and Overa
 
 ## 2. Flow of Events - Design
 
+![Sequence Diagram](./SequenceDiagrams/Create_Game_Sequence_Diagram.png)
 
 ## 3. Derived Requirements
 
