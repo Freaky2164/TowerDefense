@@ -20,6 +20,8 @@ This is important as it is the essential functionality for the game.
 ## 2.2 Alternative Flows
 - The user doesn't have enought money, so no tower can be placed
 
+![Activity](../UseCases/ActivityDiagrams/Place_Towers.png)
+
 # 3. Special Requirements
 n/a
 
