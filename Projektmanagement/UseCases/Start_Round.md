@@ -18,12 +18,15 @@ So the player can decide when he is ready for the next wave.
 ## 2.2 Alternative Flows
 - User enables the auto-start setting, so the new rounds starts automatically
 
+![Activity](../UseCases/ActivityDiagrams/Start_Round.png)
+
 # 3. Special Requirements
 n/a
 
 # 4. Preconditions
 The preconditions for this use case are:
 1. The player has started a game
+2. No round is currently active, else the button is deactivated
 
 # 5. Postconditions
 The postconditions for this use case are:
