@@ -17,6 +17,8 @@ This use case allows users to start a game. He can either create a new game. Thi
 - User clicks on create new game
 - a new game is started
 
+![Activity](../UseCases/ActivityDiagrams/Create_Game.png)
+
 # 3. Special Requirements
 n/a
 
