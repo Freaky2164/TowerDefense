@@ -58,3 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+TowerDefense/.idea
+TowerDefense/Library
+TowerDefense/Logs
+TowerDefense/Temp
+TowerDefense/UserSettings
+TowerDefense/obj
+.DS_Store
+TowerDefense/mono_crash.mem.62229.1.blob
