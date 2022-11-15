@@ -5,6 +5,7 @@ using UnityEngine;
 public class Laser : MonoBehaviour
 {
     public int laserSpeed;
+    public int laserDamage;
     private Vector2 position;
 
     // Start is called before the first frame update
@@ -27,9 +28,17 @@ public class Laser : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
-        if(other.gameObject.tag == "Enemy"){
+        if(other.gameObject.tag == "Enemy") {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.damage(laserDamage);
+                if (!enemy.hasHealthLeft())
+                {
+                    Destroy(other.gameObject);
+                }
+            }
             Destroy(gameObject);
-            Destroy(other.gameObject);
         }
 
     }
