@@ -12,8 +12,8 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         if(TimerFinished()){
-            Vector2 spawnPos = new Vector2(-7,Random.Range(-1,1));
-            Instantiate(enemy, spawnPos,enemy.transform.rotation);
+            var e = Instantiate(enemy, transform.position, enemy.transform.rotation);
+            e.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
         }
     }
 
