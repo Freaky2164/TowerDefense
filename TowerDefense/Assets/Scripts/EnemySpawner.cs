@@ -5,15 +5,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public GameObject enemy;
+    public GameObject enemyPrf;
     private float spawnTimer = 2;
 
     // Update is called once per frame
     void Update()
     {
         if(TimerFinished()){
-            var e = Instantiate(enemy, transform.position, enemy.transform.rotation);
-            e.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
+            var enemy = Instantiate(enemyPrf, transform.position, enemyPrf.transform.rotation);
+            enemy.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
         }
     }
 
