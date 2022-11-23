@@ -10,7 +10,7 @@ public class FollowWP : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, currentWP.transform.position) < 0.5)
+        if (Vector2.Distance(transform.position, currentWP.transform.position) < 0.0001f)
         {
             currentWP = currentWP.nextWaypoint.GetComponent<Waypoint>();
         }
