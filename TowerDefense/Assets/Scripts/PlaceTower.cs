@@ -12,12 +12,17 @@ class PlaceTower : MonoBehaviour
     private bool _dragging;
     private Vector3 _oldPosition;
     private bool _hasToClone;
+
+    private Vector2 relativePos;
+    private Vector2 _mousePos;
     void Start()
     {
         _collider = GetComponent<Collider2D>();
         _canMove = false;
         _dragging = false;
         _hasToClone = false;
+        var test = Camera.main.ScreenToWorldPoint(_collider.transform.position);
+        relativePos = new Vector2(test.x, test.y);
         
         var position = transform.position;
         _oldPosition = new Vector3(position.x, position.y , position.z);
@@ -30,7 +35,7 @@ class PlaceTower : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.touchCount == 1)
         {
-            if (_collider == Physics2D.OverlapPoint(mousePos))
+            if ((relativePos - mousePos).magnitude < 0.5F)
             {
                 _canMove = true;
             }
@@ -46,18 +51,23 @@ class PlaceTower : MonoBehaviour
         }
         if (_dragging)
         {
-            transform.position = mousePos;
+            transform.position = new Vector3(0, 0, 0);
+            _mousePos = mousePos;
         }
         if (Input.GetMouseButtonUp(0) || Input.touchCount <= 0)
         {
-            _canMove = false;
-            _dragging = false;
             if (_hasToClone)
-            { 
-                Instantiate(tower, transform.position, transform.rotation);
-                transform.position = _oldPosition;
+            {
+                if ((relativePos - mousePos).magnitude > 0.75F)
+                { 
+                    Instantiate(tower, _mousePos, transform.rotation); 
+                }
                 _hasToClone = false;
             }
+            
+            transform.position = _oldPosition;
+            _canMove = false;
+            _dragging = false;
         }
     }
 }

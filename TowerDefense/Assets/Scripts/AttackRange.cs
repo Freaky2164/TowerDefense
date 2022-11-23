@@ -24,10 +24,12 @@ public class AttackRange : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        if (other.tag.Equals("Enemy"))
+        {
         GetComponent<Collider>().enabled = false;
         Laser laser = (Laser)Instantiate(laserObject, cannon.transform.position, other.gameObject.transform.rotation);
         laser.setup((other.gameObject.transform.position));
-        
+        }
     }
 
 
