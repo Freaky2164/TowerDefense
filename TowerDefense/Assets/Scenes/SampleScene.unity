@@ -1057,15 +1057,12 @@ PrefabInstance:
       objectReference: {fileID: 91633368}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.33
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1101,7 +1098,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_Name
-      value: Waypoint (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_Layer
@@ -1109,6 +1105,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+      value: 2
+      value: -5.33
+      value: 2.54
+      value: Waypoint (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+      propertyPath: m_Layer
+      value: 1
 --- !u!1 &752834689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
@@ -1121,9 +1125,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &792485522
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+  m_PrefabInstance: {fileID: 1251407106}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
