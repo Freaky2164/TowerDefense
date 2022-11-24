@@ -21,7 +21,7 @@ class PlaceTower : MonoBehaviour
         _canMove = false;
         _dragging = false;
         _hasToClone = false;
-        var test = Camera.main.ScreenToWorldPoint(_collider.transform.position);
+        var test = _collider.transform.position;
         relativePos = new Vector2(test.x, test.y);
         
         var position = transform.position;
@@ -35,6 +35,7 @@ class PlaceTower : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.touchCount == 1)
         {
+            Debug.Log((relativePos - mousePos).magnitude);
             if ((relativePos - mousePos).magnitude < 0.5F)
             {
                 _canMove = true;
