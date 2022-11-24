@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2734333718386678803}
   - component: {fileID: 9010697222107803554}
   - component: {fileID: -3429341571781700820}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWP: {fileID: 0}
-  speed: 5
+  speed: 3
