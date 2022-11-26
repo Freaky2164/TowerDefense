@@ -885,7 +885,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091252917}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1091252919
 Camera:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 1108612159}
   - component: {fileID: 1108612160}
   m_Layer: 5
-  m_Name: Main Manu
+  m_Name: Main Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1463,7 +1463,7 @@ GameObject:
   - component: {fileID: 1799800368}
   - component: {fileID: 1799800367}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: MenuEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

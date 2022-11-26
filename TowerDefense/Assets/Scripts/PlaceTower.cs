@@ -35,7 +35,6 @@ class PlaceTower : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.touchCount == 1)
         {
-            Debug.Log((relativePos - mousePos).magnitude);
             if ((relativePos - mousePos).magnitude < 0.5F)
             {
                 _canMove = true;

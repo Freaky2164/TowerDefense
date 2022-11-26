@@ -9,10 +9,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if(TimerFinished()){
-            GameObject enemyPrf = enemies.Pop();
-            var enemy = Instantiate(enemyPrf, transform.position, enemyPrf.transform.rotation);
-            enemy.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
+        if(TimerFinished()) {
+            GameObject enemy = enemies.Pop();
+            var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
+            enemyGameObject.GetComponent<Enemy>().setId(enemies.Count);
+            enemyGameObject.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
         }
     }
 
