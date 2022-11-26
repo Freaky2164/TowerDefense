@@ -13,7 +13,6 @@ public class FinancialSystem
     {
         this.money = startMoney;
         moneyLabel = GameObject.Find("MoneyLabel").GetComponent<TextMeshProUGUI>();
-        Debug.Log(moneyLabel);
         updateUI();
     }
 
@@ -21,11 +20,6 @@ public class FinancialSystem
     {
         money += amount;
         updateUI();
-    }
-
-    private void updateUI()
-    {
-        moneyLabel.text = money.ToString();
     }
 
     public bool buy(int amount)
@@ -37,5 +31,10 @@ public class FinancialSystem
         money -= amount;
         updateUI();
         return true;
+    }
+
+    private void updateUI()
+    {
+        moneyLabel.text = "Money: " + money.ToString() + " $";
     }
 }

@@ -12,14 +12,17 @@ public class FollowWP : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, currentWP.transform.position) < 0.0001f)
         {
-            currentWP = currentWP.nextWaypoint.GetComponent<Waypoint>();
+            GameObject currentWPGameObject = currentWP.nextWaypoint;
+            if (currentWPGameObject == null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                currentWP = currentWP.nextWaypoint.GetComponent<Waypoint>();
+            }
         }
-
-        if (currentWP is null)
-        {
-            return;
-        }
-    
         transform.position = Vector2.MoveTowards(transform.position, currentWP.transform.position, speed * Time.deltaTime);
     }
 }
