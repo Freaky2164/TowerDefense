@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,10 +19,12 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         if (!TimerFinished()) return;
-        if (Enemies.IsUnityNull())
+        if (!Enemies.Any())
         {
             Deactivate();
+            return;
         }
+        
         var enemy = Enemies.Pop();
         var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
         enemyGameObject.GetComponent<Enemy>().ID = Enemies.Count;
