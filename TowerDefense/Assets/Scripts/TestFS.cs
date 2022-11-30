@@ -2,34 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestFS : MonoBehaviour
+public class TestFs : MonoBehaviour
 {
-    private FinancialSystem fs;
-    private float spawnTimer = 2;
+    private FinancialSystem _fs;
+    private float _spawnTimer = 2;
 
-    void Start()
+    private void Start()
     {
-        fs = new FinancialSystem(500);
+        _fs = new FinancialSystem(500);
     }
 
-    void Update()
+    private void Update()
     {
         if (TimerFinished())
         {
-            fs.gainMoney(400);
+            _fs.GainMoney(400);
         }
     }
-    bool TimerFinished()
+
+    private bool TimerFinished()
     {
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
-        {
-            spawnTimer = 2;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        _spawnTimer -= Time.deltaTime;
+        if (!(_spawnTimer <= 0)) return false;
+        _spawnTimer = 2;
+        return true;
     }
 }

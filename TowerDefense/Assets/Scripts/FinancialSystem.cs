@@ -6,45 +6,37 @@ using UnityEngine;
 
 public class FinancialSystem
 {
-    private int money;
-    private TextMeshProUGUI moneyLabel;
+    private readonly TextMeshProUGUI _moneyLabel;
 
-    public int Money
-    {
-        get => money;
-        set
-        {
-            money = value;
-            updateUI();
-        }
-    }
+    private int Money { get; set; }
 
     public FinancialSystem(int startMoney)
     {
-        this.money = startMoney;
-        moneyLabel = GameObject.Find("MoneyLabel").GetComponent<TextMeshProUGUI>();
-        updateUI();
+        this.Money = startMoney;
+        _moneyLabel = GameObject.Find("MoneyLabel").GetComponent<TextMeshProUGUI>();
+        UpdateUI();
     }
 
-    public void gainMoney(int amount)
+    public void GainMoney(int amount)
     {
-        money += amount;
-        updateUI();
+        Money += amount;
+        UpdateUI();
     }
 
-    public bool buy(int amount)
+    public bool TryBuy(int amount)
     {
-        if (money - amount > 0)
+        if (Money - amount < 0)
         {
             return false;
         }
-        money -= amount;
-        updateUI();
+
+        Money -= amount;
+        UpdateUI();
         return true;
     }
 
-    private void updateUI()
+    private void UpdateUI()
     {
-        moneyLabel.text = "Money: " + money.ToString() + " $";
+        _moneyLabel.text = $"Money: {Money}$";
     }
 }

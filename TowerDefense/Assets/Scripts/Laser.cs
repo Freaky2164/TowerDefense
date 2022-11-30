@@ -6,41 +6,38 @@ public class Laser : MonoBehaviour
 {
     public int laserSpeed;
     public int laserDamage;
-    private Vector2 position;
+    private Vector2 _position;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Destroy(gameObject,2);
+        Destroy(gameObject, 2);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, position, laserSpeed * Time.deltaTime);
-        
+        transform.position = Vector2.MoveTowards(transform.position, _position, laserSpeed * Time.deltaTime);
     }
 
-    public void setup(Vector2 position){
-        this.position = position;
-    }
-
-
-    private void OnTriggerEnter(Collider other) {
-
-        if(other.gameObject.tag == "Enemy") {
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            if (enemy != null)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.CompareTag($"Enemy")) return;
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.Damage(laserDamage);
+            if (!enemy.HasHealthLeft())
             {
-                enemy.damage(laserDamage);
-                if (!enemy.hasHealthLeft())
-                {
-                    Destroy(other.gameObject);
-                }
+                Destroy(other.gameObject);
             }
-            Destroy(gameObject);
         }
 
+        Destroy(gameObject);
     }
 
+    public void Setup(Vector2 position)
+    {
+        _position = position;
+    }
 }

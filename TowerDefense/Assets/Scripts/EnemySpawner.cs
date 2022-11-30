@@ -1,51 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private Stack<GameObject> enemies;
-    private float spawnTimer = 2;
+    private float _spawnTimer = 2;
+    private Waypoint _waypoint;
+    public Stack<GameObject> Enemies { get; set; }
 
-    void Update()
+    private void Start()
     {
-        if(TimerFinished()) {
-            GameObject enemy = enemies.Pop();
-            var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
-            enemyGameObject.GetComponent<Enemy>().setId(enemies.Count);
-            enemyGameObject.GetComponent<FollowWP>().currentWP = GetComponent<Waypoint>();
-        }
+        _waypoint = GetComponent<Waypoint>();
     }
 
-    bool TimerFinished(){
-        spawnTimer -= Time.deltaTime;
-        if(spawnTimer <= 0){
-            spawnTimer = 2;
-            return true;
-        }
-        else
+    private void Update()
+    {
+        if (!TimerFinished()) return;
+        if (Enemies.IsUnityNull())
         {
-             return false;
+            Deactivate();
         }
+        var enemy = Enemies.Pop();
+        var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
+        enemyGameObject.GetComponent<Enemy>().ID = Enemies.Count;
+        enemyGameObject.GetComponent<FollowWayPoint>().currentWp = _waypoint;
     }
 
-    public void setEnemies(Stack<GameObject> enemies)
+    private bool TimerFinished()
     {
-        this.enemies = enemies;
+        _spawnTimer -= Time.deltaTime;
+        if (!(_spawnTimer <= 0)) return false;
+        _spawnTimer = 2;
+        return true;
+    }
+    public void Activate()
+    {
+        enabled = true;
     }
 
-    public void setTimer(float timerValue)
+    public void Deactivate()
     {
-        spawnTimer = timerValue;
-    }
-
-    public void activate()
-    {
-        this.enabled = true;
-    }
-
-    public void deactivate()
-    {
-        this.enabled = false;
+        enabled = false;
     }
 }

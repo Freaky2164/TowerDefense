@@ -5,37 +5,29 @@ using UnityEngine;
 public class GameHandler : MonoBehaviour
 {
     public EnemyHandler enemyHandler;
-    private EnemySpawner enemySpawner;
-    private FinancialSystem financialSystem;
-    private int round = 1;
+    private EnemySpawner _enemySpawner;
+    private int _round = 1;
 
-    void Start()
+    public FinancialSystem FinancialSystem { get; set; }
+
+    private void Start()
     {
-        financialSystem = new FinancialSystem(1000);
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        FinancialSystem = new FinancialSystem(1000);
+        _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
-    public void enemyDestroyed(int id, int value)
+    public void StartRound()
     {
-        financialSystem.gainMoney(value);
-        if (id == 0)
-        {
-            round++;
-            enemySpawner.setEnemies(enemyHandler.getEnemies(round));
-            Debug.Log("End round");
-        }
+        _enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(_round);
+        _enemySpawner.Activate();
     }
 
-
-    public void startRound()
+    public void EnemyDestroyed(int id, int value)
     {
-        enemySpawner.setEnemies(enemyHandler.getEnemies(round));
-        enemySpawner.activate();
-    }
-
-    public FinancialSystem FinancialSystem
-    {
-        get => financialSystem;
-        set => financialSystem = value;
+        FinancialSystem.GainMoney(value);
+        if (id != 0) return;
+        _round++;
+        _enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(_round);
+        Debug.Log("End round");
     }
 }
