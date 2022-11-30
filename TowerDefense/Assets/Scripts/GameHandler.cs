@@ -32,4 +32,10 @@ public class GameHandler : MonoBehaviour
         enemySpawner.setEnemies(enemyHandler.getEnemies(round));
         enemySpawner.activate();
     }
+
+    public FinancialSystem FinancialSystem
+    {
+        get => financialSystem;
+        set => financialSystem = value;
+    }
 }

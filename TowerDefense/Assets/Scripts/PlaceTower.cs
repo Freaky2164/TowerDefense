@@ -12,11 +12,13 @@ class PlaceTower : MonoBehaviour
     private bool _dragging;
     private Vector3 _oldPosition;
     private bool _hasToClone;
+    private GameHandler _gameHandler;
 
     private Vector2 relativePos;
     private Vector2 _mousePos;
     void Start()
-    {
+    { 
+        _gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
         _collider = GetComponent<Collider2D>();
         _canMove = false;
         _dragging = false;
@@ -51,7 +53,7 @@ class PlaceTower : MonoBehaviour
         }
         if (_dragging)
         {
-            transform.position = new Vector3(0, 0, 0);
+            transform.position = mousePos;
             _mousePos = mousePos;
         }
         if (Input.GetMouseButtonUp(0) || Input.touchCount <= 0)
@@ -59,8 +61,12 @@ class PlaceTower : MonoBehaviour
             if (_hasToClone)
             {
                 if ((relativePos - mousePos).magnitude > 0.75F)
-                { 
-                    Instantiate(tower, _mousePos, transform.rotation); 
+                {
+                    if (_gameHandler.FinancialSystem.Money >= 300)
+                    { 
+                        Instantiate(tower, _mousePos, transform.rotation);
+                        _gameHandler.FinancialSystem.Money -= 300;
+                    }
                 }
                 _hasToClone = false;
             }

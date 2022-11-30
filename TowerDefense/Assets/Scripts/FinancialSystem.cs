@@ -9,6 +9,16 @@ public class FinancialSystem
     private int money;
     private TextMeshProUGUI moneyLabel;
 
+    public int Money
+    {
+        get => money;
+        set
+        {
+            money = value;
+            updateUI();
+        }
+    }
+
     public FinancialSystem(int startMoney)
     {
         this.money = startMoney;
