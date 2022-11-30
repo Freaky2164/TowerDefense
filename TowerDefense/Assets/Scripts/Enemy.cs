@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject enemyPrf;
     public int health;
     public int value;
+    private int id;
 
     public void damage(int damage)
     {
@@ -21,9 +23,19 @@ public class Enemy : MonoBehaviour
         return true;
     }
 
+    public GameObject getPrefab()
+    {
+        return this.enemyPrf;
+    }
+
+    public void setId(int value)
+    {
+        this.id = value;
+    }
+
     private void OnDestroy()
     {
         GameHandler gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
-        gameHandler.enemyDestroyed(value);
+        gameHandler.enemyDestroyed(id, value);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyHandler : MonoBehaviour
 {
     public GameObject enemy1Prf;
+    public static int enemyAmount = 20;
 
     public Stack<GameObject> getEnemies(int wave)
     {
@@ -19,7 +20,7 @@ public class EnemyHandler : MonoBehaviour
     public Stack<GameObject> getEnemiesWave1()
     {
         Stack<GameObject> enemies = new Stack<GameObject>();
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < enemyAmount; i++)
         {
             enemies.Push(enemy1Prf);
         }
