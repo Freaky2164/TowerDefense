@@ -1,29 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class EnemyHandler : MonoBehaviour
 {
     public GameObject enemy1Prf;
-    public static int enemyAmount = 20;
+    private const int EnemyAmount = 20;
 
-    public Stack<GameObject> getEnemies(int wave)
+    public Stack<GameObject> GetEnemiesOfWave(int wave)
     {
-        Stack<GameObject> enemies = new Stack<GameObject>();
+        var enemies = new Stack<GameObject>();
         switch (wave)
         {
-            case 1: enemies = getEnemiesWave1();
-                    break;
+            case 1:
+                enemies = GetEnemiesWave1();
+                break;
         }
+
         return enemies;
     }
 
-    public Stack<GameObject> getEnemiesWave1()
+    private Stack<GameObject> GetEnemiesWave1()
     {
         Stack<GameObject> enemies = new Stack<GameObject>();
-        for (int i = 0; i < enemyAmount; i++)
+        for (int i = 0; i < EnemyAmount; i++)
         {
             enemies.Push(enemy1Prf);
         }
+
         return enemies;
     }
 }

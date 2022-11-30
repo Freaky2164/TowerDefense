@@ -376,7 +376,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 886812575}
         m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
-        m_MethodName: startRound
+        m_MethodName: StartRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -851,7 +851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 365, y: 0.54}
+  m_AnchoredPosition: {x: 387, y: 0}
   m_SizeDelta: {x: 319.61, y: 556.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438918082
@@ -1224,7 +1224,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.21356891, g: 0.4745098, b: 0.19215688, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2193,12 +2193,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1674
+      value: -6.1673994
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5792
+      value: -3.5791996
       objectReference: {fileID: 0}
     - target: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
       propertyPath: m_LocalPosition.z

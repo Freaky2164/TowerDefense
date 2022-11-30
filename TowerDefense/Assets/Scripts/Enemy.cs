@@ -4,38 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private GameObject enemyPrf;
+    public int ID { get; set; }
+
     public int health;
     public int value;
-    private int id;
 
-    public void damage(int damage)
+    public void Damage(int damage)
     {
-        health = health - damage;
+        health -= damage;
     }
 
-    public bool hasHealthLeft()
+    public bool HasHealthLeft()
     {
-        if (health <= 0)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    public GameObject getPrefab()
-    {
-        return this.enemyPrf;
-    }
-
-    public void setId(int value)
-    {
-        this.id = value;
+        return health > 0;
     }
 
     private void OnDestroy()
     {
-        GameHandler gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
-        gameHandler.enemyDestroyed(id, value);
+        var gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
+        gameHandler.EnemyDestroyed(ID, value);
     }
 }

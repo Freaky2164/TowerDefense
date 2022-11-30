@@ -1,10 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class CreateGame : MonoBehaviour
+
+namespace Menu
 {
-    public void StartGame(){
-        SceneManager.LoadScene(1);
+    public class CreateGame : MonoBehaviour
+    {
+        public void StartGame()
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
