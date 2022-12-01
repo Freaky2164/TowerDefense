@@ -101,6 +101,6 @@ For each significant class in the package, include its name, brief description, 
 [A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
 
 ## 10 Quality 
- For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. Our tactic is to increase the efficency of our game as much as possible by optimizing our scripts and reducing expensive functions.
- Usability is our second most important quality attribute. It should be measured by the time users play and enjoy our game. Our game should be easy to use and players should quicky understand how the game mechanics are working.
- Availability is not so important for our game. It is measured by the time how long the game is running without any crashes. We try to detect errors during the runtime of the game but if a bug occurs it is likely that the game crashes. We should then try to work on fixing those bugs.
+For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. Our tactic is to increase the efficency of our game as much as possible by optimizing our scripts and reducing expensive functions.<br>
+Usability is our second most important quality attribute. It should be measured by the time users play and enjoy our game. Our game should be easy to use and players should quicky understand how the game mechanics are working.<br>
+Availability is not so important for our game. It is measured by the time how long the game is running without any crashes. We try to detect errors during the runtime of the game but if a bug occurs it is likely that the game crashes. We should then try to work on fixing those bugs.
