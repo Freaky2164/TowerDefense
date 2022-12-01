@@ -97,7 +97,8 @@ For each significant class in the package, include its name, brief description, 
 ### 8.2	Layers
 [For each layer, include a subsection with its name, an enumeration of the subsystems located in the layer, and a component diagram.]
 
-## 9 Size and Performance 
+## 9 Size and Performance
+Since our game will be ported on mobile apps we keep in mind that the required memory space should be minimized and we plan to increase the otherall efficiency . 
 [A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
 
 ## 10 Quality 
