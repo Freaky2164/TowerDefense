@@ -1,4 +1,4 @@
-#Tower Defense - Software Architecture Document
+Tower Defense - Software Architecture Document
 
 ## Table of Contents
  - [Table of contents](#table-of-contents)
