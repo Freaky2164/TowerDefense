@@ -374,7 +374,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 300493405}
         m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
         m_MethodName: StartRound
         m_Mode: 1
@@ -521,6 +521,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5131742120744579250, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
   m_PrefabInstance: {fileID: 337177199}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &300493405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1516963167571730030, guid: 90ffce9e4b5a42d4f864c69e2cdb8d92, type: 3}
+  m_PrefabInstance: {fileID: 1742862224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9de6477e43ed194092452b273ad592d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &337177199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2477,6 +2488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 4183803058909996370, guid: 90ffce9e4b5a42d4f864c69e2cdb8d92, type: 3}
+      propertyPath: healthLabel
+      value: 
+      objectReference: {fileID: 1162942160}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ffce9e4b5a42d4f864c69e2cdb8d92, type: 3}
 --- !u!1001 &1793645518

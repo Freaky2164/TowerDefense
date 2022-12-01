@@ -15,10 +15,12 @@ public class GameHandler : MonoBehaviour
     }
 
     public Player Player { get; private set; }
+
+    [SerializeField]
+    private EnemyHandler enemyHandler;
     
-    public EnemyHandler enemyHandler;
-    private EnemySpawner _enemySpawner;
-    private int _round = 1;
+    private EnemySpawner enemySpawner;
+    private int round = 1;
 
     public FinancialSystem FinancialSystem { get; set; }
 
@@ -30,21 +32,21 @@ public class GameHandler : MonoBehaviour
         Player.PlayerDied += OnPlayerDied;
         
         FinancialSystem = new FinancialSystem(1000);
-        _enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
     public void StartRound()
     {
-        _enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(_round);
-        _enemySpawner.Activate();
+        enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
+        enemySpawner.Activate();
     }
 
     public void EnemyDestroyed(int id, int value)
     {
         FinancialSystem.GainMoney(value);
         if (id != 0) return;
-        _round++;
-        _enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(_round);
+        round++;
+        enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
         Debug.Log("End round");
     }
 

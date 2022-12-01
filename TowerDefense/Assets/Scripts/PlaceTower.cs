@@ -17,7 +17,7 @@ class PlaceTower : MonoBehaviour
     private bool _dragging;
     private bool _hasToClone;
 
-    private Sprite _dragPic;
+    private Sprite dragPic;
     private void Start()
     {
         _camera = Camera.main;

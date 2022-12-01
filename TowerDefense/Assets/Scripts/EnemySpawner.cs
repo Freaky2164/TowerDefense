@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         var enemy = Enemies.Pop();
         var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
         enemyGameObject.GetComponent<Enemy>().ID = Enemies.Count;
-        enemyGameObject.GetComponent<FollowWayPoint>().currentWp = _waypoint;
+        enemyGameObject.GetComponent<FollowWayPoint>().CurrentWaypoint = _waypoint;
     }
 
     private bool TimerFinished()
