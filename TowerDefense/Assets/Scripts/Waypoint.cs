@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Waypoint : MonoBehaviour
@@ -10,6 +9,6 @@ public class Waypoint : MonoBehaviour
 
     private void Start()
     {
-        Next = nextWaypoint.GetComponent<Waypoint>();
+        Next = nextWaypoint?.GetComponent<Waypoint>();
     }
 }

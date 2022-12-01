@@ -22,13 +22,14 @@ public class FollowWayPoint : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, currentWaypoint.transform.position) < 0.0001f)
         { 
-            if (currentWaypoint.IsUnityNull())
+            currentWaypoint = currentWaypoint.Next;
+            
+            if (currentWaypoint is null)
             {
                 RaiseLastWaypointReached();
                 Destroy(gameObject);
                 return;
             }
-            currentWaypoint = currentWaypoint.Next;
         }
 
         transform.position =
