@@ -6,18 +6,23 @@ public class Laser : MonoBehaviour
 {
     public int laserSpeed;
     public int laserDamage;
-    private Vector2 _position;
+    private Vector2 position;
+    private bool isNotMoving = false;
 
     // Start is called before the first frame update
     private void Start()
     {
-        Destroy(gameObject, 2);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _position, laserSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, position, laserSpeed * Time.deltaTime);
+        StartCoroutine(CheckMoving());
+        if(isNotMoving)
+        {
+           Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,8 +41,22 @@ public class Laser : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    IEnumerator CheckMoving()
+     {
+         Vector3 startPos = transform.position;
+         yield return new WaitForSeconds(0.3f);
+         Vector3 finalPos = transform.position;
+         if(startPos == finalPos) isNotMoving = false;
+         else isNotMoving = true;
+     }
+
     public void Setup(Vector2 position)
     {
-        _position = position;
+        this.position = position;
     }
 }
