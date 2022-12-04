@@ -26,28 +26,17 @@ Tower Defense - Software Architecture Document
 ## 1. Introduction
 
 ### 1.1 Purpose
-This Software Requirements Specification (SRS) describes all specifications for the application "Tower Defense". It includes an overview about this project and its vision, detailed information about the planned features and boundary conditions of the development process.
+This document provides an overview of our software architecture. With several different architectural views it depicts different aspects of the system. It is intended to capture and convey the significant architectural decisions which have been made for the system.
 
 
 ### 1.2 Scope
-We are going to create a simple Tower Defense game that runs on Android Phones
-When you open the application you are presented with a menu where you can choose between a Start, Load, Quit and Settings Button.
-If you start or load the game you get forwarded to the game map.
+This document describes the architecture of the TowerDefense project.
 
-The map should be split in 2 Parts:
-
-- The way through the map where enemies walk to your base to decrease your HP
-- A place where you can place your turrets to defend your base!
-
-The main goal is to survive multiple waves of enemies which can be achieved by buying and upgrading towers.
-This towers can then be placed on the map and automatically shoot the enemies walking along the path
 
 ### 1.3 Definitions, Acronyms and Abbreviations
 | Abbrevation | Explanation                            |
 | ----------- | -------------------------------------- |
-| SRS         | Software Requirements Specification    |
 | n/a         | not applicable                         |
-| OUCD         | Overall Use Case Diagram               |
 | FAQ         | Frequently asked Questions             |
 
 ### 1.4 References
@@ -57,11 +46,15 @@ This towers can then be placed on the map and automatically shoot the enemies wa
 | [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions)   | 20.10.2022 | TowerDefense Team    |
 | [GitHub](https://github.com/argastle/TowerDefense)              | 20.10.2022 | TowerDefense Team    |
 
+### 1.5 Overview
+This document contains the architectural representation, goals and constraints as well 
+as the logical, deployment, implementation and data views.
+
 ## 2 Architectural Representation 
 [This section describes what software architecture is for the current system, and how it is represented. Of the Use-Case, Logical, Process, Deployment, and Implementation Views, it enumerates the views that are necessary, and for each view, explains what types of model elements it contains.]
 
 ## 3 Architectural Goals and Constraints 
-Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. In our team everybody has the role of a developer and therefor development is driven by the whole project team. Since our game will be deployed as a mobile-game constraints like Security, Interoperability or Privacy won't have any impact on our project. We plan to make the game portable to all mobile devices and plan to make them available on app stores.
+Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all mobile devices and plan to make them available on app stores.
 
 ## 4 Use-Case View 
 [This section lists use cases or scenarios from the use-case model if they represent some significant, central functionality of the final system, or if they have a large architectural coverage—they exercise many architectural elements or if they stress or illustrate a specific, delicate point of the architecture.]
@@ -98,6 +91,6 @@ Since our game will be ported on mobile apps we keep in mind that the required m
 [A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
 
 ## 10 Quality 
-For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. Our tactic is to increase the efficency of our game as much as possible by optimizing our scripts and reducing expensive functions.<br><br>
+For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. The framerate of a game is nowadays probably one of the most important quality attributes in the gaming industry. Thats why we try to aim for the optimal structure of our game objects. We want to minimize the initializations of different objects as much as possible and we also seek out to reduze the use of more expensive functions that would lead to the same outcome.<br><br>
 Usability is our second most important quality attribute. It should be measured by the time users play and enjoy our game. Our game should be easy to use and players should quicky understand how the game mechanics are working.<br><br>
 Availability is not so important for our game. It is measured by the time how long the game is running without any crashes. We try to detect errors during the runtime of the game but if a bug occurs it is likely that the game crashes. We should then try to work on fixing those bugs.
