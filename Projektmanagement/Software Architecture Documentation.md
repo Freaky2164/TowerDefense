@@ -57,10 +57,6 @@ This towers can then be placed on the map and automatically shoot the enemies wa
 | [TowerDefense Blog](https://github.com/argastle/TowerDefense/discussions)   | 20.10.2022 | TowerDefense Team    |
 | [GitHub](https://github.com/argastle/TowerDefense)              | 20.10.2022 | TowerDefense Team    |
 
-
-### 1.5 Overview
-The following chapter provides an overview of this project with vision and Overall Use Case Diagram. The third chapter (Requirements Specification) delivers more details about the specific requirements in terms of functionality, usability and design parameters. Finally there is a chapter with supporting information. 
-
 ## 2 Architectural Representation 
 [This section describes what software architecture is for the current system, and how it is represented. Of the Use-Case, Logical, Process, Deployment, and Implementation Views, it enumerates the views that are necessary, and for each view, explains what types of model elements it contains.]
 
