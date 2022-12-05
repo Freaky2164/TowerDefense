@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,23 +7,28 @@ public class Laser : MonoBehaviour
 {
     public int laserSpeed;
     public int laserDamage;
-    private Vector2 position;
+    private Vector3 targetPosition;
     private bool isNotMoving = false;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, position, laserSpeed * Time.deltaTime);
+        Vector3 moveDir = (targetPosition - transform.position).normalized;
+        transform.position += moveDir * laserSpeed * Time.deltaTime;
+        float angle = GetAngleFromVectorFloat(moveDir);
+        transform.eulerAngles = new Vector3(0, 0, angle + 90);
         StartCoroutine(CheckMoving());
         if(isNotMoving)
         {
            Destroy(gameObject);
         }
+    }
+
+    private float GetAngleFromVectorFloat(Vector3 dir)
+    {
+        dir = dir.normalized;
+        float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (n < 0) n += 360;
+        return n;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,8 +61,8 @@ public class Laser : MonoBehaviour
          else isNotMoving = true;
      }
 
-    public void Setup(Vector2 position)
+    public void Setup(Vector3 targetPosition)
     {
-        this.position = position;
+        this.targetPosition = targetPosition;
     }
 }

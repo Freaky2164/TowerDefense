@@ -383,6 +383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532b71c745f25464c8f9f2f36baf0678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannon: {fileID: 4543548956820756205}
+  tower: {fileID: 4543548957044336388}
   laserObject: {fileID: 2554031966280911422, guid: 9e63fcdbc4687f94b99fd46f58922562, type: 3}
-  attackspeed: 1
+  attackSpeed: 1
