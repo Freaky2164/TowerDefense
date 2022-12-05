@@ -4,7 +4,7 @@
 
 ## 1.1 Brief Description
 
-This use case allows users to start a game. He can either create a new game. This is neccecary for playing the game, since you can't play without an existing game. 
+This use case allows users to start a game. He create's a new game here. This is neccecary for playing the game, since you can't play without an existing game. 
 
 ## 1.2 Mockup 
 ![Create Game](../MockUps/Create_Game.png)
