@@ -34,11 +34,7 @@ This towers can then be placed on the map and automatically shoot the enemies wa
 | Abbrevation | Explanation                            |
 | ----------- | -------------------------------------- |
 | SRS         | Software Requirements Specification    |
-| UC          | Use Case                               |
 | n/a         | not applicable                         |
-| tbd         | to be determined                       |
-| OUCD         | Overall Use Case Diagram               |
-| FAQ         | Frequently asked Questions             |
 
 ### 1.4 References
 

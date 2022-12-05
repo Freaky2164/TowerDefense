@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
     private FollowWayPoint followWayPoint;
     
     public int ID { get; set; }
