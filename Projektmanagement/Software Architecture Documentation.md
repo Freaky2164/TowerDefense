@@ -95,10 +95,13 @@ In our implementation we only use one system which consists of all the needed co
 ![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
 
 ## 9 Size and Performance
-Since our game will be ported on mobile apps we keep in mind that the required memory space should be minimized and we plan to increase the otherall efficiency. 
 [A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
 
 ## 10 Quality 
-For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. The framerate of a game is nowadays probably one of the most important quality attributes in the gaming industry. Thats why we try to aim for the optimal structure of our game objects. We want to minimize the initializations of different objects as much as possible and we also seek out to reduze the use of more expensive functions that would lead to the same outcome.<br><br>
-Usability is our second most important quality attribute. It should be measured by the time users play and enjoy our game. Our game should be easy to use and players should quicky understand how the game mechanics are working.<br><br>
-Availability is not so important for our game. It is measured by the time how long the game is running without any crashes. We try to detect errors during the runtime of the game but if a bug occurs it is likely that the game crashes. We should then try to work on fixing those bugs.
+For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. The framerate of a game is nowadays probably one of the most important quality attributes in the gaming industry. Thats why we try to aim for the optimal structure of our game objects. We want to minimize the initializations of different objects as much as possible and we also seek out to reduze the use of more expensive functions that would lead to the same outcome.
+
+![Utility Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Utility%20Tree.pdf)
+
+![Performance Tactic Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/PerformanceTacticsHighlights.png)
+
+[Design Checklist](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Design%20Checklist%20for%20Performance.md)
