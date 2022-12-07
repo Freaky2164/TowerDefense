@@ -92,7 +92,7 @@ In our implementation we only use one system which consists of all the needed co
  - Tower: The tower component is what the user can directly interact with by placing them onto the map. They have a range, attack speed and attack damage and           automatically shot at enemies within their range if a round is currently running.
  - Financial System: This component is used for handling the money a player has, increasing it for defeated enemies and decreasing it for buying towers
 
-[Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Play_Round_Sequence_Diagram_Updated.png)
+![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
 
 ## 9 Size and Performance
 Since our game will be ported on mobile apps we keep in mind that the required memory space should be minimized and we plan to increase the otherall efficiency. 
