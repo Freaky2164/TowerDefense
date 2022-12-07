@@ -72,7 +72,12 @@ Our game is based on an event-driven software architecture design with mediator 
 For each significant class in the package, include its name, brief description, and, optionally, a description of some of its major responsibilities, operations, and attributes.]
 
 ## 6 Process View 
-[This section describes the system's decomposition into lightweight processes (single threads of control) and heavyweight processes (groupings of lightweight processes). Organize the section by groups of processes that communicate or interact. Describe the main modes of communication between processes, such as message passing, interrupts, and rendezvous.]
+Here you can see our sequence diagrams for the two main scenarios in our game:
+
+ - Scenario 1: You are in the menu of our application and you want to start a new game either by creating a new one or by loading a previous one.
+ ![Create Game Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Create_Game_Sequence_Diagram.png)
+ - Scenario 2: You are already in a game and able to place towers, using them to shoot enemies and rewarding you with money you can use to buy more tower
+  ![Play Round Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Play_Round_Sequence_Diagram_Updated.png)
 
 ## 7 Deployment View 
 [This section describes one or more physical network (hardware) configurations on which the software is deployed and run. It is a view of the Deployment Model. At a minimum for each configuration it should indicate the physical nodes (computers, CPUs) that execute the software and their interconnections (bus, LAN, point-to-point, and so on.) Also include a mapping of the processes of the Process View onto the physical nodes.]
