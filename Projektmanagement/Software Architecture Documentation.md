@@ -74,7 +74,7 @@ For each significant class in the package, include its name, brief description, 
 ## 6 Process View 
 Here you can see our sequence diagrams for the two main scenarios in our game:
 
- - Scenario 1: You are in the menu of our application and you want to start a new game either by creating a new one or by loading a previous one.
+ - Scenario 1: You are in the menu and you want to start a new game either by creating a new one or by loading a previous one.
  ![Create Game Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Create_Game_Sequence_Diagram.png)
  - Scenario 2: You are already in a game and able to place towers, using them to shoot enemies and rewarding you with money you can use to buy more tower
   ![Play Round Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Play_Round_Sequence_Diagram_Updated.png)
