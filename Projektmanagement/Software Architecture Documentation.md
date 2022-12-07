@@ -83,16 +83,19 @@ Here you can see our sequence diagrams for the two main scenarios in our game:
 [This section describes one or more physical network (hardware) configurations on which the software is deployed and run. It is a view of the Deployment Model. At a minimum for each configuration it should indicate the physical nodes (computers, CPUs) that execute the software and their interconnections (bus, LAN, point-to-point, and so on.) Also include a mapping of the processes of the Process View onto the physical nodes.]
 
 ## 8 Implementation View 
-[This section describes the overall structure of the implementation model, the decomposition of the software into layers and subsystems in the implementation model, and any architecturally significant components.]
+In our implementation we only use one system which consists of all the needed components in our game. Here you can have a quick overview of the different components and their functionalities:
 
-### 8.1	Overview
-[This subsection names and defines the various layers and their contents, the rules that govern the inclusion to a given layer, and the boundaries between layers. Include a component diagram that shows the relations between layers. ]
+ - GameHandler: This is the main component of the game responsible for creating and starting new waves of enemies, creating the Financial System and handling                 the interaction when an enemy is beind destroyed.
+ - EnemyHandler: This component is used to control the waves of enemies by configuring which and how many enemies each wave is going to consist of.
+ - EnemySpawner: This component is being called when a new wave of enemies should be created.
+ - Enemy: The enemy component is used for every enemy in the game holding the informations about their health and their reward money.
+ - Tower: The tower component is what the user can directly interact with by placing them onto the map. They have a range, attack speed and attack damage and           automatically shot at enemies within their range if a round is currently running.
+ - Financial System: This component is used for handling the money a player has, increasing it for defeated enemies and decreasing it for buying towers
 
-### 8.2	Layers
-[For each layer, include a subsection with its name, an enumeration of the subsystems located in the layer, and a component diagram.]
+[Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
 
 ## 9 Size and Performance
-Since our game will be ported on mobile apps we keep in mind that the required memory space should be minimized and we plan to increase the otherall efficiency . 
+Since our game will be ported on mobile apps we keep in mind that the required memory space should be minimized and we plan to increase the otherall efficiency. 
 [A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
 
 ## 10 Quality 
