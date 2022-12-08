@@ -51,17 +51,17 @@ This document contains the architectural representation, goals and constraints a
 as the logical, deployment, implementation and data views.
 
 ## 2 Architectural Representation 
-[This section describes what software architecture is for the current system, and how it is represented. Of the Use-Case, Logical, Process, Deployment, and Implementation Views, it enumerates the views that are necessary, and for each view, explains what types of model elements it contains.]
+This project uses a special MVC Pattern native to Unity. The models in Unity are the objects that store the data, for example the enemies and towers. The view is described by the scenes and game objects. The controller is defined through the C#-scripts which hold the logic for our game. A special form of the MVC pattern for Unity including a fourth Service components can be seen in the next picture:
+
+![Unity MVCS Architecture](https://user-images.githubusercontent.com/64361270/206400556-000309cd-4d7f-4d8a-8b5a-d2cf1e03c727.png)
 
 ## 3 Architectural Goals and Constraints 
 Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all mobile devices and plan to make them available on app stores.
 
 ## 4 Use-Case View 
-![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use_Case_Diagram.png)
-
+[This section lists use cases or scenarios from the use-case model if they represent some significant, central functionality of the final system, or if they have a large architectural coverage—they exercise many architectural elements or if they stress or illustrate a specific, delicate point of the architecture.]
 ### 4.1	Use-Case Realizations
-- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/UCRS%20%231.md) <br>
-- [Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/UCRS%20%232.md)
+[This section illustrates how the software actually works by giving a few selected use-case (or scenario) realizations, and explains how the various design model elements contribute to their functionality.]
 
 ## 5 Logical View 
 [This section describes the architecturally significant parts of the design model, such as its decomposition into subsystems and packages. And for each significant package, its decomposition into classes and class utilities. You should introduce architecturally significant classes and describe their responsibilities, as well as a few very important relationships, operations, and attributes.]
