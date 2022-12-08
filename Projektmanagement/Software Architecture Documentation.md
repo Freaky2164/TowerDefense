@@ -56,7 +56,7 @@ This project uses a special MVC Pattern native to Unity. The models in Unity are
 ![Unity MVCS Architecture](https://user-images.githubusercontent.com/64361270/206400556-000309cd-4d7f-4d8a-8b5a-d2cf1e03c727.png)
 
 ## 3 Architectural Goals and Constraints 
-Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all mobile devices and plan to make them available on app stores.
+Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all Android devices and plan to make them available on app stores.
 
 ## 4 Use-Case View 
 ![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use_Case_Diagram.png)
