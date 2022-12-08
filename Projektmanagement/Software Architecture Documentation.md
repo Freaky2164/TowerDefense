@@ -64,14 +64,12 @@ Our game is based on an event-driven software architecture design with mediator 
 [This section illustrates how the software actually works by giving a few selected use-case (or scenario) realizations, and explains how the various design model elements contribute to their functionality.]
 
 ## 5 Logical View 
-[This section describes the architecturally significant parts of the design model, such as its decomposition into subsystems and packages. And for each significant package, its decomposition into classes and class utilities. You should introduce architecturally significant classes and describe their responsibilities, as well as a few very important relationships, operations, and attributes.]
+[UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Uml-Diagram.png)
 
 ### 5.1	Overview
-[This subsection describes the overall decomposition of the design model in terms of its package hierarchy and layers.]
-
+n/a
 ### 5.2	Architecturally Significant Design Packages
-[For each significant package, include a subsection with its name, its brief description, and a diagram with all significant classes and packages contained within the package. 
-For each significant class in the package, include its name, brief description, and, optionally, a description of some of its major responsibilities, operations, and attributes.]
+n/a
 
 ## 6 Process View 
 Here you can see our sequence diagrams for the two main scenarios in our game:
@@ -99,7 +97,7 @@ In our implementation we only use one system which consists of all the needed co
 ![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
 
 ## 9 Size and Performance
-[A description of the major dimensioning characteristics of the software that impact the architecture, as well as the target performance constraints.]
+n/a
 
 ## 10 Quality 
 For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. The framerate of a game is nowadays probably one of the most important quality attributes in the gaming industry. Thats why we try to aim for the optimal structure of our game objects. We want to minimize the initializations of different objects as much as possible and we also seek out to reduze the use of more expensive functions that would lead to the same outcome.
