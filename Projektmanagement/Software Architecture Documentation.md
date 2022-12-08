@@ -64,7 +64,7 @@ Our game is based on an event-driven software architecture design with mediator 
 [This section illustrates how the software actually works by giving a few selected use-case (or scenario) realizations, and explains how the various design model elements contribute to their functionality.]
 
 ## 5 Logical View 
-[UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Uml-Diagram.png)
+![UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Uml-Diagram.png)
 
 ### 5.1	Overview
 n/a
