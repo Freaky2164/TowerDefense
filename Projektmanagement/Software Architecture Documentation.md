@@ -63,8 +63,8 @@ Our game is based on an event-driven software architecture design with mediator 
 
 ## 4.1	Use-Case Realizations
 
-![Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%231.md)
-![Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%232.md)
+[Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%231.md) <br>
+[Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%232.md)
 
 ## 5 Logical View 
 ![UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Uml-Diagram.png)
