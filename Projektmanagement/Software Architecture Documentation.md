@@ -81,7 +81,8 @@ Here you can see our sequence diagrams for the two main scenarios in our game:
 
 ## 7 Deployment View 
 Here you can see our deployement view diagram: 
-[Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/DeploymentView.png)
+
+![Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/DeploymentView.png)
 
 ## 8 Implementation View 
 In our implementation we only use one system which consists of all the needed components in our game. Here you can have a quick overview of the different components and their functionalities:
