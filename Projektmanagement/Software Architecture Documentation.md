@@ -80,7 +80,8 @@ Here you can see our sequence diagrams for the two main scenarios in our game:
   ![Play Round Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Play_Round_Sequence_Diagram_Updated.png)
 
 ## 7 Deployment View 
-[This section describes one or more physical network (hardware) configurations on which the software is deployed and run. It is a view of the Deployment Model. At a minimum for each configuration it should indicate the physical nodes (computers, CPUs) that execute the software and their interconnections (bus, LAN, point-to-point, and so on.) Also include a mapping of the processes of the Process View onto the physical nodes.]
+Here you can see our deployement view diagram: 
+[Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/DeploymentView.png)
 
 ## 8 Implementation View 
 In our implementation we only use one system which consists of all the needed components in our game. Here you can have a quick overview of the different components and their functionalities:
