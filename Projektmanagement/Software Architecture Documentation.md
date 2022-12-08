@@ -57,9 +57,11 @@ as the logical, deployment, implementation and data views.
 Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all mobile devices and plan to make them available on app stores.
 
 ## 4 Use-Case View 
-[This section lists use cases or scenarios from the use-case model if they represent some significant, central functionality of the final system, or if they have a large architectural coverage—they exercise many architectural elements or if they stress or illustrate a specific, delicate point of the architecture.]
+![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use_Case_Diagram.png)
+
 ### 4.1	Use-Case Realizations
-[This section illustrates how the software actually works by giving a few selected use-case (or scenario) realizations, and explains how the various design model elements contribute to their functionality.]
+- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/UCRS%20%231.md) <br>
+- [Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/UCRS%20%232.md)
 
 ## 5 Logical View 
 [This section describes the architecturally significant parts of the design model, such as its decomposition into subsystems and packages. And for each significant package, its decomposition into classes and class utilities. You should introduce architecturally significant classes and describe their responsibilities, as well as a few very important relationships, operations, and attributes.]
