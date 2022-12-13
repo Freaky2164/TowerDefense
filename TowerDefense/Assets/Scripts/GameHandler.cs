@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -43,7 +44,6 @@ public class GameHandler : MonoBehaviour
 
     public void EnemyDestroyed(int id, int value)
     {
-        FinancialSystem.GainMoney(value);
         if (id != 0) return;
         round++;
         enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
@@ -53,5 +53,6 @@ public class GameHandler : MonoBehaviour
     private void OnPlayerDied()
     {
         Debug.Log("Game OVER!");
+        SceneManager.LoadScene(0);
     }
 }

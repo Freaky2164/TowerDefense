@@ -12,8 +12,11 @@ public class Laser : MonoBehaviour
 
     private void Update()
     {
-        Vector3 moveDir = (targetPosition - transform.position).normalized;
-        transform.position += moveDir * laserSpeed * Time.deltaTime;
+        var transform1 = transform;
+        var position = transform1.position;
+        Vector3 moveDir = (targetPosition - position).normalized;
+        position += moveDir * (laserSpeed * Time.deltaTime);
+        transform1.position = position;
         float angle = GetAngleFromVectorFloat(moveDir);
         transform.eulerAngles = new Vector3(0, 0, angle + 90);
         StartCoroutine(CheckMoving());
@@ -31,13 +34,14 @@ public class Laser : MonoBehaviour
         return n;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag($"Enemy")) return;
         var enemy = other.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.Damage(laserDamage);
+            enemy.Damage(laserDamage); 
+            GameHandler.i.FinancialSystem.GainMoney(20);
             if (!enemy.HasHealthLeft())
             {
                 Destroy(other.gameObject);
