@@ -88,14 +88,7 @@ Here you can see our deployement view diagram:
 ![Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/DeploymentView.png)
 
 ## 8 Implementation View 
-In our implementation we only use one system which consists of all the needed components in our game. Here you can have a quick overview of the different components and their functionalities:
-
- - GameHandler: This is the main component of the game responsible for creating and starting new waves of enemies, creating the Financial System and handling                 the interaction when an enemy is beind destroyed.
- - EnemyHandler: This component is used to control the waves of enemies by configuring which and how many enemies each wave is going to consist of.
- - EnemySpawner: This component is being called when a new wave of enemies should be created.
- - Enemy: The enemy component is used for every enemy in the game holding the informations about their health and their reward money.
- - Tower: The tower component is what the user can directly interact with by placing them onto the map. They have a range, attack speed and attack damage and           automatically shot at enemies within their range if a round is currently running.
- - Financial System: This component is used for handling the money a player has, increasing it for defeated enemies and decreasing it for buying towers
+In our implementation we use one system which consists of all the needed components in our game. In the following component diagram we added a theoretical utility system for persisting user information and an additional system for the use of third-party audio effects. 
 
 ![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
 
