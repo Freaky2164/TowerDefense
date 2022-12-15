@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   value: 20
-  damage: 100
+  damage: 30
 --- !u!114 &7641260764966053911
 MonoBehaviour:
   m_ObjectHideFlags: 0
