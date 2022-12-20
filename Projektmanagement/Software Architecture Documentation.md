@@ -11,7 +11,7 @@ Tower Defense - Software Architecture Document
  - [Architectural Representation](#2-architectural-representation)
  - [Architectural Goals and Constraints](#3-architectural-goals-and-constraints)
  - [Use-Case View](#4-use-case-view)
-    - [Use-Case Realizations](#41-use-case-realization)
+    - [Use-Case Realizations](#41-use-case-realizations)
  - [Logical View](#5-logical-view)
     - [Overview](#51-overview)
     - [Architecturally Significant Design Packages](#52-architecturally-significant-design-packages)
