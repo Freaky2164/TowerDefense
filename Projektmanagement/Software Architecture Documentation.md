@@ -11,7 +11,7 @@ Tower Defense - Software Architecture Document
  - [Architectural Representation](#2-architectural-representation)
  - [Architectural Goals and Constraints](#3-architectural-goals-and-constraints)
  - [Use-Case View](#4-use-case-view)
-    - [Use-Case Realizations](#41-use-case-realizations)
+    - [Use-Case Realizations](#41-use-case-realization)
  - [Logical View](#5-logical-view)
     - [Overview](#51-overview)
     - [Architecturally Significant Design Packages](#52-architecturally-significant-design-packages)
@@ -62,8 +62,7 @@ Our game is based on an event-driven software architecture design with mediator 
 ![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use_Case_Diagram.png)
 
 ### 4.1	Use-Case Realizations
-
-- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%231.md) <br>
+- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%231.md)
 - [Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%232.md)
 
 ## 5 Logical View 
