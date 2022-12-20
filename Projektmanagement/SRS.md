@@ -15,6 +15,10 @@ TowerDefense - Software Requirements Specification
 - [Specific Requirements](#3-specific-requirements)
     - [Functionality](#31-functionality)
     - [Usability](#32-usability)
+    - [Availability](#32-availability)
+    - [Modifiability](#33-modifiability)
+    - [Performance](#34-performance)
+    - [Testability](#35-testability)
 - [Supporting Information](#4-supporting-information)
 
 ## 1. Introduction
@@ -122,16 +126,16 @@ This use case allows players to upgrade towers that they have already placed on 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.
 
-#### 3.3 Availability
+### 3.3 Availability
 Our App should be available at any time, so this doesn t mean the game shouldn t crash, also we want it to be available to download. This means we are dependent on Google Play Store. But as far as Google is available at 99,9999% of the time, the risk is very low.
 
-#### 3.4 Modifiability
+### 3.4 Modifiability
 For modifiability our game should always be able to implement new maps. So it should be easy for everyone to add new maps to the game. 
 
-#### 3.5 Performance
+### 3.5 Performance
 Performance is the most important part of our game. We want to make sure that our game never goes on a low Frame rate. As a cap, we set a min. frame rate to 30FPS. The risk is here very high because there will be always small mistakes on coding which makes the game slow.
 
-#### 3.6 Testability
+### 3.6 Testability
 The game will not be tested by any automatic tests because we doesn t have that much time to implement them. We will test our changes manually. For that the technical risk is a on an medium level.
 
 
