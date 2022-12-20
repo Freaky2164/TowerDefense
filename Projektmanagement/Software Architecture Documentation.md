@@ -71,6 +71,7 @@ Our game is based on an event-driven software architecture design with mediator 
 
 ### 5.1	Overview
 n/a
+
 ### 5.2	Architecturally Significant Design Packages
 n/a
 
