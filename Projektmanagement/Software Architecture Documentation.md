@@ -17,7 +17,6 @@ Tower Defense - Software Architecture Document
     - [Architecturally Significant Design Packages](#52-architecturally-significant-design-packages)
  - [Process View](#6-process-view)
  - [Deployment View](#7-deployment-view)
-    - [Test](#71-test)
  - [Implementation View](#8-implementation-view)
     - [Overview](#8-overview)
     - [Layers](#82-layers)
