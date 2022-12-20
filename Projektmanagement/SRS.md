@@ -15,10 +15,10 @@ TowerDefense - Software Requirements Specification
 - [Specific Requirements](#3-specific-requirements)
     - [Functionality](#31-functionality)
     - [Usability](#32-usability)
-    - [Availability](#32-availability)
-    - [Modifiability](#33-modifiability)
-    - [Performance](#34-performance)
-    - [Testability](#35-testability)
+    - [Availability](#33-availability)
+    - [Modifiability](#34-modifiability)
+    - [Performance](#35-performance)
+    - [Testability](#36-testability)
 - [Supporting Information](#4-supporting-information)
 
 ## 1. Introduction
