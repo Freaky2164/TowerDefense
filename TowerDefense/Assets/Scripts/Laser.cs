@@ -1,29 +1,45 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
     public int laserSpeed;
     public int laserDamage;
-    private Vector3 targetPosition;
+    private GameObject target;
     private bool isNotMoving = false;
+    private Vector3 moveDir = Vector3.zero;
+    private Renderer _renderer;
+
+    private void Start()
+    {
+        isNotMoving = false;
+        moveDir = Vector3.zero;
+        _renderer = GetComponent<Renderer>();
+    }
+
 
     private void Update()
     {
+        if (!_renderer.isVisible)
+        {
+            Destroy(this);
+        }
+        if (target.IsDestroyed())
+        {
+            transform.position += moveDir * (laserSpeed * Time.deltaTime);
+            return;
+        }
+
         var transform1 = transform;
         var position = transform1.position;
-        Vector3 moveDir = (targetPosition - position).normalized;
+        moveDir = (target.transform.position - position).normalized;
         position += moveDir * (laserSpeed * Time.deltaTime);
         transform1.position = position;
         float angle = GetAngleFromVectorFloat(moveDir);
         transform.eulerAngles = new Vector3(0, 0, angle + 90);
-        StartCoroutine(CheckMoving());
-        if(isNotMoving)
-        {
-           Destroy(gameObject);
-        }
     }
 
     private float GetAngleFromVectorFloat(Vector3 dir)
@@ -36,7 +52,7 @@ public class Laser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag($"Enemy")) return;
+        if (!other.gameObject.CompareTag("Enemy")) return;
         var enemy = other.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
@@ -47,7 +63,6 @@ public class Laser : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-
         Destroy(gameObject);
     }
 
@@ -56,17 +71,8 @@ public class Laser : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator CheckMoving()
-     {
-         Vector3 startPos = transform.position;
-         yield return new WaitForSeconds(0.3f);
-         Vector3 finalPos = transform.position;
-         if(startPos == finalPos) isNotMoving = false;
-         else isNotMoving = true;
-     }
-
-    public void Setup(Vector3 targetPosition)
+    public void Setup(GameObject target)
     {
-        this.targetPosition = targetPosition;
+        this.target = target;
     }
 }

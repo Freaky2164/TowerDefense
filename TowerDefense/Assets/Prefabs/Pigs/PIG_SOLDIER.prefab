@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserObject: {fileID: 2554031966280911422, guid: 9e63fcdbc4687f94b99fd46f58922562, type: 3}
-  attackSpeed: 1
+  attackSpeed: 2
 --- !u!58 &5211824249542016623
 CircleCollider2D:
   m_ObjectHideFlags: 0
