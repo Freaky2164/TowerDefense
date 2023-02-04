@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,8 +17,7 @@ class PlaceTower : MonoBehaviour
     
     private bool _dragging;
     private bool _hasToClone;
-
-    private Sprite dragPic;
+    private GameObject _draggingTower;
     private void Start()
     {
         _camera = Camera.main;
@@ -42,16 +42,18 @@ class PlaceTower : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.touchCount == 1)
         {
             var canMove = (_relativePos - mousePos).magnitude < 0.5F;
-            if (canMove)
+            if (canMove && !_dragging)
             {
                 _dragging = true;
                 _hasToClone = true;
+                _draggingTower = Instantiate(tower, mousePos, transform.rotation);
+
             }
         }
 
         if (_dragging)
         {
-            transform.position = mousePos;
+            _draggingTower.transform.position = mousePos;
         }
 
         if (!Input.GetMouseButtonUp(0) && Input.touchCount > 0) return;
@@ -59,14 +61,22 @@ class PlaceTower : MonoBehaviour
         {
             if ((_relativePos - mousePos).magnitude > 0.75F)
             {
-                if (_gameHandler.FinancialSystem.TryBuy(300))
-                {
-                    Instantiate(tower, mousePos, transform.rotation); 
-                    _hasToClone = false;
+                Collider2D coll = _draggingTower.GetComponent<Collider2D>();
+                ContactFilter2D filter = new ContactFilter2D().NoFilter();
+                List<Collider2D> results = new List<Collider2D>();
+                Physics2D.OverlapCollider(coll, filter, results);
+                results = results.FindAll(collider1 => !collider1.gameObject.CompareTag("AttackRange"));
+                if (results.Count == 0)
+                { 
+                    if (_gameHandler.FinancialSystem.TryBuy(300))
+                    {
+                        Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
+                    }
                 }
             }
         }
-        transform.position = _oldPosition;
+        Destroy(_draggingTower);
         _dragging = false;
+        _hasToClone = false;
     }
 }
