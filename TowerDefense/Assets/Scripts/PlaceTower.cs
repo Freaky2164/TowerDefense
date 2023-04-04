@@ -18,6 +18,9 @@ class PlaceTower : MonoBehaviour
     private bool _dragging;
     private bool _hasToClone;
     private GameObject _draggingTower;
+    private List<Collider2D> overlappingCollider;
+    private bool canPlace = true;
+
     private void Start()
     {
         _camera = Camera.main;
@@ -47,12 +50,28 @@ class PlaceTower : MonoBehaviour
                 _dragging = true;
                 _hasToClone = true;
                 _draggingTower = Instantiate(tower, mousePos, transform.rotation);
-
             }
         }
 
         if (_dragging)
-        {
+        { 
+            Collider2D coll = _draggingTower.GetComponent<Collider2D>();
+            overlappingCollider = getOverlappingCollider(coll);
+            if (overlappingCollider.Count != 0)
+            {
+                canPlace = false;
+                var kind = _draggingTower.transform.GetChild(0).gameObject;
+                kind.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.1F);
+            }
+            else 
+            {
+                if (!canPlace) 
+                {
+                    canPlace = true;
+                    var kind = _draggingTower.transform.GetChild(0).gameObject;
+                    kind.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.1F); 
+                }
+            }
             _draggingTower.transform.position = mousePos;
         }
 
@@ -62,15 +81,13 @@ class PlaceTower : MonoBehaviour
             if ((_relativePos - mousePos).magnitude > 0.75F)
             {
                 Collider2D coll = _draggingTower.GetComponent<Collider2D>();
-                ContactFilter2D filter = new ContactFilter2D().NoFilter();
-                List<Collider2D> results = new List<Collider2D>();
-                Physics2D.OverlapCollider(coll, filter, results);
-                results = results.FindAll(collider1 => !collider1.gameObject.CompareTag("AttackRange"));
+                List<Collider2D> results = getOverlappingCollider(coll);
                 if (results.Count == 0)
                 { 
                     if (_gameHandler.FinancialSystem.TryBuy(300))
                     {
-                        Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
+                        var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
+                        towerToPlace.GetComponentInChildren<AttackRange>().CanShoot = true;
                     }
                 }
             }
@@ -78,5 +95,14 @@ class PlaceTower : MonoBehaviour
         Destroy(_draggingTower);
         _dragging = false;
         _hasToClone = false;
+    }
+
+    private List<Collider2D> getOverlappingCollider(Collider2D collider2D)
+    {
+        Collider2D coll = _draggingTower.GetComponent<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        List<Collider2D> results = new List<Collider2D>();
+        Physics2D.OverlapCollider(coll, filter, results);
+        return results.FindAll(collider1 => !collider1.gameObject.CompareTag("AttackRange"));
     }
 }

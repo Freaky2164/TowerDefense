@@ -12,6 +12,8 @@ public class AttackRange : MonoBehaviour
     private List<GameObject> _enemys;
     private float _fireCountDown;
 
+    public bool CanShoot { get; set; } = false;
+
     private void Start()
     {
         _enemys = new List<GameObject>();
@@ -37,6 +39,10 @@ public class AttackRange : MonoBehaviour
     
 private void Update()
     {
+        if (!CanShoot)
+        {
+            return;
+        }
         if (_enemys.Count == 0)
         {
             _fireCountDown--;
