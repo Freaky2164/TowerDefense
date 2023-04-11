@@ -11,10 +11,12 @@ public class EnhancedTowerPlacement : MonoBehaviour
     private bool _dragging;
     private List<Collider2D> overlappingCollider;
     private Camera _camera;
+    private bool canPlace = true;
 
     private void Start()
     {
         _camera = Camera.main;
+        _gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
         _dragging = false;
     }
 
@@ -25,38 +27,40 @@ public class EnhancedTowerPlacement : MonoBehaviour
         { 
             _draggingTower = Instantiate(tower, transform.position, transform.rotation);
         }
-        List<Collider2D> overlappingCollider = getOverlappingCollider();
-            if (Input.GetMouseButton(0) || (Input.touchCount == 0))
+        Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+        _draggingTower.transform.position = mousePos;
+        overlappingCollider = getOverlappingCollider();
+        if (overlappingCollider.Count != 0)
+        {
+            canPlace = false;
+            var kind = _draggingTower.transform.GetChild(0).gameObject;
+            kind.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.1F);
+        }
+        else 
+        {
+            if (!canPlace) 
             {
-                if (overlappingCollider.Count == 0)
-                { 
-                    if (_gameHandler.FinancialSystem.TryBuy(300))
-                    {
-                        var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
-                        towerToPlace.GetComponentInChildren<AttackRange>().CanShoot = true;
-                        Destroy(_draggingTower);
-                        _dragging = false;
-                    }
-                }
-            }
-            if (overlappingCollider.Count != 0)
-            {
+                canPlace = true;
                 var kind = _draggingTower.transform.GetChild(0).gameObject;
-                kind.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.1F);
-            }else
-            {
-                    var kind = _draggingTower.transform.GetChild(0).gameObject;
-                    kind.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.1F); 
+                kind.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.1F); 
             }
-            Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
-            _draggingTower.transform.position = mousePos;
+        }
+        if (!Input.GetMouseButtonUp(0) && Input.touchCount > 0) return;
+        if (canPlace)
+        {
+            if (!_gameHandler.FinancialSystem.TryBuy(300)) return;
+            var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
+            towerToPlace.GetComponentInChildren<AttackRange>().CanShoot = true;
+        }
+        Destroy(_draggingTower);
+        _dragging = false;
     }
 
-    public void ToogleDragging()
+    public void OnClick()
     {
-        _dragging = !_dragging;
+        _dragging = true;
     }
-    
+
     private List<Collider2D> getOverlappingCollider()
     {
         Collider2D coll = _draggingTower.GetComponent<Collider2D>();
