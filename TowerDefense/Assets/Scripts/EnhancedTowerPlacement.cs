@@ -50,7 +50,7 @@ public class EnhancedTowerPlacement : MonoBehaviour
         {
             if (!_gameHandler.FinancialSystem.TryBuy(300)) return;
             var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
-            towerToPlace.GetComponentInChildren<AttackRange>().CanShoot = true;
+            towerToPlace.GetComponentInChildren<Tower>().CanShoot = true;
         }
         Destroy(_draggingTower);
         _dragging = false;
