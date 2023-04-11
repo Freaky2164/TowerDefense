@@ -55,8 +55,7 @@ class PlaceTower : MonoBehaviour
 
         if (_dragging)
         { 
-            Collider2D coll = _draggingTower.GetComponent<Collider2D>();
-            overlappingCollider = getOverlappingCollider(coll);
+            overlappingCollider = getOverlappingCollider();
             if (overlappingCollider.Count != 0)
             {
                 canPlace = false;
@@ -80,8 +79,7 @@ class PlaceTower : MonoBehaviour
         {
             if ((_relativePos - mousePos).magnitude > 0.75F)
             {
-                Collider2D coll = _draggingTower.GetComponent<Collider2D>();
-                List<Collider2D> results = getOverlappingCollider(coll);
+                List<Collider2D> results = getOverlappingCollider();
                 if (results.Count == 0)
                 { 
                     if (_gameHandler.FinancialSystem.TryBuy(300))
@@ -97,7 +95,7 @@ class PlaceTower : MonoBehaviour
         _hasToClone = false;
     }
 
-    private List<Collider2D> getOverlappingCollider(Collider2D collider2D)
+    private List<Collider2D> getOverlappingCollider()
     {
         Collider2D coll = _draggingTower.GetComponent<Collider2D>();
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
