@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-
     private static GameHandler _i;
-    public static GameHandler i {
+    public static GameHandler I {
         get
         {
             _i ??= Instantiate(Resources.Load("GameHandler") as GameObject).GetComponent<GameHandler>();

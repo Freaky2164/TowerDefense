@@ -1,19 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using WaypointSystem;
+using UnityEngine.Splines;
 
 public class EnemySpawner : MonoBehaviour
 {
     private float _spawnTimer = 2;
-    private Waypoint _waypoint;
     public Stack<GameObject> Enemies { get; set; }
 
-    private void Start()
-    {
-        _waypoint = GetComponent<Waypoint>();
-    }
-
+    [SerializeField]
+    private SplineContainer path;
+    
     private void Update()
     {
         if (!TimerFinished()) return;
@@ -23,10 +20,17 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
         
+        CreateEnemy();
+    }
+
+    private void CreateEnemy()
+    {
         var enemy = Enemies.Pop();
         var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
-        enemyGameObject.GetComponent<Enemy>().ID = Enemies.Count;
-        enemyGameObject.GetComponent<FollowWayPoint>().CurrentWaypoint = _waypoint;
+        
+        var enemyComponent = enemyGameObject.GetComponent<Enemy>();
+        enemyComponent.ID = Enemies.Count;
+        enemyComponent.Path = path;
     }
 
     private bool TimerFinished()
@@ -36,6 +40,7 @@ public class EnemySpawner : MonoBehaviour
         _spawnTimer = 2;
         return true;
     }
+    
     public void Activate()
     {
         enabled = true;
