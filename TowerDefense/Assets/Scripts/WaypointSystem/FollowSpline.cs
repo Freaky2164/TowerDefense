@@ -1,6 +1,4 @@
-﻿using System;
-using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Splines;
 
 namespace WaypointSystem
@@ -10,19 +8,14 @@ namespace WaypointSystem
         [SerializeField]
         private SplineContainer path;
 
-        private float speed = 5f;
+        [SerializeField]
+        private float speed = 10f;
 
-        private Vector3 Pos
-        {
-            get => transform.position;
-            set => transform.position = value;
-        }
-
-        private Rigidbody2D rb;
+        private Rigidbody2D _rb;
 
         private void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            _rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -32,15 +25,20 @@ namespace WaypointSystem
 
         private void Move()
         {
-            SplineUtility.GetNearestPoint(path.Spline, Pos, out var nearest, out var t);
-            Pos = nearest;
+            var native = new NativeSpline(path.Spline);
+            var pos = transform.position;
+            
+            SplineUtility.GetNearestPoint(native, pos, out var newPos, out var t);
+            transform.position = new Vector3(newPos.x, newPos.y, pos.z);
 
-            var forward = path.EvaluateTangent(t);
+            var forward = Vector3.Normalize(path.EvaluateTangent(t));
             var up = path.EvaluateUpVector(t);
 
-            transform.rotation = Quaternion.LookRotation(up, forward);
+            var axisRemappedRotation = Quaternion.Inverse(Quaternion.LookRotation(Vector3.up, Vector3.forward));
+
+            var rotation = Quaternion.LookRotation(forward, up) * axisRemappedRotation;
             
-            rb.velocity = speed * transform.up;
+            _rb.velocity = rotation * transform.up * speed;
         }
     }
 }
