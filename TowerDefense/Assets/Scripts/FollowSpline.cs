@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 
 public class FollowSpline : MonoBehaviour
 {
-    private const float DistanceThreshold = 0.1f;
-
     private Rigidbody2D _rb;
-    private NativeSpline _spline;
-    private Vector3 _end;
+    private Spline _spline;
+    private float _currentOffset;
+    private float _splineLength;
 
     [SerializeField]
     private SplineContainer path;
@@ -38,21 +35,22 @@ public class FollowSpline : MonoBehaviour
 
     private void Update()
     {
+        IncreaseOffset();
         Move();
-        CheckEndReached();
     }
 
     private void Initialize()
     {
-        var localToWorldMatrix = Path.transform.localToWorldMatrix;
-        _spline = new NativeSpline(Path.Spline, localToWorldMatrix, Allocator.Persistent);
-        var last = Path.Spline.Knots.Last();
-        _end = Path.transform.TransformPoint(last.Position);
+        _spline = Path.Spline;
+        _splineLength = _spline.GetLength();
     }
 
-    private void CheckEndReached()
-    {        
-        var hasReachedEnd = Vector2.Distance(transform.position, _end) < DistanceThreshold;
+    private void IncreaseOffset()
+    {
+        var newOffset = _currentOffset + speed * Time.deltaTime / _splineLength;
+        _currentOffset = newOffset % 1f;
+        
+        var hasReachedEnd = newOffset > 1f;
         if (hasReachedEnd)
         {
             RaiseEndReached();
@@ -62,16 +60,16 @@ public class FollowSpline : MonoBehaviour
     private void Move()
     {
         var pos = transform.position;
-            
-        SplineUtility.GetNearestPoint(_spline, pos, out var newPos, out var t);
+
+        var posOnSplineLocal = _spline.EvaluatePosition(_currentOffset);
+        var newPos = Path.transform.TransformPoint(posOnSplineLocal);
         transform.position = new Vector3(newPos.x, newPos.y, pos.z);
 
-        var forward = Vector3.Normalize(_spline.EvaluateTangent(t));
-        var up = _spline.EvaluateUpVector(t);
+        var direction = _spline.EvaluateTangent(_currentOffset);
+        var upSplineDirection = _spline.EvaluateUpVector(_currentOffset);
 
-        var axisRemappedRotation = Quaternion.Inverse(Quaternion.LookRotation(Vector3.up, Vector3.forward));
-
-        var rotation = Quaternion.LookRotation(forward, up) * axisRemappedRotation;
+        var rot = Quaternion.LookRotation(direction, upSplineDirection);
+        var rotation = Quaternion.LookRotation(direction, rot * Vector3.up);
             
         _rb.velocity = rotation * transform.up * speed;
     }
