@@ -1,27 +1,41 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class Enemy : MonoBehaviour
 {
-    private FollowWayPoint followWayPoint;
-    
+    private FollowSpline _followSpline;
+
+    [SerializeField]
+    private int health;
+
+    [SerializeField]
+    private int value;
+
+    [SerializeField]
+    private int damage;
+
     public int ID { get; set; }
 
-    public int health;
-    public int value;
-    public int damage;
+    public FollowSpline FollowSpline
+    {
+        get => _followSpline ??= GetComponent<FollowSpline>();
+        private set => _followSpline = value;
+    }
+
+    public SplineContainer Path
+    {
+        get => FollowSpline.Path;
+        set => FollowSpline.Path = value;
+    }
 
     private void Start()
     {
-        followWayPoint = GetComponent<FollowWayPoint>();
-        followWayPoint.LastWaypointReached += OnLastWaypointReached;
+        FollowSpline.EndReached += OnEndReached;
     }
 
-    public void Damage(int damage)
+    public void Damage(int damageTaken)
     {
-        health -= damage;
+        health -= damageTaken;
     }
 
     public bool HasHealthLeft()
@@ -31,12 +45,12 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        var gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
-        gameHandler.EnemyDestroyed(ID, value);
+        GameHandler.I.EnemyDestroyed(ID, value);
     }
 
-    private void OnLastWaypointReached()
+    private void OnEndReached()
     {
-        GameHandler.i.Player.TakeDamage(damage);
+        GameHandler.I.Player.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }

@@ -57,7 +57,7 @@ public class Laser : MonoBehaviour
         if (enemy != null)
         {
             enemy.Damage(laserDamage); 
-            GameHandler.i.FinancialSystem.GainMoney(20);
+            GameHandler.I.FinancialSystem.GainMoney(20);
             if (!enemy.HasHealthLeft())
             {
                 Destroy(other.gameObject);
