@@ -25,15 +25,6 @@ namespace GameHandling
             }
             return null;
         }
-        
-        public void SaveToJson()
-        {
-            if (!(settingsFolder is null))
-            {
-                string json = JsonUtility.ToJson(this);
-                File.WriteAllText(settingsFolder.FullName + Path.DirectorySeparatorChar + fileName, json);
-            }
-        }
 
         public void setSettingsFolder(DirectoryInfo settingsFolder)
         {
