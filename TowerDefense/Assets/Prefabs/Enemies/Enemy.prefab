@@ -103,6 +103,7 @@ MonoBehaviour:
   health: 100
   value: 20
   damage: 30
+  audioClip: {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
 --- !u!114 &7641260764966053911
 MonoBehaviour:
   m_ObjectHideFlags: 0
