@@ -9,9 +9,9 @@ public class EnhancedTowerPlacement : MonoBehaviour
     private GameObject _draggingTower;
     private GameHandler _gameHandler;
     private bool _dragging;
-    private List<Collider2D> overlappingCollider;
+    private List<Collider2D> _overlappingCollider;
     private Camera _camera;
-    private bool canPlace = true;
+    private bool _canPlace = true;
 
     private void Start()
     {
@@ -29,24 +29,24 @@ public class EnhancedTowerPlacement : MonoBehaviour
         }
         Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         _draggingTower.transform.position = mousePos;
-        overlappingCollider = getOverlappingCollider();
-        if (overlappingCollider.Count != 0)
+        _overlappingCollider = GetOverlappingCollider();
+        if (_overlappingCollider.Count != 0)
         {
-            canPlace = false;
+            _canPlace = false;
             var kind = _draggingTower.transform.GetChild(0).gameObject;
             kind.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.1F);
         }
         else 
         {
-            if (!canPlace) 
+            if (!_canPlace) 
             {
-                canPlace = true;
+                _canPlace = true;
                 var kind = _draggingTower.transform.GetChild(0).gameObject;
                 kind.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.1F); 
             }
         }
         if (!Input.GetMouseButtonUp(0) && Input.touchCount > 0) return;
-        if (canPlace)
+        if (_canPlace)
         {
             if (!_gameHandler.FinancialSystem.TryBuy(300)) return;
             var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
@@ -61,7 +61,7 @@ public class EnhancedTowerPlacement : MonoBehaviour
         _dragging = true;
     }
 
-    private List<Collider2D> getOverlappingCollider()
+    private List<Collider2D> GetOverlappingCollider()
     {
         Collider2D coll = _draggingTower.GetComponent<Collider2D>();
         ContactFilter2D filter = new ContactFilter2D().NoFilter();

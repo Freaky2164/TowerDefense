@@ -8,15 +8,13 @@ public class Laser : MonoBehaviour
 {
     public int laserSpeed;
     public int laserDamage;
-    private GameObject target;
-    private bool isNotMoving = false;
-    private Vector3 moveDir = Vector3.zero;
+    private GameObject _target;
+    private Vector3 _moveDir = Vector3.zero;
     private Renderer _renderer;
 
     private void Start()
     {
-        isNotMoving = false;
-        moveDir = Vector3.zero;
+        _moveDir = Vector3.zero;
         _renderer = GetComponent<Renderer>();
     }
 
@@ -27,25 +25,30 @@ public class Laser : MonoBehaviour
         {
             Destroy(this);
         }
-        if (target.IsDestroyed())
+
+        if (_target.IsDestroyed())
         {
-            transform.position += moveDir * (laserSpeed * Time.deltaTime);
+            transform.position += _moveDir * (laserSpeed * Time.deltaTime);
             return;
         }
+        Move();
+    }
 
+    private void Move()
+    {
         var transform1 = transform;
         var position = transform1.position;
-        moveDir = (target.transform.position - position).normalized;
-        position += moveDir * (laserSpeed * Time.deltaTime);
+        _moveDir = (_target.transform.position - position).normalized;
+        position += _moveDir * (laserSpeed * Time.deltaTime);
         transform1.position = position;
-        float angle = GetAngleFromVectorFloat(moveDir);
+        float angle = GetAngleFromVectorFloat(_moveDir);
         transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 
-    private float GetAngleFromVectorFloat(Vector3 dir)
+    private static float GetAngleFromVectorFloat(Vector3 dir)
     {
         dir = dir.normalized;
-        float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        var n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (n < 0) n += 360;
         return n;
     }
@@ -66,13 +69,13 @@ public class Laser : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnBecameInvisible()
+    private void OnBecameInvisible()
     {
         Destroy(gameObject);
     }
 
     public void Setup(GameObject target)
     {
-        this.target = target;
+        _target = target;
     }
 }
