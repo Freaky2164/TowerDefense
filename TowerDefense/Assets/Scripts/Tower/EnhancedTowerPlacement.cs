@@ -12,6 +12,8 @@ public class EnhancedTowerPlacement : MonoBehaviour
     private List<Collider2D> _overlappingCollider;
     private Camera _camera;
     private bool _canPlace = true;
+    private Collider2D _draggingTowerCollider;
+    private SpriteRenderer _draggingTowerAttackRangeRenderer;
 
     private void Start()
     {
@@ -26,23 +28,22 @@ public class EnhancedTowerPlacement : MonoBehaviour
         if (_draggingTower.IsUnityNull())
         { 
             _draggingTower = Instantiate(tower, transform.position, transform.rotation);
+            _draggingTowerCollider = _draggingTower.GetComponent<Collider2D>();
+            _draggingTowerAttackRangeRenderer = _draggingTower.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         }
         Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
         _draggingTower.transform.position = mousePos;
         _overlappingCollider = GetOverlappingCollider();
         if (_overlappingCollider.Count != 0)
         {
-            _canPlace = false;
-            var kind = _draggingTower.transform.GetChild(0).gameObject;
-            kind.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.1F);
+            _draggingTowerAttackRangeRenderer.color = new Color(255, 0, 0, 0.1F);
         }
         else 
         {
             if (!_canPlace) 
             {
                 _canPlace = true;
-                var kind = _draggingTower.transform.GetChild(0).gameObject;
-                kind.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.1F); 
+                _draggingTowerAttackRangeRenderer.color = new Color(255,255,255,0.1F);  
             }
         }
         if (!Input.GetMouseButtonUp(0) && Input.touchCount > 0) return;
@@ -63,10 +64,9 @@ public class EnhancedTowerPlacement : MonoBehaviour
 
     private List<Collider2D> GetOverlappingCollider()
     {
-        Collider2D coll = _draggingTower.GetComponent<Collider2D>();
-        ContactFilter2D filter = new ContactFilter2D().NoFilter();
-        List<Collider2D> results = new List<Collider2D>();
-        Physics2D.OverlapCollider(coll, filter, results);
+        var filter = new ContactFilter2D().NoFilter();
+        var results = new List<Collider2D>();
+        Physics2D.OverlapCollider(_draggingTowerCollider, filter, results);
         return results.FindAll(collider1 => !collider1.gameObject.CompareTag("AttackRange"));
     }
 }
