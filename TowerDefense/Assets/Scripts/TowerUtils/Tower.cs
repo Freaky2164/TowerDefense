@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TowerUtils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Tower : MonoBehaviour
 {
     private const float MaxDistance = 0.1f;
-    public Laser laserObject;
+    public Projectile projectile;
     public float attackSpeed;
     private Camera _camera;
     private List<GameObject> _enemies;
@@ -56,7 +58,7 @@ public class Tower : MonoBehaviour
 
         if (_fireCountDown <= 0)
         {
-            var laser = Instantiate(laserObject, transform.position, Quaternion.identity);
+            var laser = Instantiate(projectile, transform.position, Quaternion.identity);
             laser.Setup(_enemies[0]);
             _fireCountDown = 1F / attackSpeed;
             return;

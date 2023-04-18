@@ -1,55 +1,59 @@
+using Enemies;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameHandler : MonoBehaviour
+namespace GameHandling
 {
-    private static GameHandler _i;
-    public static GameHandler I {
-        get
-        {
-            _i ??= Instantiate(Resources.Load("GameHandler") as GameObject).GetComponent<GameHandler>();
-            return _i;
+    public class GameHandler : MonoBehaviour
+    {
+        private static GameHandler _i;
+        public static GameHandler I {
+            get
+            {
+                _i ??= Instantiate(Resources.Load("GameHandler") as GameObject).GetComponent<GameHandler>();
+                return _i;
+            }
         }
-    }
 
-    public Player Player { get; private set; }
+        public Player Player { get; private set; }
 
-    [SerializeField]
-    private EnemyHandler enemyHandler;
+        [SerializeField]
+        private EnemyHandler enemyHandler;
     
-    private EnemySpawner enemySpawner;
-    private int round = 1;
+        private EnemySpawner enemySpawner;
+        private int round = 1;
 
-    public FinancialSystem FinancialSystem { get; set; }
+        public FinancialSystem FinancialSystem { get; set; }
 
-    private void Start()
-    {
-        _i = this;
+        private void Start()
+        {
+            _i = this;
         
-        Player = GetComponent<Player>();
-        Player.PlayerDied += OnPlayerDied;
+            Player = GetComponent<Player>();
+            Player.PlayerDied += OnPlayerDied;
         
-        FinancialSystem = new FinancialSystem(1000);
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
-    }
+            FinancialSystem = new FinancialSystem(1000);
+            enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        }
 
-    public void StartRound()
-    {
-        enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-        enemySpawner.Activate();
-    }
+        public void StartRound()
+        {
+            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
+            enemySpawner.Activate();
+        }
 
-    public void EnemyDestroyed(int id, int value)
-    {
-        if (id != 0) return;
-        round++;
-        enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-        Debug.Log("End round");
-    }
+        public void EnemyDestroyed(int id, int value)
+        {
+            if (id != 0) return;
+            round++;
+            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
+            Debug.Log("End round");
+        }
 
-    private void OnPlayerDied()
-    {
-        Debug.Log("Game OVER!");
-        SceneManager.LoadScene(0);
+        private void OnPlayerDied()
+        {
+            Debug.Log("Game OVER!");
+            SceneManager.LoadScene(0);
+        }
     }
 }
