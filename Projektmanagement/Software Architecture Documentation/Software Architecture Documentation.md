@@ -59,14 +59,16 @@ This project uses a special MVC Pattern native to Unity. The models in Unity are
 Our game is based on an event-driven software architecture design with mediator topology. The game will be developed entirely with Unity using C#-Scripts for coding the logic. We plan to make the game portable to all Android devices and plan to make them available on app stores.
 
 ## 4 Use-Case View 
-![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use_Case_Diagram.png)
+![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Use%20Case%20Diagram.png)
 
 ### 4.1 Use-Case Realizations
-- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%231.md)
+- [Use-Case-Realization Specification: Create Game & Load Game](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/Use-Cases/Realization%20Specification/UCRS%20%231.md)
 - [Use-Case-Realization Specification: Start Round](https://github.com/argastle/TowerDefense/edit/main/Projektmanagement/UCRS%20%232.md)
 
 ## 5 Logical View 
-![UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Uml-Diagram.png)
+![UML Class Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/UML%20Diagram.png)
+
+The starting point for every game builds the Game class. It stores an instance of the FinancialSystem class which is used to increase the money of the player when he kills an enemy and decrease the money when he places a tower on the map. It also holds an instance of the current round of the game represented by the Round class. This class has a list of all enemies that the player needts to fight in that round. An enemy is represented by the Enemy class that has variables for the damage it afflicts the player when he successfully crosses the map without being defeated and the health the player needs to reduce to zero in order to defeat it. It also holds information about the next waypoint that it should travel to on the map. The waypoints represented by the Waypoint class are used to let the enemies travel across the map crossing a couple of waypoints one after another until they reach the last waypoint. When an enemy reaches the last waypoint the player gets damage through the method in the Player class. To avoid that the player can buy towers and place them on the map which then will shoot all the enemies in their range automatically. A tower has a certain range, speed of its attacks, costs and a projectile it shoots. The projectile itself stores information about the damage it does and the speed with which it travels across the map. When a projectile collides with the enemy the health of the enemy gets reduced by the damage of the projectile. 
 
 ### 5.1 Overview
 n/a
@@ -78,21 +80,23 @@ n/a
 Here you can see our sequence diagrams for the two main scenarios in our game:
 
  - Scenario 1: You are in the menu and you want to start a new game either by creating a new one or by loading a previous one.
- ![Create Game Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Create_Game_Sequence_Diagram.png)
+ ![Create Game Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Sequence%20Diagrams/Create%20Game.png)
  - Scenario 2: You are already in a game and able to place towers, using them to shoot enemies and rewarding you with money you can use to buy more tower
-  ![Play Round Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/SequenceDiagrams/Play_Round_Sequence_Diagram_Updated.png)
+  ![Play Round Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Sequence%20Diagrams/Play%20Round.png)
 
 ## 7 Deployment View 
 Here you can see our deployement view diagram: 
 
-![Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/DeploymentView.png)
+![Deployment View Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Deployment%20View.png)
+
+Our game is supposed to be deployed on any mobile device with an anroid operating system. There the game can be downloaded from the Play Store as a Unity App. The App accesses a local database that gets created on the mobile device during the installation process. All the data the game needs to run successfully like Pictures, Models and Sounds will be stored there.
 
 ### 7.1 Test
 
 ## 8 Implementation View 
 In our implementation we use one system which consists of all the needed components in our game. In the following component diagram we added a theoretical utility system for persisting user information and an additional system for the use of third-party audio effects. 
 
-![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Component%20Diagram.png)
+![Component Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Component%20Diagram.png)
 
 ## 9 Size and Performance
 n/a
@@ -100,8 +104,8 @@ n/a
 ## 10 Quality 
 For our game we will be focusing on Performance using Framerates per Seconds as a measurement for how good the performance is. The framerate of a game is nowadays probably one of the most important quality attributes in the gaming industry. Thats why we try to aim for the optimal structure of our game objects. We want to minimize the initializations of different objects as much as possible and we also seek out to reduze the use of more expensive functions that would lead to the same outcome.
 
-![Utility Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Utility%20Tree.png)
+![Utility Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Utility%20Tree.png)
 
-![Performance Tactic Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/PerformanceTacticsHighlights.png)
+![Performance Tactic Tree](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Performance%20Tactics%20Highlights.png)
 
-[Design Checklist](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Design%20Checklist%20for%20Performance.md)
+[Design Checklist](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Software%20Architecture%20Documentation/Design%20Checklist%20for%20Performance.md)

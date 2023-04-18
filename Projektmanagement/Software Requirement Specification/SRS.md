@@ -66,7 +66,7 @@ Inspired by games like Bloons TD we want to make a unique take on the Tower Defe
 
 ### 2.2 Use Case Diagram
 
-![OUCD](./Use_Case_Diagram.png)
+![Use Case Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Use%20Case%20Diagram.png)
 
 ### 2.3 Technology Stack
 The technology we use is:
@@ -93,7 +93,7 @@ Until December we plan to implement:
 - 3.1.3 Place Towers
 - 3.1.4 Upgrade Towers
 
-![OUCD](./MockUps/GameMockUp.png)
+![Mock Ups](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Mock-Ups/Game%20MockUp.png)
 
 Until June, we want to implement:
 - 3.1.5 Increase Wave Speed
@@ -106,22 +106,22 @@ Until June, we want to implement:
 #### 3.1.1 Create Game
 This use case allows users to start a game. He can either create a new game or load an existing one. This is neccecary for playing the game, since you can't play without an existing game.
 
-[Create Game](./UseCases/Create_Game.md)
+[Create Game](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use-Cases/Create%20Game.md)
 
 #### 3.1.2 Start Round
 This use case allows players to start a new round while playing the game. This is a necessary feature for the game since the game pauses after every wave. So the player can decide when he is ready for the next wave.
 
-[Start Round](./UseCases/Start_Round.md)
+[Start Round](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use-Cases/Start%20Round.md)
 
 #### 3.1.3 Place Towers
 This use case allows players to place towers on the map. The player can choose on from a verarity of different towers and place it anywere on the grid. This is important as it is the essential functionality for the game.
 
-[Place Towers](./UseCases/Place_Towers.md)
+[Place Towers](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use-Cases/Place%20Towers.md)
 
 #### 3.1.4 Upgrade Towers
 This use case allows players to upgrade towers that they have already placed on the map. This is a necessary feature for the game since the enemies in a level are getting stronger with each wave. Since the space to place towers on the map is limited, the only way for the player to be able to handle stronger waves is to upgrade to stronger towers.
 
-[Upgrade Towers](./UseCases/Upgrade_Towers.md)
+[Upgrade Towers](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Use-Cases/Upgrade%20Towers.md)
 
 ### 3.2 Usability
 We plan on designing the user interface as intuitive and self-explanatory as possible to make the user feel as comfortable as possible using the app. Though an FAQ document will be available, it should not be necessary to use it.

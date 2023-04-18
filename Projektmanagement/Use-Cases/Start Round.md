@@ -8,7 +8,7 @@ This is a necessary feature for the game since the game pauses after every wave.
 So the player can decide when he is ready for the next wave.
 
 ## 1.2 Mockup 
-![Mockup Start Round](../MockUps/Start_Round.png)
+![Mockup Start Round](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Mock-Ups/Start%20Round.png)
 
 # 2. Flow of Events
 
@@ -18,7 +18,7 @@ So the player can decide when he is ready for the next wave.
 ## 2.2 Alternative Flows
 - User enables the auto-start setting, so the new rounds starts automatically
 
-![Activity](../UseCases/ActivityDiagrams/Start_Round.png)
+![Activity](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Activity%20Diagrams/Start%20Round.png)
 
 # 3. Special Requirements
 n/a

@@ -8,7 +8,7 @@ The player can choose on from a verarity of different towers and place it anywer
 This is important as it is the essential functionality for the game.
 
 ## 1.2 Mockup 
-![Mockup place towers](../MockUps/Place_Towers.png)
+![Mock Up Place Towers](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Mock-Ups/Place%20Towers.png)
 
 # 2. Flow of Events
 
@@ -20,7 +20,7 @@ This is important as it is the essential functionality for the game.
 ## 2.2 Alternative Flows
 - The user doesn't have enought money, so no tower can be placed
 
-![Activity](../UseCases/ActivityDiagrams/Place_Towers.png)
+![Activity](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Activity%20Diagrams/Place%20Towers.png)
 
 # 3. Special Requirements
 n/a

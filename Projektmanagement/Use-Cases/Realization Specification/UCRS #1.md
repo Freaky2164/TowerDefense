@@ -1,4 +1,4 @@
-TowerDefense - Use-Case-Realization Specification: Start Round
+TowerDefense - Use-Case-Realization Specification: Create Game & Load Game
 
 ## Table of contents
 - [Table of contents](#table-of-contents)
@@ -8,7 +8,7 @@ TowerDefense - Use-Case-Realization Specification: Start Round
     - [Definitions, Acronyms and Abbreviations](#13-definitions-acronyms-and-abbreviations)
     - [References](#14-references)
     - [Overview](#15-overview)
-- [Flow of Events-Design](#2-flow-of-events-design)
+- [Flow of Events - Design](#2-flow-of-events-design)
 - [Derived Requirements](#3-derived-requirements)
 
 ## 1. Introduction
@@ -47,9 +47,9 @@ This towers can then be placed on the map and automatically shoot the enemies wa
 ### 1.5 Overview
 The following chapter provides an overview of this project with vision and Overall Use Case Diagram. The third chapter (Requirements Specification) delivers more details about the specific requirements in terms of functionality, usability and design parameters. Finally there is a chapter with supporting information.
 
-## 2. Flow of Events-Design
+## 2. Flow of Events - Design
 
-![Sequence Diagram](SequenceDiagrams/Play_Round_Sequence_Diagram.png)
+![Sequence Diagram](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Sequence%20Diagrams/Create%20Game%20Sequence%20Diagram.png)
 
 ## 3. Derived Requirements
-n/a
+

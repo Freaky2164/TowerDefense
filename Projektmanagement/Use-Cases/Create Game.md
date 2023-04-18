@@ -7,7 +7,7 @@
 This use case allows users to start a game. He create's a new game here. This is neccecary for playing the game, since you can't play without an existing game. 
 
 ## 1.2 Mockup 
-![Create Game](../MockUps/Create_Game.png)
+![Create Game](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Mock-Ups/Create%20Game.png)
 
 
 # 2. Flow of events
@@ -17,7 +17,7 @@ This use case allows users to start a game. He create's a new game here. This is
 - User clicks on create new game
 - a new game is started
 
-![Activity](../UseCases/ActivityDiagrams/Player_Game.png)
+![Activity](https://github.com/argastle/TowerDefense/blob/main/Projektmanagement/Diagrams/Activity%20Diagrams/Player%20Game.png)
 
 # 3. Special Requirements
 n/a
