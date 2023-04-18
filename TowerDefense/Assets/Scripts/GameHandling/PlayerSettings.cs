@@ -1,45 +1,45 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using Unity.VisualScripting;
+﻿using System.IO;
 using UnityEngine;
 
-public class PlayerSettings : MonoBehaviour
+namespace GameHandling
 {
-    private static string gameFolder = "GameConfiguration";
-    private string playerName;
-    private DirectoryInfo playerSettingsFolder;
-
-    public void initPlayerConfig()
+    public class PlayerSettings : MonoBehaviour
     {
-        string gameHandlingDir = Directory.GetCurrentDirectory();
-        DirectoryInfo ScriptsDir = Directory.GetParent(gameHandlingDir);
-        DirectoryInfo gameConfigurationDir = Directory.GetParent(ScriptsDir.ToString());
-        gameConfigurationDir.MoveTo(gameFolder);
+        private static string gameFolder = "GameConfiguration";
+        private string playerName;
+        private DirectoryInfo playerSettingsFolder;
 
-        foreach (DirectoryInfo playerConfigs in gameConfigurationDir.GetDirectories())
+        public void initPlayerConfig()
         {
-            if (!playerConfigs.Name.Equals(playerName)) continue;
-            playerSettingsFolder = playerConfigs;
+            string gameHandlingDir = Directory.GetCurrentDirectory();
+            DirectoryInfo ScriptsDir = Directory.GetParent(gameHandlingDir);
+            DirectoryInfo gameConfigurationDir = Directory.GetParent(ScriptsDir.ToString());
+            gameConfigurationDir.MoveTo(gameFolder);
+
+            foreach (DirectoryInfo playerConfigs in gameConfigurationDir.GetDirectories())
+            {
+                if (!playerConfigs.Name.Equals(playerName)) continue;
+                playerSettingsFolder = playerConfigs;
+            }
+
+            if(playerSettingsFolder is null)
+            {
+                playerSettingsFolder = gameConfigurationDir.CreateSubdirectory(playerName);
+            }
         }
 
-        if(playerSettingsFolder is null)
+        public DirectoryInfo getplayerSettingsFolder()
         {
-            playerSettingsFolder = gameConfigurationDir.CreateSubdirectory(playerName);
+            return playerSettingsFolder;
         }
-    }
 
-    public DirectoryInfo getplayerSettingsFolder()
-    {
-        return playerSettingsFolder;
-    }
-
-    public string getPlayerName()
-    {
-        return playerName;
-    }
-    public void setPlayerName(string playerName)
-    {
-        this.playerName = playerName;
+        public string getPlayerName()
+        {
+            return playerName;
+        }
+        public void setPlayerName(string playerName)
+        {
+            this.playerName = playerName;
+        }
     }
 }

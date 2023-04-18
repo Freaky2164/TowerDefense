@@ -3,51 +3,54 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Splines;
 
-public class EnemySpawner : MonoBehaviour
+namespace Enemies
 {
-    private float _spawnTimer = 2;
-    public Stack<GameObject> Enemies { get; set; }
-
-    [SerializeField]
-    private SplineContainer path;
-    
-    private void Update()
+    public class EnemySpawner : MonoBehaviour
     {
-        if (!TimerFinished()) return;
-        if (!Enemies.Any())
+        private float _spawnTimer = 1;
+        public Stack<GameObject> Enemies { get; set; }
+
+        [SerializeField]
+        private SplineContainer path;
+    
+        private void Update()
         {
-            Deactivate();
-            return;
+            if (!TimerFinished()) return;
+            if (!Enemies.Any())
+            {
+                Deactivate();
+                return;
+            }
+        
+            CreateEnemy();
         }
-        
-        CreateEnemy();
-    }
 
-    private void CreateEnemy()
-    {
-        var enemy = Enemies.Pop();
-        var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
+        private void CreateEnemy()
+        {
+            var enemy = Enemies.Pop();
+            var enemyGameObject = Instantiate(enemy, transform.position, enemy.transform.rotation);
         
-        var enemyComponent = enemyGameObject.GetComponent<Enemy>();
-        enemyComponent.ID = Enemies.Count;
-        enemyComponent.Path = path;
-    }
+            var enemyComponent = enemyGameObject.GetComponent<Enemy>();
+            enemyComponent.ID = Enemies.Count;
+            enemyComponent.Path = path;
+        }
 
-    private bool TimerFinished()
-    {
-        _spawnTimer -= Time.deltaTime;
-        if (!(_spawnTimer <= 0)) return false;
-        _spawnTimer = 2;
-        return true;
-    }
+        private bool TimerFinished()
+        {
+            _spawnTimer -= Time.deltaTime;
+            if (!(_spawnTimer <= 0)) return false;
+            _spawnTimer = 0.1F;
+            return true;
+        }
     
-    public void Activate()
-    {
-        enabled = true;
-    }
+        public void Activate()
+        {
+            enabled = true;
+        }
 
-    public void Deactivate()
-    {
-        enabled = false;
+        public void Deactivate()
+        {
+            enabled = false;
+        }
     }
 }

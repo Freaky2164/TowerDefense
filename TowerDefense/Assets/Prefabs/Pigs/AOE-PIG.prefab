@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4752929921317479759}
   - component: {fileID: 6820022060002662394}
   m_Layer: 0
-  m_Name: PIG_SOLDIER
+  m_Name: AOE-PIG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532b71c745f25464c8f9f2f36baf0678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 2554031966280911422, guid: 9e63fcdbc4687f94b99fd46f58922562, type: 3}
+  projectile: {fileID: -7389749352340268899, guid: 92f05cee0b3de462ba1a77dacf35c1ff, type: 3}
   attackSpeed: 1
 --- !u!50 &6820022060002662394
 Rigidbody2D:

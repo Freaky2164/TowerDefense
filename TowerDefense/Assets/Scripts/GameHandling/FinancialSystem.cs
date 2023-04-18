@@ -1,42 +1,42 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class FinancialSystem
+namespace GameHandling
 {
-    private readonly TextMeshProUGUI moneyLabel;
-
-    private int money;
-
-    public FinancialSystem(int startMoney)
+    public class FinancialSystem
     {
-        money = startMoney;
-        moneyLabel = GameObject.Find("MoneyLabel").GetComponent<TextMeshProUGUI>();
-        UpdateUI();
-    }
+        private readonly TextMeshProUGUI moneyLabel;
 
-    public void GainMoney(int amount)
-    {
-        money += amount;
-        UpdateUI();
-    }
+        private int money;
 
-    public bool TryBuy(int amount)
-    {
-        if (money - amount < 0)
+        public FinancialSystem(int startMoney)
         {
-            return false;
+            money = startMoney;
+            moneyLabel = GameObject.Find("MoneyLabel").GetComponent<TextMeshProUGUI>();
+            UpdateUI();
         }
 
-        money -= amount;
-        UpdateUI();
-        return true;
-    }
+        public void GainMoney(int amount)
+        {
+            money += amount;
+            UpdateUI();
+        }
 
-    private void UpdateUI()
-    {
-        moneyLabel.text = $"Money: {money}$";
+        public bool TryBuy(int amount)
+        {
+            if (money - amount < 0)
+            {
+                return false;
+            }
+
+            money -= amount;
+            UpdateUI();
+            return true;
+        }
+
+        private void UpdateUI()
+        {
+            moneyLabel.text = $"Money: {money}$";
+        }
     }
 }
