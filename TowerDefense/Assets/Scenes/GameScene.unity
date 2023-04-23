@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 45456895}
   - component: {fileID: 45456894}
   - component: {fileID: 45456893}
+  - component: {fileID: 45456896}
   m_Layer: 5
   m_Name: Start Round
   m_TagString: Untagged
@@ -469,6 +470,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 45456896}
+        m_TargetAssemblyTypeName: ChangeImage, Assembly-CSharp
+        m_MethodName: changeImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &45456894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,14 +495,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf473828088816540b5bec7b322bc13a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc83c4ea3ce26ce4d99c7a80b61d6298, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -507,6 +520,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45456891}
   m_CullTransparentMesh: 1
+--- !u!114 &45456896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45456891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9947c057c6427334a85139bbec637d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 45456894}
+  startIamge: {fileID: 21300000, guid: fc83c4ea3ce26ce4d99c7a80b61d6298, type: 3}
+  pauseImage: {fileID: 21300000, guid: 032fdc22aea200246a86d4b8d1d5c9eb, type: 3}
 --- !u!1 &91633368 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5978454145670266772, guid: d0362d70c322d7c4cb2e7ada0ad98217, type: 3}
