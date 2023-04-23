@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2574259947265268841}
   - component: {fileID: 2885787956266351438}
   - component: {fileID: 3229648410110790771}
-  - component: {fileID: 7161135840723861483}
+  - component: {fileID: 5801687020268325846}
   - component: {fileID: -2312518338139489191}
   - component: {fileID: -270823695165852169}
   m_Layer: 5
@@ -103,12 +103,7 @@ MonoBehaviour:
   health: 100
   value: 20
   damage: 30
-<<<<<<< HEAD
---- !u!114 &7161135840723861483
-=======
-  audioClip: {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
---- !u!114 &7641260764966053911
->>>>>>> 654a185d563de8f6b9ef0c05cd153d645719e55f
+--- !u!114 &5801687020268325846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
