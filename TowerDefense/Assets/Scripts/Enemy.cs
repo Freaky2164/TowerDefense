@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour
     public int value;
     public int damage;
 
-    public AudioClip audioClip;
-
     private void Start()
     {
         followWayPoint = GetComponent<FollowWayPoint>();
@@ -33,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioSource.PlayClipAtPoint(audioClip, transform.position);
+        AudioManager.instance.Play("EnemyDestroyed");
         var gameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
         gameHandler.EnemyDestroyed(ID, value);
     }
