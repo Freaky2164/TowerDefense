@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2574259947265268841}
   - component: {fileID: 2885787956266351438}
   - component: {fileID: 3229648410110790771}
-  - component: {fileID: 7641260764966053911}
+  - component: {fileID: 7161135840723861483}
   - component: {fileID: -2312518338139489191}
   - component: {fileID: -270823695165852169}
   m_Layer: 5
@@ -103,8 +103,12 @@ MonoBehaviour:
   health: 100
   value: 20
   damage: 30
+<<<<<<< HEAD
+--- !u!114 &7161135840723861483
+=======
   audioClip: {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
 --- !u!114 &7641260764966053911
+>>>>>>> 654a185d563de8f6b9ef0c05cd153d645719e55f
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,10 +117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3845293272617101163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6661b61511a74d23b591eaf01401d251, type: 3}
+  m_Script: {fileID: 11500000, guid: c2a4a145681f4a79bf4433ef3d084b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaypoint: {fileID: 0}
+  path: {fileID: 0}
   speed: 3
 --- !u!50 &-2312518338139489191
 Rigidbody2D:
@@ -135,6 +139,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -149,6 +159,25 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

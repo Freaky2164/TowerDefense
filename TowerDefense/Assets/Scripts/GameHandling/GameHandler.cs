@@ -40,6 +40,7 @@ namespace GameHandling
         {
             enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
             enemySpawner.Activate();
+            AudioManager.instance.Play("ButtonClick");
         }
 
         public void EnemyDestroyed(int id, int value)

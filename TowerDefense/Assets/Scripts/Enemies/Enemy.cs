@@ -49,6 +49,7 @@ namespace Enemies
         private void OnDestroy()
         {
             GameHandler.I.EnemyDestroyed(ID, value);
+            AudioManager.instance.Play("EnemyDestroyed");
         }
 
         private void OnEndReached()
