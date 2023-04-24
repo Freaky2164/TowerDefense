@@ -32,6 +32,7 @@ namespace TowerUtils
                 _draggingTower = Instantiate(tower, transform.position, transform.rotation);
                 _draggingTowerCollider = _draggingTower.GetComponent<Collider2D>();
                 _draggingTowerAttackRangeRenderer = _draggingTower.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+                _draggingTowerAttackRangeRenderer.color = new Color(255,255,255,0.1F);
             }
             Vector2 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
             _draggingTower.transform.position = mousePos;
