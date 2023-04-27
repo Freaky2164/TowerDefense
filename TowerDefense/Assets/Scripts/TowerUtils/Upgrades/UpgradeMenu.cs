@@ -7,28 +7,46 @@ namespace TowerUtils.Upgrades
 {
     public class UpgradeMenu: MonoBehaviour
     {
+        private UpgradeTree _upgradeTree;
         private GameObject _leftUpgrade;
-        private Upgrade _leftUpgradeScript;
         private GameObject _rightUpgrade;
         [CanBeNull] public BaseTower tower;
         [CanBeNull] public Projectile projectile;
 
         public void SetTowerAndProjectile(BaseTower tower,Projectile projectile)
         {
-            _leftUpgradeScript._tower = tower;
-            _leftUpgradeScript._projectile = projectile;
+            this.tower = tower;
+            this.projectile = projectile;
+        }
+
+        private void Start()
+        {
+            _upgradeTree = new CanonTowerUpgrades().GetUpgradeTree();
+            _leftUpgrade = transform.GetChild(0).gameObject;
+            _rightUpgrade = transform.GetChild(1).gameObject;
+            
         }
 
         private void Update()
         {
-            _leftUpgrade = transform.GetChild(0).gameObject;
-            _leftUpgradeScript = GetComponentInChildren<Upgrade>();
-            _rightUpgrade = transform.GetChild(1).gameObject;
+            if (_leftUpgrade.GetComponent<Upgrade>().IsInitialized && _rightUpgrade.GetComponent<Upgrade>().IsInitialized)
+            {
+                SetLeftUpgrade(_upgradeTree.LeftNextUpgrade.Upgrade);
+                SetRightUpgrade(_upgradeTree.RightNextUpgrade.Upgrade);            }
         }
 
-        public void test()
+        private void SetLeftUpgrade(Upgrade upgrade)
         {
-            _leftUpgradeScript.PerformAction();
+            var upgradeScript = _leftUpgrade.GetComponent<Upgrade>();
+            upgradeScript.UpgradeAction = upgrade.UpgradeAction;
+            upgradeScript._tower = tower;
+            upgradeScript._projectile = projectile;
         }
+        private void SetRightUpgrade(Upgrade upgrade)
+        {
+            var upgradeScript = _rightUpgrade.GetComponent<Upgrade>();
+            upgradeScript.UpgradeAction = upgrade.UpgradeAction;
+            upgradeScript._tower = tower;
+            upgradeScript._projectile = projectile;        }
     }
 }

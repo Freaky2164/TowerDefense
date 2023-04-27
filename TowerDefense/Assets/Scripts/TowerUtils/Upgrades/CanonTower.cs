@@ -1,15 +1,17 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace TowerUtils.Upgrades
 {
-    public record CanonTowerUpgrades
+    public class CanonTowerUpgrades
     {
         private UpgradeTree _upgradeTree;
         
         public UpgradeTree GetUpgradeTree()
         {
+            _upgradeTree = new UpgradeTree();
             _upgradeTree.Upgrade = null;
             _upgradeTree.LeftNextUpgrade = GetLeftUpgrades();
             _upgradeTree.RightNextUpgrade = GetRightUpgrades();
@@ -40,9 +42,9 @@ namespace TowerUtils.Upgrades
             
             void AddAoE(BaseTower arg1, Projectile arg2)
             {
-                arg2.AddComponent<Collider2D>();
+                arg2.AddComponent<CircleCollider2D>();
                 var collider = arg2.GetComponent<CircleCollider2D>();
-                collider.radius = 0.2F;
+                collider.radius = 4F;
             }
         }
         

@@ -11,7 +11,7 @@ namespace TowerUtils
         private GameObject _target;
         private Vector3 _moveDir = Vector3.zero;
         private Renderer _renderer;
-        [SerializeField] public int moneyPerHit;
+        [SerializeField] public int moneyPerHit = 20;
 
         protected virtual void Initialize()
         {
@@ -21,7 +21,6 @@ namespace TowerUtils
         {
             _moveDir = Vector3.zero;
             _renderer = GetComponent<Renderer>();
-            moneyPerHit = 20;
             Initialize();
         }
 

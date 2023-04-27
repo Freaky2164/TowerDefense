@@ -1,18 +1,17 @@
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TowerUtils.Upgrades
 {
     public class Upgrade: MonoBehaviour
     { 
-        private Action<BaseTower, Projectile> UpgradeAction { get; set; } 
-        private int Cost;
+        public Action<BaseTower, Projectile> UpgradeAction { get; set; } 
+        public int Cost;
         [CanBeNull] public BaseTower _tower;
         [CanBeNull] public Projectile _projectile;
-        private UpgradeMenu _menu;
-        private Camera _camera;
-        
+
         public bool IsInitialized { get; private set;}
 
         public Upgrade(Action<BaseTower, Projectile> action, int cost)
@@ -23,13 +22,12 @@ namespace TowerUtils.Upgrades
 
         private void Start()
         {
-            _camera = Camera.main;
-            _menu = GetComponentInParent<UpgradeMenu>();
             IsInitialized = true;
         }
 
         public void PerformAction()
         {
+            Debug.Log("Clicked");
             UpgradeAction.Invoke(_tower, _projectile);
         }
     }
