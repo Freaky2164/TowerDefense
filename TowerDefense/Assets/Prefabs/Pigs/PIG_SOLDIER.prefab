@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 2554031966280911422, guid: 9e63fcdbc4687f94b99fd46f58922562, type: 3}
   attackSpeed: 1
+  upgradeMenu: {fileID: 7278729325414364766, guid: dc3f4df76dd154fdc88033fcf0fc365b, type: 3}
 --- !u!50 &6820022060002662394
 Rigidbody2D:
   serializedVersion: 4

@@ -23,8 +23,8 @@ namespace TowerUtils
                 var enemy = enemyCollider.gameObject.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.Damage(laserDamage); 
-                    GameHandler.I.FinancialSystem.GainMoney(20);
+                    enemy.Damage(damage); 
+                    GameHandler.I.FinancialSystem.GainMoney(moneyPerHit);
                     if (!enemy.HasHealthLeft())
                     {
                         Destroy(enemyCollider.gameObject);

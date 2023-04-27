@@ -16,7 +16,7 @@ public class Laser : Projectile
         var enemy = other.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.Damage(laserDamage); 
+            enemy.Damage(damage); 
             GameHandler.I.FinancialSystem.GainMoney(20);
             if (!enemy.HasHealthLeft())
             {
