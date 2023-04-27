@@ -12,6 +12,7 @@ namespace TowerUtils.Upgrades
         private GameObject _rightUpgrade;
         [CanBeNull] public BaseTower tower;
         [CanBeNull] public Projectile projectile;
+        private bool _isIn = false;
 
         public void SetTowerAndProjectile(BaseTower tower,Projectile projectile)
         {
@@ -29,10 +30,12 @@ namespace TowerUtils.Upgrades
 
         private void Update()
         {
-            if (_leftUpgrade.GetComponent<Upgrade>().IsInitialized && _rightUpgrade.GetComponent<Upgrade>().IsInitialized)
+            if (!_isIn && _leftUpgrade.GetComponent<Upgrade>().IsInitialized && _rightUpgrade.GetComponent<Upgrade>().IsInitialized)
             {
                 SetLeftUpgrade(_upgradeTree.LeftNextUpgrade.Upgrade);
-                SetRightUpgrade(_upgradeTree.RightNextUpgrade.Upgrade);            }
+                SetRightUpgrade(_upgradeTree.RightNextUpgrade.Upgrade);
+                _isIn = true;
+            }
         }
 
         private void SetLeftUpgrade(Upgrade upgrade)
