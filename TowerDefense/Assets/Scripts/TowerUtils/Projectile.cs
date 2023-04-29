@@ -1,15 +1,17 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TowerUtils
 {
     public abstract class Projectile : MonoBehaviour
     {
-        public int laserSpeed;
-        public int laserDamage;
+        [FormerlySerializedAs("laserSpeed")] public int speed;
+        [FormerlySerializedAs("laserDamage")] public int damage;
         private GameObject _target;
         private Vector3 _moveDir = Vector3.zero;
         private Renderer _renderer;
+        [SerializeField] public int moneyPerHit = 20;
 
         protected virtual void Initialize()
         {
@@ -32,7 +34,7 @@ namespace TowerUtils
 
             if (_target.IsDestroyed())
             {
-                transform.position += _moveDir * (laserSpeed * Time.deltaTime);
+                transform.position += _moveDir * (speed * Time.deltaTime);
                 return;
             }
             Move();
@@ -43,7 +45,7 @@ namespace TowerUtils
             var transform1 = transform;
             var position = transform1.position;
             _moveDir = (_target.transform.position - position).normalized;
-            position += _moveDir * (laserSpeed * Time.deltaTime);
+            position += _moveDir * (speed * Time.deltaTime);
             transform1.position = position;
             float angle = GetAngleFromVectorFloat(_moveDir);
             transform.eulerAngles = new Vector3(0, 0, angle + 90);

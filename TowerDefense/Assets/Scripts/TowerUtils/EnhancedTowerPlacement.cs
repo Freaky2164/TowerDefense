@@ -55,7 +55,7 @@ namespace TowerUtils
             {
                 if (!_gameHandler.FinancialSystem.TryBuy(300)) return;
                 var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
-                towerToPlace.GetComponentInChildren<Tower>().CanShoot = true;
+                towerToPlace.GetComponentInChildren<BaseTower>().CanShoot = true;
             }
             Destroy(_draggingTower);
             _dragging = false;

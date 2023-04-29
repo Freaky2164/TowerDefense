@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - AttackRange
+  - Canvas
+  - LeftUpgrade
+  - RightUpgrade
   layers:
   - Default
   - TransparentFX
