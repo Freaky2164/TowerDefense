@@ -11,10 +11,12 @@ namespace TowerUtils.Upgrades
         
         public UpgradeTree GetUpgradeTree()
         {
-            _upgradeTree = new UpgradeTree();
-            _upgradeTree.Upgrade = null;
-            _upgradeTree.LeftNextUpgrade = GetLeftUpgrades();
-            _upgradeTree.RightNextUpgrade = GetRightUpgrades();
+            _upgradeTree = new UpgradeTree
+            {
+                Upgrade = null,
+                LeftNextUpgrade = GetLeftUpgrades(),
+                RightNextUpgrade = GetRightUpgrades()
+            };
             return _upgradeTree;
         }
 
@@ -34,8 +36,8 @@ namespace TowerUtils.Upgrades
             
             void Bla(BaseTower arg1, Projectile arg2)
             {
-                var attackRange = arg1.transform.GetChild(0).gameObject.GetComponent<CircleCollider2D>();
-                attackRange.radius += 0.1F;
+                var attackRangeRenderer = arg1.transform.GetChild(0).gameObject.transform;
+                attackRangeRenderer.localScale += new Vector3(10F, 10F);
 
                 arg2.damage += 1;
             }

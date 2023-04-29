@@ -1,4 +1,5 @@
 using System;
+using GameHandling;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,6 +12,8 @@ namespace TowerUtils.Upgrades
         public int Cost;
         [CanBeNull] public BaseTower _tower;
         [CanBeNull] public Projectile _projectile;
+        public GameObject menu;
+        private UpgradeMenu _parentScript;
 
         public bool IsInitialized { get; private set;}
 
@@ -22,13 +25,21 @@ namespace TowerUtils.Upgrades
 
         private void Start()
         {
+            _parentScript = menu.GetComponent<UpgradeMenu>();
             IsInitialized = true;
+        }
+
+        public void SetUpgrade(Upgrade upgrade)
+        {
+            UpgradeAction = upgrade.UpgradeAction;
+            Cost = upgrade.Cost;
         }
 
         public void PerformAction()
         {
-            Debug.Log("Clicked");
-            UpgradeAction.Invoke(_tower, _projectile);
+            if (!GameHandler.I.FinancialSystem.TryBuy(Cost)) return;
+            UpgradeAction.Invoke(_tower, _projectile); 
+            _parentScript.NextUpgrade(gameObject);
         }
     }
 }

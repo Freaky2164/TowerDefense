@@ -37,6 +37,7 @@ namespace TowerUtils
             _spriteRenderer = _rangeObject.GetComponent<SpriteRenderer>();
             var test = GameObject.FindGameObjectWithTag("Canvas");
             upgradeMenu = Instantiate(upgradeMenu, test.transform, false);
+            ToggleUpgradeMenu(false);
             _upgradeMenuScript = upgradeMenu.GetComponent<UpgradeMenu>();
         }
     
@@ -88,20 +89,20 @@ namespace TowerUtils
                 if (hit.collider == null || hit.collider.gameObject != gameObject)
                 {
                     _spriteRenderer.color = new Color(255, 255, 255, 0.0F); 
-                toggleUpgradeMenu(false);
+                    ToggleUpgradeMenu(false);
                 }
                 else
                 {
                     _spriteRenderer.color = new Color(255, 255, 255, 0.1F);
-                    toggleUpgradeMenu(true);
+                    ToggleUpgradeMenu(true);
                 }
             }
         }
 
-        private void toggleUpgradeMenu(bool toggle)
+        private void ToggleUpgradeMenu(bool toggle)
         {
             _upgradeMenuScript.SetTowerAndProjectile(this, projectile);
-            upgradeMenu.SetActive(true);
+            upgradeMenu.SetActive(toggle);
         }
 
         private void OnDestroy()
