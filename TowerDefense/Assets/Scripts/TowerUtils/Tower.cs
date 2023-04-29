@@ -61,6 +61,7 @@ public class Tower : MonoBehaviour
             var laser = Instantiate(projectile, transform.position, Quaternion.identity);
             laser.Setup(_enemies[0]);
             _fireCountDown = 1F / attackSpeed;
+            AudioManager.instance.Play("GunShot");
             return;
         }
 
