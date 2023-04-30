@@ -1,41 +1,24 @@
+using System.IO;
 using UnityEngine;
 
 namespace GameHandling
 {
-    public class JsonFileHandler : MonoBehaviour
+    public class JsonFileHandler
     {
-        private string playerName;
-        private PlayerSettings playerSettings;
-        private WaveManagement waveManagement;
-    
-        private void Start()
-        {
-            initPlayer();
-            initWaves();
-        }
+        public static string PlayerName;
+        private static PlayerSettings _playerSettings;
+        public static DirectoryInfo PlayerSettingsFolder;
+        public static Settings Settings;
+        public static SkillTree SkillTree;
 
-        private void initWaves()
+        public JsonFileHandler(string playername)
         {
-            waveManagement = new WaveManagement();
-            waveManagement.setSettingsFolder(playerSettings.getplayerSettingsFolder());
-            waveManagement = waveManagement.readFromJson();
+            PlayerName = playername;
         }
-
-        private void initPlayer()
+        
+        public static void Start()
         {
-            playerSettings = new PlayerSettings();
-            playerSettings.setPlayerName(playerName);
-            playerSettings.initPlayerConfig();
-        }
-    
-        public PlayerSettings getPlayerSettings()
-        {
-            return playerSettings;
-        }
-    
-        public void setPlayerName(string playerName)
-        {
-            this.playerName = playerName;
+            PlayerSettings.initPlayerConfig();
         }
     }
 }
