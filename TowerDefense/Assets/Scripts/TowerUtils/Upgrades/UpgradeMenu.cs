@@ -1,88 +1,91 @@
-using System;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TowerUtils.Upgrades
 {
-    public class UpgradeMenu: MonoBehaviour
+    public class UpgradeMenu : MonoBehaviour
     {
-        private UpgradeTree _upgradeTree;
-        private GameObject _leftUpgradeScript;
-        private GameObject _rightUpgradeScript;
-        private UpgradeTree _leftTree;
-        private UpgradeTree _rightTree;
-        [CanBeNull] public BaseTower tower;
-        [CanBeNull] public Projectile projectile;
-        private bool _isIn;
-
-        public void SetTowerAndProjectile(BaseTower tower,Projectile projectile)
-        {
-            this.tower = tower;
-            this.projectile = projectile;
-        }
+        [CanBeNull] private UpgradeTree _leftTree;
+        [CanBeNull] private Upgrade _leftUpgradeScript;
+        [CanBeNull] private Projectile _projectile;
+        [CanBeNull] private UpgradeTree _rightTree;
+        [CanBeNull] private Upgrade _rightUpgradeScript;
+        [CanBeNull] private BaseTower _tower;
 
         private void Start()
         {
-            _upgradeTree = new CanonTowerUpgrades().GetUpgradeTree();
-            _leftUpgradeScript = transform.GetChild(0).gameObject;
-            _rightUpgradeScript = transform.GetChild(1).gameObject;
-            _leftTree = _upgradeTree.LeftNextUpgrade;
-            _rightTree = _upgradeTree.RightNextUpgrade;
+            _leftUpgradeScript = transform.GetChild(0).gameObject.GetComponent<Upgrade>();
+            _rightUpgradeScript = transform.GetChild(1).gameObject.GetComponent<Upgrade>();
+            _leftUpgradeScript.enabled = false;
+            _rightUpgradeScript.enabled = false;
         }
 
-        private void Update()
+        public void SetTowerAndProjectile(UpgradeTree upgradeTree, BaseTower tower, Projectile projectile)
         {
-            if (tower && !_isIn && _leftUpgradeScript.GetComponent<Upgrade>().IsInitialized && _rightUpgradeScript.GetComponent<Upgrade>().IsInitialized)
+            _tower = tower;
+            _projectile = projectile;
+            if (upgradeTree != null)
             {
+                _leftTree = upgradeTree.LeftNextUpgrade;
+                _rightTree = upgradeTree.RightNextUpgrade;
                 SetLeftUpgradeNext();
                 SetRightUpgradeNext();
-                _isIn = true;
+                return;
             }
+
+            _leftTree = null;
+            _rightTree = null;
+            SetLeftUpgradeNext();
+            SetRightUpgradeNext();
         }
 
         private void SetLeftUpgradeNext()
         {
-            var upgradeScript = _leftUpgradeScript.GetComponent<Upgrade>();
-            if (!_isIn)
-            { 
-                upgradeScript._tower = tower; 
-                upgradeScript._projectile = projectile;
-            }
-
             if (_leftTree.IsUnityNull())
             {
-                //ToDo add no more upgrades available
+                //ToDo add no upgrades available
+                Debug.Log("NoMoreLeftUpgrades");
+                _leftUpgradeScript.enabled = false;
                 return;
             }
-            upgradeScript.SetUpgrade(_leftTree.Upgrade);
-            _leftTree = _leftTree.LeftNextUpgrade;
+
+            _leftUpgradeScript.enabled = true;
+            _leftUpgradeScript._projectile = _projectile;
+            _leftUpgradeScript._tower = _tower;
+            _leftUpgradeScript.SetUpgrade(_leftTree.Upgrade);
         }
+
         private void SetRightUpgradeNext()
         {
-            var upgradeScript = _rightUpgradeScript.GetComponent<Upgrade>();
-            if (!_isIn)
-            { 
-                upgradeScript._tower = tower; 
-                upgradeScript._projectile = projectile;
-            }
             if (_rightTree.IsUnityNull())
             {
-                //ToDo add no more upgrades available
+                //ToDo add no upgrades available
+                Debug.Log("NoMOreRightUpgrades");
+                _rightUpgradeScript.enabled = false;
                 return;
             }
-            upgradeScript.SetUpgrade(_rightTree.Upgrade);
-            _rightTree = _rightTree.LeftNextUpgrade;        }
+
+            _rightUpgradeScript.enabled = true;
+            _rightUpgradeScript._projectile = _projectile;
+            _rightUpgradeScript._tower = _tower;
+            _rightUpgradeScript.SetUpgrade(_rightTree.Upgrade);
+        }
 
         public void NextUpgrade(GameObject upgrade)
         {
             if (upgrade.CompareTag("LeftUpgrade"))
             {
+                _leftTree = _leftTree.LeftNextUpgrade;
                 SetLeftUpgradeNext();
+                _tower.SetNewLeftUpgrade(_leftTree);
             }
+
             if (upgrade.CompareTag("RightUpgrade"))
             {
+                _rightTree = _rightTree.RightNextUpgrade;
                 SetRightUpgradeNext();
+                _tower.SetNewRightUpgrade(_rightTree);
             }
         }
     }

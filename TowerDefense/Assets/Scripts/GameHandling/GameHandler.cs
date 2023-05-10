@@ -1,6 +1,7 @@
 using Audio;
 using Contracts;
 using Enemies;
+using TowerUtils.Upgrades;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,8 @@ namespace GameHandling
 
         [SerializeField]
         private EnemyHandler enemyHandler;
+
+        public UpgradeMenu upgradeMenu;
 
         [SerializeField] 
         private Config config;
@@ -39,6 +42,7 @@ namespace GameHandling
         
             Finances = new MoneyHandler(Config);
             enemySpawner = GameObject.Find(nameof(EnemySpawner)).GetComponent<EnemySpawner>();
+            upgradeMenu = GameObject.Find(nameof(UpgradeMenu)).GetComponent<UpgradeMenu>();
         }
 
         public void StartRound()

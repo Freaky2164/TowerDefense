@@ -57,7 +57,7 @@ namespace TowerUtils.Upgrades
             UpgradeTree tree = new UpgradeTree
             {
                 Upgrade = new Upgrade(asBuff, 100),
-                LeftNextUpgrade = new UpgradeTree
+                RightNextUpgrade = new UpgradeTree
                 {
                     Upgrade = new Upgrade(moreMoney, 100),
                 }
