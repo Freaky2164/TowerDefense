@@ -37,7 +37,7 @@ namespace TowerUtils.Upgrades
 
         public void PerformAction()
         {
-            if (!GameHandler.I.FinancialSystem.TryBuy(Cost)) return;
+            if (!GameHandler.I.Finances.TryBuy(Cost)) return;
             UpgradeAction.Invoke(_tower, _projectile); 
             _parentScript.NextUpgrade(gameObject);
         }

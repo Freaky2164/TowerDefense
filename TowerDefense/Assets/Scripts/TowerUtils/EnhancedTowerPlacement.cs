@@ -53,7 +53,7 @@ namespace TowerUtils
             if (!Input.GetMouseButtonUp(0) && Input.touchCount > 0) return;
             if (_canPlace)
             {
-                if (!_gameHandler.FinancialSystem.TryBuy(300)) return;
+                if (!_gameHandler.Finances.TryBuy(300)) return;
                 var towerToPlace = Instantiate(tower, _draggingTower.transform.position, _draggingTower.transform.rotation);
                 towerToPlace.GetComponentInChildren<BaseTower>().CanShoot = true;
             }
