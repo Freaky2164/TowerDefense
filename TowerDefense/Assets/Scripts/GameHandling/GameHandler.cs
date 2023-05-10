@@ -1,3 +1,4 @@
+using Audio;
 using Contracts;
 using Enemies;
 using UnityEngine;
@@ -44,12 +45,12 @@ namespace GameHandling
         {
             enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
             enemySpawner.Activate();
-            AudioManager.instance.Play("ButtonClick");
+            AudioHandler.I.Play(Sound.ButtonClick);
         }
 
-        public void EnemyDestroyed(int id, int value)
+        public void EnemyDestroyed(int id, int value, Sound sound)
         {
-            AudioManager.instance.Play("EnemyDestroyed");
+            AudioHandler.I.Play(sound);
             if (id != 0) return;
             round++;
             enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);

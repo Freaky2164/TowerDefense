@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using TowerUtils.Upgrades;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace TowerUtils
     {
         private const float MaxDistance = 0.1f;
         public Projectile projectile;
+        private Sound _shotSound;
         public float attackSpeed;
         private Camera _camera;
         private List<GameObject> _enemies;
@@ -37,8 +39,9 @@ namespace TowerUtils
             _spriteRenderer = _rangeObject.GetComponent<SpriteRenderer>();
             var test = GameObject.FindGameObjectWithTag("Canvas");
             upgradeMenu = Instantiate(upgradeMenu, test.transform, false);
-            ToggleUpgradeMenu(false);
+            // ToggleUpgradeMenu(false);
             _upgradeMenuScript = upgradeMenu.GetComponent<UpgradeMenu>();
+            _shotSound = Sound.CanonTowerShot;
         }
     
         private void Update()
@@ -73,7 +76,7 @@ namespace TowerUtils
                 var laser = Instantiate(projectile, transform.position, Quaternion.identity);
                 laser.Setup(_enemies[0]);
                 _fireCountDown = 1F / attackSpeed;
-                AudioManager.instance.Play("GunShot");
+                AudioHandler.I.Play(_shotSound);
                 return;
             }
 
@@ -90,12 +93,12 @@ namespace TowerUtils
                 if (hit.collider == null || hit.collider.gameObject != gameObject)
                 {
                     _spriteRenderer.color = new Color(255, 255, 255, 0.0F); 
-                    ToggleUpgradeMenu(false);
+                    // ToggleUpgradeMenu(false);
                 }
                 else
                 {
                     _spriteRenderer.color = new Color(255, 255, 255, 0.1F);
-                    ToggleUpgradeMenu(true);
+                    // ToggleUpgradeMenu(true);
                 }
             }
         }

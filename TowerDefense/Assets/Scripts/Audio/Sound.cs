@@ -1,10 +1,12 @@
-using UnityEngine.Audio;
-using UnityEngine;
-
-[System.Serializable]
-public class Sound
+namespace Audio
 {
-	public string name;
-
-	public AudioClip clip;
+    public enum Sound
+    {
+        ButtonClick = 0,
+        EnemyDestroyed = 10,
+        CanonTowerShot = 20,
+        BombTowerShot = 21,
+        
+        
+    }
 }
