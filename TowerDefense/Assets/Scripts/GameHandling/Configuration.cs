@@ -9,7 +9,7 @@ namespace GameHandling
         private int maxPlayerHealth = 100;
 
         [SerializeField] 
-        private int startMoney = 1000;
+        private int startMoney = 10000;
         
         public int MaxPlayerHealth => maxPlayerHealth;
         public int StartMoney => startMoney;

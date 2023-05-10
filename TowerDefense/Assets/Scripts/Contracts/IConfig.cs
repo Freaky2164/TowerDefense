@@ -9,9 +9,8 @@
         
         public class DefaultConfig : IConfig
         {
-            public int MaxPlayerHealth => 1000;
-            public int StartMoney => 100;
+            public int MaxPlayerHealth => 100;
+            public int StartMoney => 10000;
         }
-        
     }
 }

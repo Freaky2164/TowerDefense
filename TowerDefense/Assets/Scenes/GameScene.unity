@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerHealth: 100
-  startMoney: 1000
+  startMoney: 10000
 --- !u!1 &438918080
 GameObject:
   m_ObjectHideFlags: 0
