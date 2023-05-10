@@ -19,11 +19,11 @@ namespace GameHandling
 
         public event Action<int> MoneyChanged;
 
-        public MoneyHandler(IConfig config)
+        public void Initialize(IConfig config)
         {
             Money = config.StartMoney;
         }
-        
+
         public void GainMoney(int amount)
         {
             Money += amount;

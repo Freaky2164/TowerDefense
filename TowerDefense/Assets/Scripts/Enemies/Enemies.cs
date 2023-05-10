@@ -8,5 +8,6 @@ namespace Enemies
         private GameObject enemy1Prf;
 
         public GameObject Enemy1Prf => enemy1Prf;
+        
     }
 }

@@ -10,55 +10,36 @@ namespace GameHandling
     public class GameHandler : MonoBehaviour
     {
         private IConfig _config;
-        private static GameHandler _i;
-        public static GameHandler I => _i ??= Instantiate(Resources.Load(nameof(GameHandler)) as GameObject).GetComponent<GameHandler>();
-
-        [SerializeField]
-        private EnemyHandler enemyHandler;
+        public static GameHandler I { get; private set; }
 
         public UpgradeMenu upgradeMenu;
 
         [SerializeField] 
-        private Config config;
+        private Configuration config;
         
         public IConfig Config
         {
-            get => _config ??= config ?? gameObject.AddComponent<Config>();
+            get => _config ??= config as IConfig ?? IConfig.Default;
             set => _config = value;
         }
 
-        private EnemySpawner enemySpawner;
-        private int round = 1;
+        public PlayerHandler Player { get; } = new();
+        public MoneyHandler Finances { get; } = new();
+        public EnemyHandler Enemies { get; } = new();
+        public RoundHandler Rounds { get; } = new();
 
-        public PlayerHandler Player { get; private set; }
-        public MoneyHandler Finances { get; private set; }
-
+        public GameHandler()
+        {
+            I = this;
+            Player.Died += OnDied;
+        }
+        
         private void Start()
         {
-            _i = this;
-
-            Player = new PlayerHandler(Config);
-            Player.Died += OnDied;
-        
-            Finances = new MoneyHandler(Config);
-            enemySpawner = GameObject.Find(nameof(EnemySpawner)).GetComponent<EnemySpawner>();
-            upgradeMenu = GameObject.Find(nameof(UpgradeMenu)).GetComponent<UpgradeMenu>();
-        }
-
-        public void StartRound()
-        {
-            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-            enemySpawner.Activate();
-            AudioHandler.I.Play(Sound.ButtonClick);
-        }
-
-        public void EnemyDestroyed(int id, int value, Sound sound)
-        {
-            AudioHandler.I.Play(sound);
-            if (id != 0) return;
-            round++;
-            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-            Debug.Log("End round");
+            Player.Initialize(Config);
+            Finances.Initialize(Config);
+            Enemies.Initialize(Config);
+            Rounds.Initialize(Config);
         }
 
         private void OnDied()

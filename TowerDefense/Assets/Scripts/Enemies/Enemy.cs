@@ -20,9 +20,8 @@ namespace Enemies
 
         private Sound _dieSound;
 
-        public int ID { get; set; }
+        public Sound DieSound => _dieSound;
         
-
         public FollowSpline FollowSpline
         {
             get => _followSpline ??= GetComponent<FollowSpline>();
@@ -53,7 +52,7 @@ namespace Enemies
 
         private void OnDestroy()
         {
-            GameHandler.I.EnemyDestroyed(ID, value, _dieSound);
+            GameHandler.I.Enemies.RaiseEnemyDestroyed(this);
         }
 
         private void OnEndReached()

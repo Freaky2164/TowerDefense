@@ -21,7 +21,7 @@ namespace GameHandling
             }
         }
 
-        public PlayerHandler(IConfig config)
+        public void Initialize(IConfig config)
         {
             Health = config.MaxPlayerHealth;
         }
