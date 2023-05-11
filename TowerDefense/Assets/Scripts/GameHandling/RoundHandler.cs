@@ -20,9 +20,9 @@ namespace GameHandling
             currentRound = 0;
 
             var round = new Round();
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 100; i++)
             {
-                round.Waves.Add(new Wave{Type = EnemyType.SimpleMushroom, Delay = TimeSpan.FromSeconds(2)});
+                round.Waves.Add(new Wave{Type = EnemyType.SimpleMushroom, Delay = TimeSpan.FromSeconds(0.1)});
             }
             
             Rounds.Add(round);
