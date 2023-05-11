@@ -40,6 +40,8 @@ namespace GameHandling
             Finances.Initialize(Config);
             Enemies.Initialize(Config);
             Rounds.Initialize(Config);
+            
+            upgradeMenu = GameObject.Find(nameof(UpgradeMenu)).GetComponent<UpgradeMenu>();
         }
 
         private void OnDied()

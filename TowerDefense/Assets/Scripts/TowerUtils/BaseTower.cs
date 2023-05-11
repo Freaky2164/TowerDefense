@@ -21,6 +21,7 @@ namespace TowerUtils
         private SpriteRenderer _spriteRenderer;
         protected Sound ShotSound; 
         protected UpgradeTree upgradeTree;
+        public int AdditionalMoneyPerHit { get; set; } = 0;
 
         public void SetNewLeftUpgrade(UpgradeTree tree)
         {
@@ -77,6 +78,7 @@ namespace TowerUtils
             if (_fireCountDown <= 0)
             {
                 var laser = Instantiate(projectile, transform.position, Quaternion.identity);
+                laser.moneyPerHit += AdditionalMoneyPerHit;
                 laser.Setup(_enemies[0]);
                 _fireCountDown = 1F / attackSpeed;
                 AudioHandler.I.Play(ShotSound);
@@ -118,10 +120,10 @@ namespace TowerUtils
         {
             if (toggle)
             { 
-                GameHandler.I.upgradeMenu.SetTowerAndProjectile(upgradeTree, this, projectile);
+                GameHandler.I.upgradeMenu.SetTowerAndProjectile(upgradeTree, this);
                 return;
             }
-            GameHandler.I.upgradeMenu.SetTowerAndProjectile(null, null, null);
+            GameHandler.I.upgradeMenu.SetTowerAndProjectile(null, null);
         }
     }
 }

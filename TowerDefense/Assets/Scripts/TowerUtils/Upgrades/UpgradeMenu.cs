@@ -8,7 +8,6 @@ namespace TowerUtils.Upgrades
     {
         [CanBeNull] private UpgradeTree _leftTree;
         [CanBeNull] private Upgrade _leftUpgradeScript;
-        [CanBeNull] private Projectile _projectile;
         [CanBeNull] private UpgradeTree _rightTree;
         [CanBeNull] private Upgrade _rightUpgradeScript;
         [CanBeNull] private BaseTower _tower;
@@ -21,10 +20,9 @@ namespace TowerUtils.Upgrades
             _rightUpgradeScript.enabled = false;
         }
 
-        public void SetTowerAndProjectile(UpgradeTree upgradeTree, BaseTower tower, Projectile projectile)
+        public void SetTowerAndProjectile(UpgradeTree upgradeTree, BaseTower tower)
         {
             _tower = tower;
-            _projectile = projectile;
             if (upgradeTree != null)
             {
                 _leftTree = upgradeTree.LeftNextUpgrade;
@@ -51,7 +49,6 @@ namespace TowerUtils.Upgrades
             }
 
             _leftUpgradeScript.enabled = true;
-            _leftUpgradeScript._projectile = _projectile;
             _leftUpgradeScript._tower = _tower;
             _leftUpgradeScript.SetUpgrade(_leftTree.Upgrade);
         }
@@ -67,7 +64,6 @@ namespace TowerUtils.Upgrades
             }
 
             _rightUpgradeScript.enabled = true;
-            _rightUpgradeScript._projectile = _projectile;
             _rightUpgradeScript._tower = _tower;
             _rightUpgradeScript.SetUpgrade(_rightTree.Upgrade);
         }
