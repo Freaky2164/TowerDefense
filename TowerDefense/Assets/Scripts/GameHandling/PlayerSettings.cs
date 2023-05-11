@@ -3,43 +3,51 @@ using UnityEngine;
 
 namespace GameHandling
 {
-    public class PlayerSettings : MonoBehaviour
+    public class PlayerSettings
     {
-        private static string gameFolder = "GameConfiguration";
-        private string playerName;
-        private DirectoryInfo playerSettingsFolder;
+        private static readonly string GameFolder = Path.DirectorySeparatorChar + "Assets" + Path.DirectorySeparatorChar + "GameConfiguration";
+        private static readonly string PlayerName;
 
-        public void initPlayerConfig()
+        static PlayerSettings()
+        {
+            PlayerName = JsonFileHandler.PlayerName;
+        }
+
+        public static void initPlayerConfig()
         {
             string gameHandlingDir = Directory.GetCurrentDirectory();
-            DirectoryInfo ScriptsDir = Directory.GetParent(gameHandlingDir);
-            DirectoryInfo gameConfigurationDir = Directory.GetParent(ScriptsDir.ToString());
-            gameConfigurationDir.MoveTo(gameFolder);
+            DirectoryInfo rootDirectory = new DirectoryInfo(gameHandlingDir);
+            DirectoryInfo gameConfigurations = new DirectoryInfo(rootDirectory.ToString() + GameFolder);
 
-            foreach (DirectoryInfo playerConfigs in gameConfigurationDir.GetDirectories())
+            foreach (DirectoryInfo playerConfigs in gameConfigurations.GetDirectories())
             {
-                if (!playerConfigs.Name.Equals(playerName)) continue;
-                playerSettingsFolder = playerConfigs;
+                if (!playerConfigs.Name.Equals(PlayerName)) continue;
+                JsonFileHandler.PlayerSettingsFolder = playerConfigs;
+                GetExisitingSettings();
             }
 
-            if(playerSettingsFolder is null)
+            if (JsonFileHandler.PlayerSettingsFolder is null)
             {
-                playerSettingsFolder = gameConfigurationDir.CreateSubdirectory(playerName);
+                JsonFileHandler.PlayerSettingsFolder = gameConfigurations.CreateSubdirectory(PlayerName);
+                CreateDefaultSettings();
             }
         }
 
-        public DirectoryInfo getplayerSettingsFolder()
+        private static void CreateDefaultSettings()
         {
-            return playerSettingsFolder;
+            Settings settings = new Settings();
+            settings.SaveToJson();
+            JsonFileHandler.Settings = settings;
+            SkillTree tree = new SkillTree();
+            tree.createDefaultValues();
+            tree.SaveToJson();
+            JsonFileHandler.SkillTree = tree;
         }
 
-        public string getPlayerName()
+        private static void GetExisitingSettings()
         {
-            return playerName;
-        }
-        public void setPlayerName(string playerName)
-        {
-            this.playerName = playerName;
+            JsonFileHandler.Settings = Settings.readFromJson();
+            JsonFileHandler.SkillTree = SkillTree.readFromJson();
         }
     }
 }
