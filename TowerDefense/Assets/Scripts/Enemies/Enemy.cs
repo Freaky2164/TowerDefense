@@ -1,3 +1,4 @@
+using Audio;
 using GameHandling;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -17,8 +18,10 @@ namespace Enemies
         [SerializeField]
         private int damage;
 
-        public int ID { get; set; }
+        private Sound _dieSound;
 
+        public Sound DieSound => _dieSound;
+        
         public FollowSpline FollowSpline
         {
             get => _followSpline ??= GetComponent<FollowSpline>();
@@ -34,6 +37,7 @@ namespace Enemies
         private void Start()
         {
             FollowSpline.EndReached += OnEndReached;
+            _dieSound = Sound.EnemyDestroyed;
         }
 
         public void Damage(int damageTaken)
@@ -48,8 +52,7 @@ namespace Enemies
 
         private void OnDestroy()
         {
-            GameHandler.I.EnemyDestroyed(ID, value);
-            AudioManager.instance.Play("EnemyDestroyed");
+            GameHandler.I.Enemies.RaiseEnemyDestroyed(this);
         }
 
         private void OnEndReached()

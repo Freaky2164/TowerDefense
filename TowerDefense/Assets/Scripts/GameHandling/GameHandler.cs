@@ -1,5 +1,7 @@
-using System;
+using Audio;
+using Contracts;
 using Enemies;
+using TowerUtils.Upgrades;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,52 +9,42 @@ namespace GameHandling
 {
     public class GameHandler : MonoBehaviour
     {
-        private static GameHandler _i;
-        public static GameHandler I {
-            get
-            {
-                _i ??= Instantiate(Resources.Load("GameHandler") as GameObject).GetComponent<GameHandler>();
-                return _i;
-            }
+        private IConfig _config;
+        public static GameHandler I { get; private set; }
+
+        public UpgradeMenu upgradeMenu;
+
+        [SerializeField] 
+        private Configuration config;
+        
+        public IConfig Config
+        {
+            get => _config ??= config as IConfig ?? IConfig.Default;
+            set => _config = value;
         }
 
-        public Player Player { get; private set; }
+        public PlayerHandler Player { get; } = new();
+        public MoneyHandler Finances { get; } = new();
+        public EnemyHandler Enemies { get; } = new();
+        public RoundHandler Rounds { get; } = new();
 
-        [SerializeField]
-        private EnemyHandler enemyHandler;
-    
-        private EnemySpawner enemySpawner;
-        private int round = 1;
-
-        public FinancialSystem FinancialSystem { get; set; }
-
+        public GameHandler()
+        {
+            I = this;
+            Player.Died += OnDied;
+        }
+        
         private void Start()
         {
-            _i = this;
-        
-            Player = GetComponent<Player>();
-            Player.PlayerDied += OnPlayerDied;
-        
-            FinancialSystem = new FinancialSystem(1000);
-            enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+            Player.Initialize(Config);
+            Finances.Initialize(Config);
+            Enemies.Initialize(Config);
+            Rounds.Initialize(Config);
+            
+            upgradeMenu = GameObject.Find(nameof(UpgradeMenu)).GetComponent<UpgradeMenu>();
         }
 
-        public void StartRound()
-        {
-            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-            enemySpawner.Activate();
-            AudioManager.instance.Play("ButtonClick");
-        }
-
-        public void EnemyDestroyed(int id, int value)
-        {
-            if (id != 0) return;
-            round++;
-            enemySpawner.Enemies = enemyHandler.GetEnemiesOfWave(round);
-            Debug.Log("End round");
-        }
-
-        private void OnPlayerDied()
+        private void OnDied()
         {
             Debug.Log("Game OVER!");
             SceneManager.LoadScene(0);

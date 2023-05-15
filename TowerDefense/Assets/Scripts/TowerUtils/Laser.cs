@@ -17,7 +17,7 @@ public class Laser : Projectile
         if (enemy != null)
         {
             enemy.Damage(damage); 
-            GameHandler.I.FinancialSystem.GainMoney(moneyPerHit);
+            GameHandler.I.Finances.GainMoney(moneyPerHit);
             if (!enemy.HasHealthLeft())
             {
                 Destroy(other.gameObject);

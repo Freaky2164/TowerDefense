@@ -9,6 +9,7 @@ TagManager:
   - Canvas
   - LeftUpgrade
   - RightUpgrade
+  - Tower
   layers:
   - Default
   - TransparentFX

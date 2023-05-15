@@ -1,3 +1,4 @@
+using Audio;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,6 +13,7 @@ namespace TowerUtils
         private Vector3 _moveDir = Vector3.zero;
         private Renderer _renderer;
         [SerializeField] public int moneyPerHit = 20;
+        private Sound _hitSound;
 
         protected virtual void Initialize()
         {

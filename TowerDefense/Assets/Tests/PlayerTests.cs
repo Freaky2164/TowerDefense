@@ -8,7 +8,7 @@ namespace Tests
         [Test]
         public void TakeDamage0Passes()
         {
-            var p = new Player();
+            var p = new PlayerHandler();
             p.TakeDamage(0);
             Assert.Equals(true, true);
         }
@@ -16,7 +16,7 @@ namespace Tests
         [Test]
         public void TakeDamage1Passes()
         {
-            var p = new Player();
+            var p = new PlayerHandler();
             p.TakeDamage(100);
             Assert.Equals(false, false);
         }
