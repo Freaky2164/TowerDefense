@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "HMf2f9xKhA3SIisBcK1us5ZcngRaXc4rGP2sfhM8Yf3wf25cwK4BWGeCfGRB3jAKk/ik3B7b1CyH7V38NnuiFg==",
+  "success": true,
+  "projectFilePath": "D:\\repos\\TowerDefense\\Plugins\\TowerDefence.Plugins.Test\\TowerDefence.Plugins.Test.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://srv-buildcenter01:5000/v3/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
