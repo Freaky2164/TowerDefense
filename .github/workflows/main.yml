@@ -48,7 +48,7 @@ jobs:
         uses: game-ci/unity-test-runner@v2
         id: testRunner
         with:
-          projectPath: Projektmanagement
+          projectPath: TowerDefense
           testMode: ${{ matrix.testMode }}
           checkName: ${{ matrix.testMode }} test results
           githubToken: ${{ secrets.GITHUB_TOKEN }}
