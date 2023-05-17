@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Audio;
+using GameHandling;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,9 +12,11 @@ public class AudioHandler : MonoBehaviour
     public static AudioHandler I;
     private AudioSource _audioSource;
     private Dictionary<Sound, AudioClip> _sounds;
+    private Settings _settings;
 
     private void Start()
     {
+        _settings = JsonFileHandler.PlayerSettings;
         _audioSource = this.AddComponent<AudioSource>();
         LoadSounds();
     }
@@ -31,6 +34,7 @@ public class AudioHandler : MonoBehaviour
 
     public void Play(Sound sound)
     {
+        if(_settings.muteSounds) return;
         _sounds.TryGetValue(sound, out var s);
         _audioSource.PlayOneShot(s);
     }

@@ -7,26 +7,33 @@ namespace GameHandling
     public class Settings
     {
         [System.NonSerialized]
-        private static string _fileName = "Settings.json";
+        public static string FileName = "Settings.json";
 
         public bool muteMusic;
         public bool muteSounds;
 
 
+        public Settings()
+        {
+            muteMusic = false;
+            muteSounds = false;
+        }
+        
+
         public void SaveToJson()
         {
-            if (!(JsonFileHandler.PlayerSettingsFolder is null))
+            if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
                 var json = JsonUtility.ToJson(this);
-                File.WriteAllText(JsonFileHandler.PlayerSettingsFolder.FullName + Path.DirectorySeparatorChar + _fileName, json);
+                File.WriteAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar + FileName, json);
             }
         }
         
         public static Settings readFromJson()
         {
-            if (!(JsonFileHandler.PlayerSettingsFolder is null))
+            if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
-                string json = File.ReadAllText(JsonFileHandler.PlayerSettingsFolder.FullName + Path.DirectorySeparatorChar +  _fileName);
+                string json = File.ReadAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar +  FileName);
                 return JsonUtility.FromJson<Settings>(json);
             }
             return null;

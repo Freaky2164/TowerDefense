@@ -10,14 +10,19 @@ namespace GameHandling
     public class SkillTree
     {
         [System.NonSerialized]
-        private static string _fileName = "SkillTree.json";
+        public static string FileName = "SkillTree.json";
         
         public int currentEXP;
         public List<jsonListImp> militaery;
         public List<jsonListImp> special;
 
-
-        public void createDefaultValues()
+        public SkillTree()
+        {
+            CreateDefaultValues();
+        }
+        
+        
+        public void CreateDefaultValues()
         {
             currentEXP = 0;
             createMilitaery();
@@ -45,18 +50,18 @@ namespace GameHandling
         
         public void SaveToJson()
         {
-            if (!(JsonFileHandler.PlayerSettingsFolder is null))
+            if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
                 var json = JsonUtility.ToJson(this);
-                File.WriteAllText(JsonFileHandler.PlayerSettingsFolder.FullName + Path.DirectorySeparatorChar + _fileName, json);
+                File.WriteAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar + FileName, json);
             }
         }
         
         public static SkillTree readFromJson()
         {
-            if (!(JsonFileHandler.PlayerSettingsFolder is null))
+            if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
-                string json = File.ReadAllText(JsonFileHandler.PlayerSettingsFolder.FullName + Path.DirectorySeparatorChar +  _fileName);
+                string json = File.ReadAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar +  FileName);
                 return JsonUtility.FromJson<SkillTree>(json);
             }
             return null;
