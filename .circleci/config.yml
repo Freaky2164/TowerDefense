@@ -4,6 +4,9 @@ orbs:
   unity: game-ci/unity@1.4.0
 
 workflows:
+  create-unity-activation-file:
+    jobs:
+      - unity/create-activation-file
   test-and-build-unity-project:
     jobs:
       - unity/build:
