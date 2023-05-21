@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  unity: game-ci/unity@x.y
+
+workflows:
+  test-and-build-unity-project:
+    jobs:
+      - unity/test:
+          name: 'test-linux'
+          step-name: 'Check if tests run and results are uploaded'
+          unity-license-var-name: 'UNITY_ENCODED_LICENSE'
+          unity-username-var-name: 'UNITY_USERNAME'
+          unity-password-var-name: 'UNITY_PASSWORD'
+          executor:
+            name: 'unity/ubuntu'
+            target_platform: 'linux-il2cpp'
+            editor_version: '2021.3.1f1'
+            resource_class: 'medium'
+          project-path: 'Unity2D-Demo-Game-CI-CD/src'
+          test-platform: 'playmode'
+          context: unity
+      - unity/build: ...
