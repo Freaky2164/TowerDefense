@@ -4,10 +4,6 @@ orbs:
   unity: game-ci/unity@1.4.0
 
 workflows:
-  create-unity-activation-file:
-    jobs:
-      - unity/create-activation-file:
-          editor_version: 2022.2.14f1
   test-and-build-unity-project:
     jobs:
       - unity/test:
