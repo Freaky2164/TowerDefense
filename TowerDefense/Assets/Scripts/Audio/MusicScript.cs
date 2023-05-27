@@ -9,9 +9,6 @@ public class MusicScript : MonoBehaviour
 
     private void Awake()
     {
-        JsonFileHandler.Start();
-        if (JsonFileHandler.PlayerSettings.muteMusic) Mute();
-        else Play();
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -19,8 +16,11 @@ public class MusicScript : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
+        JsonFileHandler.Start();
+        if (JsonFileHandler.PlayerSettings.muteMusic) Mute();
+        else Play();
     }
-    
+
     public void Mute()
     { 
         GetComponent<AudioSource>().Stop();

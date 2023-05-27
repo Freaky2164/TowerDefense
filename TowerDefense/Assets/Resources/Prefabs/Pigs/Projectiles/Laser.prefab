@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 96
+  damage: 100
   moneyPerHit: 20
 --- !u!61 &637165340921359520
 BoxCollider2D:

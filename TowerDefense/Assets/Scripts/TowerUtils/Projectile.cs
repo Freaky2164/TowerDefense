@@ -50,7 +50,7 @@ namespace TowerUtils
             position += _moveDir * (speed * Time.deltaTime);
             transform1.position = position;
             float angle = GetAngleFromVectorFloat(_moveDir);
-            transform.eulerAngles = new Vector3(0, 0, angle + 90);
+            transform.eulerAngles = new Vector3(0, 0, angle - 90);
         }
 
         private static float GetAngleFromVectorFloat(Vector3 dir)
