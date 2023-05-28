@@ -34,7 +34,7 @@ public class AudioHandler : MonoBehaviour
 
     public void Play(Sound sound)
     {
-        if(_settings.muteSounds) return;
+        if(_settings.getMuteSound()) return;
         _sounds.TryGetValue(sound, out var s);
         _audioSource.PlayOneShot(s);
     }

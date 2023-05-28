@@ -9,8 +9,8 @@ namespace GameHandling
         [System.NonSerialized]
         public static string FileName = "Settings.json";
 
-        public bool muteMusic;
-        public bool muteSounds;
+        private bool muteMusic;
+        private bool muteSounds;
 
 
         public Settings()
@@ -48,5 +48,17 @@ namespace GameHandling
         {
             return muteSounds;
         }
+        
+        public void setMuteMusic(bool toggle)
+        {
+            muteMusic = toggle;
+            SaveToJson();
+        }
+        public void setMuteSound(bool toggle)
+        {
+            muteSounds = toggle;
+            SaveToJson();
+        }
+
     }
 }
