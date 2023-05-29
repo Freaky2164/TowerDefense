@@ -25,6 +25,7 @@ namespace UI.Settings
             image.sprite = pauseImage;
             isActive = false;
             JsonFileHandler.PlayerSettings.setMuteSound(true);
+            JsonFileHandler.PlayerSettings.SaveToJson();
         }
         
         private void ActivateSound()
@@ -32,6 +33,7 @@ namespace UI.Settings
             image.sprite = startIamge;
             isActive = true;
             JsonFileHandler.PlayerSettings.setMuteSound(false);
+            JsonFileHandler.PlayerSettings.SaveToJson();
         }
     }
 }

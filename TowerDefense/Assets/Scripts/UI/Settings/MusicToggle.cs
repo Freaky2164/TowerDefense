@@ -11,7 +11,6 @@ namespace UI.Settings
         public Image image;
         public Sprite startIamge;
         public Sprite pauseImage;
-        public MusicScript music;
         private bool isActive =  true;
         
         public void musicToggle()
@@ -25,7 +24,8 @@ namespace UI.Settings
             image.sprite = pauseImage;
             isActive = false;
             JsonFileHandler.PlayerSettings.setMuteMusic(true);
-            music.Mute();
+            JsonFileHandler.PlayerSettings.SaveToJson();
+            MusicScript.instance.Mute();
         }
         
         private void ActivateMusic()
@@ -33,6 +33,8 @@ namespace UI.Settings
             image.sprite = startIamge;
             isActive = true;
             JsonFileHandler.PlayerSettings.setMuteMusic(false);
+            JsonFileHandler.PlayerSettings.SaveToJson();
+            MusicScript.instance.Play();
         }
     }
 }

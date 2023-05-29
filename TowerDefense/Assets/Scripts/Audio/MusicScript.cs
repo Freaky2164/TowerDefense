@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    private static MusicScript instance;
+    public static MusicScript instance;
 
     private void Awake()
     {

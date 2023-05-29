@@ -9,8 +9,8 @@ namespace GameHandling
         [System.NonSerialized]
         public static string FileName = "Settings.json";
 
-        private bool muteMusic;
-        private bool muteSounds;
+        public bool muteMusic;
+        public bool muteSounds;
 
 
         public Settings()
@@ -22,9 +22,10 @@ namespace GameHandling
 
         public void SaveToJson()
         {
+            Settings settings = this;
             if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
-                var json = JsonUtility.ToJson(this);
+                var json =  JsonUtility.ToJson(settings);
                 File.WriteAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar + FileName, json);
             }
         }
@@ -52,12 +53,10 @@ namespace GameHandling
         public void setMuteMusic(bool toggle)
         {
             muteMusic = toggle;
-            SaveToJson();
         }
         public void setMuteSound(bool toggle)
         {
             muteSounds = toggle;
-            SaveToJson();
         }
 
     }
