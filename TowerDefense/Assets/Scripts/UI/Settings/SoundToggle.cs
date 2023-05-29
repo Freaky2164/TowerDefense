@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using GameHandling;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI.Settings
@@ -12,26 +13,44 @@ namespace UI.Settings
         public Image image;
         public Sprite startIamge;
         public Sprite pauseImage;
-        private bool isActive =  true;
+        private bool isSoundMuted;
+        
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
 
+        private void OnDisable()
+        { 
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            isSoundMuted = JsonFileHandler.PlayerSettings.muteSounds;
+            if (scene.name != "SettingsScene") return;
+            image.sprite = (isSoundMuted) ? startIamge : pauseImage;
+        }
+        
         public void soundToggle()
         {
-            if (isActive) MuteSound();
+            bool shouldMute = !isSoundMuted;
+            if (shouldMute) MuteSound();
             else ActivateSound();
         }
 
         private void MuteSound()
         {
-            image.sprite = pauseImage;
-            isActive = false;
+            image.sprite = startIamge;
+            isSoundMuted = true;
             JsonFileHandler.PlayerSettings.setMuteSound(true);
             JsonFileHandler.PlayerSettings.SaveToJson();
         }
         
         private void ActivateSound()
         {
-            image.sprite = startIamge;
-            isActive = true;
+            image.sprite = pauseImage;
+            isSoundMuted = false;
             JsonFileHandler.PlayerSettings.setMuteSound(false);
             JsonFileHandler.PlayerSettings.SaveToJson();
         }
