@@ -22,9 +22,10 @@ namespace GameHandling
 
         public void SaveToJson()
         {
+            Settings settings = this;
             if (!(JsonFileHandler.GameConfigurationFolder is null))
             {
-                var json = JsonUtility.ToJson(this);
+                var json =  JsonUtility.ToJson(settings);
                 File.WriteAllText(JsonFileHandler.GameConfigurationFolder.FullName + Path.DirectorySeparatorChar + FileName, json);
             }
         }
@@ -48,5 +49,15 @@ namespace GameHandling
         {
             return muteSounds;
         }
+        
+        public void setMuteMusic(bool toggle)
+        {
+            muteMusic = toggle;
+        }
+        public void setMuteSound(bool toggle)
+        {
+            muteSounds = toggle;
+        }
+
     }
 }

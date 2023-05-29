@@ -355,8 +355,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 595646533}
-        m_TargetAssemblyTypeName: ChangeImage, Assembly-CSharp
-        m_MethodName: changeImage
+        m_TargetAssemblyTypeName: UI.Settings.MusicToggle, Scripts
+        m_MethodName: musicToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -376,12 +376,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 595646530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9947c057c6427334a85139bbec637d1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8149c79e9749ffa78b5c567bea1c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1713832228}
   startIamge: {fileID: 21300000, guid: 0f674132ee9c59c4eafba8cdf4a50d29, type: 3}
   pauseImage: {fileID: 21300000, guid: cebc9e31638fc9749b78382c2109c3c2, type: 3}
+  music: {fileID: 1065053253}
 --- !u!1 &760245059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,8 +1212,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1176856746}
-        m_TargetAssemblyTypeName: ChangeImage, Assembly-CSharp
-        m_MethodName: changeImage
+        m_TargetAssemblyTypeName: UI.Settings.SoundToggle, Scripts
+        m_MethodName: soundToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1232,7 +1233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1176856743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9947c057c6427334a85139bbec637d1d, type: 3}
+  m_Script: {fileID: 11500000, guid: ba7a2ca9e40942cfb5e23451bad8f7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 488427856}

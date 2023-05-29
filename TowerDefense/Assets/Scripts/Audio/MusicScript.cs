@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    private static MusicScript instance;
+    public static MusicScript instance;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class MusicScript : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
         JsonFileHandler.Start();
-        if (JsonFileHandler.PlayerSettings.muteMusic) Mute();
+        if (JsonFileHandler.PlayerSettings.getMuteMusic()) Mute();
         else Play();
     }
 
