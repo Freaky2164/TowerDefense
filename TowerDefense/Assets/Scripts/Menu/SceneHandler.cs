@@ -11,15 +11,28 @@ namespace Menu
             SceneManager.LoadScene(0);
             AudioHandler.I.Play(Sound.ButtonClick);
         }
-        public void loadGameScene()
+
+        public void loadSettingsScene()
         {
             SceneManager.LoadScene(1);
             AudioHandler.I.Play(Sound.ButtonClick);
         }
 
-        public void loadSettingsScene()
+        public void loadMapSelectionScene()
         {
             SceneManager.LoadScene(2);
+            AudioHandler.I.Play(Sound.ButtonClick);
+        }
+
+        public void loadMap1Scene()
+        {
+            SceneManager.LoadScene(3);
+            AudioHandler.I.Play(Sound.ButtonClick);
+        }
+
+        public void loadMap2Scene()
+        {
+            SceneManager.LoadScene(4);
             AudioHandler.I.Play(Sound.ButtonClick);
         }
 
