@@ -1,5 +1,11 @@
 # TowerDefense
 
+This is a project from our group in the software engineering course in 2022/2023.
+This repository contains our source code, project documentation and our blog posts.
+Our idea was to recreate a tower defense game
+
+## Background of our game
+
 It was the year 2053, five years after the great catastrophe. The world as we knew it was no longer the same. A mysterious plague had nearly wiped out humanity, and the few survivors struggled daily to survive. Nature had reclaimed its place on Earth and with it came new, strange developments.
 
 In a remote region that had once been a thriving village, something strange had occurred. The pigs, once peaceful farm animals of man, had made a new place for themselves in this new, wild world. They had become more intelligent and had begun to work together in large hordes to form their own society.
