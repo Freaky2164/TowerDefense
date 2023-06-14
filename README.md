@@ -2,9 +2,9 @@
 
 This is a project from our group in the software engineering course in 2022/2023.
 This repository contains our source code, project documentation and our blog posts.
-Our idea was to recreate a tower defense game
+Our idea was to recreate a game from the classic tower defense genre using the game engine Untiy.
 
-## Background of our game
+## Background story of our game
 
 It was the year 2053, five years after the great catastrophe. The world as we knew it was no longer the same. A mysterious plague had nearly wiped out humanity, and the few survivors struggled daily to survive. Nature had reclaimed its place on Earth and with it came new, strange developments.
 
