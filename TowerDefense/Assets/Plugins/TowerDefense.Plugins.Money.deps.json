@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "TowerDefense.Plugins.Money/1.0.0": {
+        "dependencies": {
+          "TowerDefense.Plugins.Base": "1.0.0"
+        },
+        "runtime": {
+          "TowerDefense.Plugins.Money.dll": {}
+        }
+      },
+      "TowerDefense.Plugins.Base/1.0.0": {
+        "runtime": {
+          "TowerDefense.Plugins.Base.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TowerDefense.Plugins.Money/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TowerDefense.Plugins.Base/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

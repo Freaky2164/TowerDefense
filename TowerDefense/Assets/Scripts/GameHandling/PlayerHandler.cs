@@ -1,5 +1,5 @@
 ﻿using System;
-using Contracts;
+using TowerDefense.Plugins.Base.Contracts;
 
 namespace GameHandling
 {

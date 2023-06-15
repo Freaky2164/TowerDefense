@@ -1,4 +1,4 @@
-﻿using Contracts;
+﻿using TowerDefense.Plugins.Base.Contracts;
 using UnityEngine;
 
 namespace GameHandling
