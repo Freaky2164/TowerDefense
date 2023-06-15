@@ -57,7 +57,7 @@ jobs:
 
     env:
       Solution_Name: Plugins\TowerDefense.Plugins.sln
-      Test_Project_Path: Plugins\TowerDefnse.Plugins.Money.Tests\TowerDefnse.Plugins.Money.Tests.csproj
+      Test_Project_Path: Plugins\TowerDefense.Plugins.Money.Tests\TowerDefense.Plugins.Money.Tests.csproj
 
     steps:
     - name: Checkout
