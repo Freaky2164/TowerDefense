@@ -16,7 +16,7 @@ The pigs and the mushrooms lived peacefully side by side at first, but they soon
 
 The battles were relentless, and the pigs had to rely on their strength, speed and newly acquired intelligence to counter the attacking mushrooms. The mushrooms, on the other hand, used their size and deadly spores as weapons to keep the pigs at bay.
 
-Over time, both sides developed more sophisticated tactics and strategies. The pigs formed elite units that were sent behind enemy lines to destroy the giant mushrooms from within. The mushrooms, in turn, began strategically placing their spores to lure the pigs into deadly traps. And thus a long era of battles between the pigs and mushrooms engulfed the world...
+Over time, both sides developed more sophisticated tactics and strategies. The pigs formed elite units that were sent behind enemy lines to destroy the giant mushrooms from within. The mushrooms, in turn, began strategically placing their spores to lure the pigs into deadly traps. And thus a long era of battles between the pigs and mushrooms engulfed the world....
 
 ## Installation 
 
