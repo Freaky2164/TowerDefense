@@ -11,6 +11,7 @@ namespace UI
         private void Start()
         {
             _label = GetComponent<TextMeshProUGUI>();
+            GameHandler.I.Finances.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnMoneyChanged(int money)

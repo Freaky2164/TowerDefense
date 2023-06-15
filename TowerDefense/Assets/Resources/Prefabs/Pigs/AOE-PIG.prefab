@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 370037711682568664}
   - component: {fileID: 8299629524565533706}
   - component: {fileID: 6820022060002662394}
-  - component: {fileID: 3046803791838508354}
+  - component: {fileID: 1937674022004894674}
   m_Layer: 0
   m_Name: AOE-PIG
   m_TagString: Tower
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3046803791838508354
+--- !u!114 &1937674022004894674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,11 +169,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 701747157921475967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46b79140f89c4890a3e650fdf03e4948, type: 3}
+  m_Script: {fileID: 11500000, guid: 084620266ebb4c6b91b764e5660d6e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: -7389749352340268899, guid: 92f05cee0b3de462ba1a77dacf35c1ff, type: 3}
-  attackSpeed: 0.97
+  attackSpeed: 1
 --- !u!1 &6735963224149122802
 GameObject:
   m_ObjectHideFlags: 0

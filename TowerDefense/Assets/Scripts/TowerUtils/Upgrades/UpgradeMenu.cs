@@ -6,9 +6,9 @@ namespace TowerUtils.Upgrades
 {
     public class UpgradeMenu : MonoBehaviour
     {
-        [CanBeNull] private UpgradeTree _leftTree;
+        private UpgradeTree _leftTree;
         [CanBeNull] private Upgrade _leftUpgradeScript;
-        [CanBeNull] private UpgradeTree _rightTree;
+        private UpgradeTree _rightTree;
         [CanBeNull] private Upgrade _rightUpgradeScript;
         [CanBeNull] private BaseTower _tower;
 
@@ -32,40 +32,28 @@ namespace TowerUtils.Upgrades
                 return;
             }
 
-            _leftTree = null;
-            _rightTree = null;
-            SetLeftUpgradeNext();
-            SetRightUpgradeNext();
+            if (_leftUpgradeScript != null) _leftUpgradeScript.RemoveUpgrade();
+            if (_rightUpgradeScript != null) _rightUpgradeScript.RemoveUpgrade();
         }
 
         private void SetLeftUpgradeNext()
         {
-            if (_leftTree.IsUnityNull())
+            if (_leftUpgradeScript != null)
             {
-                //ToDo add no upgrades available
-                Debug.Log("NoMoreLeftUpgrades");
-                _leftUpgradeScript.enabled = false;
-                return;
+                _leftUpgradeScript.enabled = true;
+                _leftUpgradeScript._tower = _tower;
+                _leftUpgradeScript.SetUpgrade(_leftTree.Upgrade);
             }
-
-            _leftUpgradeScript.enabled = true;
-            _leftUpgradeScript._tower = _tower;
-            _leftUpgradeScript.SetUpgrade(_leftTree.Upgrade);
         }
 
         private void SetRightUpgradeNext()
         {
-            if (_rightTree.IsUnityNull())
+            if (_rightUpgradeScript != null)
             {
-                //ToDo add no upgrades available
-                Debug.Log("NoMOreRightUpgrades");
-                _rightUpgradeScript.enabled = false;
-                return;
+                _rightUpgradeScript.enabled = true;
+                _rightUpgradeScript._tower = _tower;
+                _rightUpgradeScript.SetUpgrade(_rightTree.Upgrade);
             }
-
-            _rightUpgradeScript.enabled = true;
-            _rightUpgradeScript._tower = _tower;
-            _rightUpgradeScript.SetUpgrade(_rightTree.Upgrade);
         }
 
         public void NextUpgrade(GameObject upgrade)

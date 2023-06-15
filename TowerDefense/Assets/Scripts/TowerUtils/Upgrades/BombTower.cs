@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace TowerUtils.Upgrades
 {
-    public class CanonTowerUpgrades
+    public class BombTowerUpgrades
     {
         private UpgradeTree _upgradeTree;
-
+        
         public UpgradeTree GetUpgradeTree()
         {
             _upgradeTree = new UpgradeTree
@@ -22,15 +22,15 @@ namespace TowerUtils.Upgrades
 
         private UpgradeTree GetLeftUpgrades()
         {
-            Action<BaseTower> addAoEAction = AddAoE;
+            Action<BaseTower> increaseAoE = IncreaseAoE;
             Action<BaseTower> range = Range;
             Action<BaseTower> mimimi = DoesNothing;
             UpgradeTree left = new UpgradeTree
             {
-                Upgrade = new Upgrade(addAoEAction, 240, "!Canon Tower anymore"),
+                Upgrade = new Upgrade(increaseAoE, 100, "MEHR AOE"),
                 LeftNextUpgrade = new UpgradeTree
                 {
-                    Upgrade = new Upgrade(range, 400, "Es kommt auf die Reichweite an"),
+                    Upgrade = new Upgrade(range, 300, "Mehr Reichweite"),
                     LeftNextUpgrade = new UpgradeTree
                     {
                         Upgrade = new Upgrade(mimimi, 00000000, "Mehr Upgrades..."),
@@ -45,10 +45,9 @@ namespace TowerUtils.Upgrades
                 attackRangeRenderer.localScale += new Vector3(10F, 10F);
             }
             
-            void AddAoE(BaseTower arg1)
+            void IncreaseAoE(BaseTower arg1)
             {
-                var test = (Projectile)Resources.Load("Prefabs/Pigs/Projectiles/LaserWithAoE", typeof(Projectile));
-                arg1.projectile = test;
+                arg1.AdditionalAoERange += new Vector3(2F, 2F);
             }
         }
         
@@ -59,7 +58,7 @@ namespace TowerUtils.Upgrades
             Action<BaseTower> mimimi = DoesNothing;
             UpgradeTree tree = new UpgradeTree
             {
-                Upgrade = new Upgrade(asBuff, 300, "It goes Ratatatatatatatata"),
+                Upgrade = new Upgrade(asBuff, 200, "Sprengt alles in die Luft"),
                 RightNextUpgrade = new UpgradeTree
                 {
                     Upgrade = new Upgrade(moreMoney, 69420, "Mehr Geld"),
@@ -82,7 +81,6 @@ namespace TowerUtils.Upgrades
                 arg1.attackSpeed += 5;
             }
         }
-
         void DoesNothing(BaseTower arg1)
         {
         }

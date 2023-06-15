@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Audio;
 using GameHandling;
 using TowerUtils.Upgrades;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
 namespace TowerUtils
@@ -22,6 +23,7 @@ namespace TowerUtils
         protected Sound ShotSound; 
         protected UpgradeTree upgradeTree;
         public int AdditionalMoneyPerHit { get; set; } = 0;
+        public Vector3 AdditionalAoERange { get; set; } = new Vector3(0, 0);
 
         public void SetNewLeftUpgrade(UpgradeTree tree)
         {
@@ -79,6 +81,7 @@ namespace TowerUtils
             {
                 var laser = Instantiate(projectile, transform.position, Quaternion.identity);
                 laser.moneyPerHit += AdditionalMoneyPerHit;
+                laser.transform.GetChild(0).transform.localScale += AdditionalAoERange;
                 laser.Setup(_enemies[0]);
                 _fireCountDown = 1F / attackSpeed;
                 AudioHandler.I.Play(ShotSound);
@@ -103,10 +106,11 @@ namespace TowerUtils
                 if (hit.collider == null || hit.collider.gameObject != gameObject)
                 {
                     _spriteRenderer.color = new Color(255, 255, 255, 0.0F);
-                    if (hit.collider != null && !hit.collider.gameObject.CompareTag("Tower"))
-                    { 
-                        ToggleUpgradeMenu(false);
+                    if (hit.collider != null && hit.collider.gameObject.CompareTag("Tower"))
+                    {
+                        return;
                     }
+                    ToggleUpgradeMenu(false);
                 }
                 else
                 {
