@@ -81,7 +81,10 @@ namespace TowerUtils
             {
                 var laser = Instantiate(projectile, transform.position, Quaternion.identity);
                 laser.moneyPerHit += AdditionalMoneyPerHit;
-                laser.transform.GetChild(0).transform.localScale += AdditionalAoERange;
+                if (laser.transform.childCount != 0)
+                { 
+                    laser.transform.GetChild(0).transform.localScale += AdditionalAoERange;
+                }
                 laser.Setup(_enemies[0]);
                 _fireCountDown = 1F / attackSpeed;
                 AudioHandler.I.Play(ShotSound);
