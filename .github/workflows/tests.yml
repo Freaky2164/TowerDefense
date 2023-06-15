@@ -50,13 +50,13 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Release]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: TowerDefense.Plugins.sln
+      Solution_Name: Plugins\TowerDefense.Plugins.sln
       Test_Project_Path: Plugins\TowerDefnse.Plugins.Money.Tests\TowerDefnse.Plugins.Money.Tests.csproj
 
     steps:
