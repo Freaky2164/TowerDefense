@@ -16,31 +16,28 @@ namespace Enemies
         private SplineContainer path;
         
         private Enemies _enemies;
-        
-        private Queue<Wave> _round = new();
 
         private void Start()
         {
             _enemies = GetComponent<Enemies>();
+            
             GameHandler.I.Rounds.RoundStarted += OnRoundStarted;
-            Deactivate();
+            GameHandler.I.Rounds.RoundEnded += OnRoundEnded;
+
+            enabled = false;
         }
 
         private void Update()
         {
             if (!enabled) return;
             if (!TimerFinished()) return;
-            if (!_round.Any())
-            {
-                Deactivate();
-                return;
-            }
+            
             SpawnWave();
         }
 
         private void SpawnWave()
         {
-            var enemy = _round.Dequeue();
+            if (!GameHandler.I.Rounds.TryGetNextEnemy(out var enemy)) return;
             switch (enemy.Type)
             {
                 case EnemyType.SimpleMushroom:
@@ -67,24 +64,14 @@ namespace Enemies
             return true;
         }
     
-        public void Activate()
+        private void OnRoundStarted(Round round)
         {
             enabled = true;
         }
 
-        public void Deactivate()
+        private void OnRoundEnded()
         {
             enabled = false;
-        }
-
-        private void OnRoundStarted(Round round)
-        {
-            _round.Clear();
-            foreach (var w in round.Waves)
-            {
-                _round.Enqueue(w);
-            }
-            Activate();
         }
     }
 }
