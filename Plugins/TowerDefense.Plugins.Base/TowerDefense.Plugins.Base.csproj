@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="if &quot;$(ConfigurationName)&quot; == &quot;Release&quot; xcopy  /s /i /y /d  &quot;$(TargetDir)&quot; &quot;$(ProjectDir)..\..\TowerDefense\Assets\Plugins&quot;" />
+    </Target>
+
+</Project>

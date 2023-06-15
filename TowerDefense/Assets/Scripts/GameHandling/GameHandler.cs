@@ -1,6 +1,5 @@
-using Audio;
-using Contracts;
-using Enemies;
+using TowerDefense.Plugins.Base.Contracts;
+using TowerDefense.Plugins.Money;
 using TowerUtils.Upgrades;
 using UnityEngine;
 using UnityEngine.SceneManagement;

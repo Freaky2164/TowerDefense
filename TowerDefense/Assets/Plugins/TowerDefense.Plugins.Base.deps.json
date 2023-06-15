@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
-      "TowerDefence.Plugins.Test/1.0.0": {
+      "TowerDefense.Plugins.Base/1.0.0": {
         "runtime": {
-          "TowerDefence.Plugins.Test.dll": {}
+          "TowerDefense.Plugins.Base.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "TowerDefence.Plugins.Test/1.0.0": {
+    "TowerDefense.Plugins.Base/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

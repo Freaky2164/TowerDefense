@@ -1,5 +1,5 @@
-using Contracts;
 using Enemies;
+using TowerDefense.Plugins.Base.Contracts;
 
 namespace GameHandling
 {

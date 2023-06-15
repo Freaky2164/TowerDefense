@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
-using Contracts;
 using Enemies.Rounds;
+using TowerDefense.Plugins.Base.Contracts;
 
 namespace GameHandling
 {
