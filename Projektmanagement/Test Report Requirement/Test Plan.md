@@ -101,8 +101,18 @@ The project owns a certain amount of tests. Each pushed commit triggers our CI/C
 
 CI/CD Pipeline in Github Actions: [Github Actions](https://github.com/Freaky2164/TowerDefense/actions/workflows/tests.yml)
 
+![CI/CD Pipeline in Github Actions](https://github.com/Freaky2164/TowerDefense/assets/64361270/4adcde04-3b77-4cee-b9f7-ee5225f3e0f0)
+
+Integration of CI/CD Pipeline pipeline with GitHub:
+
+![Integration of CI/CD Pipeline pipeline with GitHub](https://github.com/Freaky2164/TowerDefense/assets/64361270/ddd8da4b-0503-49d0-9fb7-4aae2248fe35)
+
 ## 7.2 Reporting on Test Coverage
-n/a
+A report for our test coverage is made with the help of SonarQube:
+
+![SonarQube test report](https://github.com/Freaky2164/TowerDefense/assets/64361270/3bb76ca1-531d-48f2-ad90-8a3c7c0f74a9)
+
+Our report shows that the tests cover 90.4% of our C# scripts.
 
 ## 7.3 Perceived Quality Reports
 n/a
@@ -110,6 +120,8 @@ n/a
 ## 7.4 Incident Logs and Change Requests
 
 We integrated the tools mentioned above into our GitHub pull request workflow. If a build fails this is directly visible in GitHub.
+
+![GitHub pull request workflow](https://github.com/Freaky2164/TowerDefense/assets/64361270/0746dc04-30ae-4365-9a3a-d70dcdf4388c)
 
 ## 7.5 Smoke Test Suite and Supporting Test Scripts
 n/a
