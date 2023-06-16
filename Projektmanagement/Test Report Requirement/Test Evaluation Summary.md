@@ -38,6 +38,8 @@ Items for Testing:
 
 ## 4.	Code-based Test Coverage
 
+![SonarQube test report](https://github.com/Freaky2164/TowerDefense/assets/64361270/c0bbf9e7-6843-4116-aa2e-8483acdc3cae)
+
 ## 5.	Suggested Actions
 n/a
 
