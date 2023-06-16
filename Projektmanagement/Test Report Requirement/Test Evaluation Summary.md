@@ -28,6 +28,7 @@ The rest of the document describes the results of the tests we did for our C# sc
 our only solution was to test the raw functionality of our game which lies in the C# scripts.
  
 ## 2. Test Results Summary 
+n/a
 
 ## 3. Requirements-based Test Coverage
 The listing below identifies those test items (software, hardware, and supporting product elements) that have been identified as targets for testing. 
@@ -44,3 +45,4 @@ Items for Testing:
 n/a
 
 ## 6.	Diagrams
+n/a
