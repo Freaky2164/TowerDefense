@@ -99,7 +99,7 @@ n/a
 
 The project owns a certain amount of tests. Each pushed commit triggers our CI/CD Pipeline, which compiles the scripts and executes the tests.
 
-CI/CD Pipeline in Github Actions: [Github Actions](https://github.com/Freaky2164/TowerDefense/actions/workflows/tests.yml)
+CI/CD Pipeline in Github Actions: [GitHub Actions](https://github.com/Freaky2164/TowerDefense/actions/workflows/tests.yml)
 
 ![CI/CD Pipeline in Github Actions](https://github.com/Freaky2164/TowerDefense/assets/64361270/4adcde04-3b77-4cee-b9f7-ee5225f3e0f0)
 
@@ -152,7 +152,7 @@ The following tools will be employed to support the test process for this Test P
 
 | Tool Category or Type | Tool Brand Name                              |
 |-----------------------|----------------------------------------------|
-| Repository            | [github.com](http://github.com/)             |
+| GitHub Repository            | [GitHub](https://github.com/Freaky2164/TowerDefense)            |
 
 ## 10. Responsibilities, Staffing, and Training Needs
 
@@ -176,6 +176,3 @@ We want to keep ensure at least 90% code coverage with our tests.
 |------|---------------------|--------------------------------|
 | Code has lots of side effects | Refactor code (Clean Code principles) | publish new refactored tests |
 | Test Runner is not able to execute tests | Use standard libraries which include working Test Runner | fix test execution configuration |
-| UI tests fail | Refactor test | publish refactored test and restart |
-
-
