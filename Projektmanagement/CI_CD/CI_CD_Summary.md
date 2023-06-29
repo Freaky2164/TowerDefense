@@ -21,3 +21,15 @@ For our alternative solution we decided to only test our C# scripts since the bu
 To implement this we created a seperate .NET project which encompasses our logic for the money handling in our game aswell as some tests to ensure that the logic works correctly.
 Using GitHub Actions we then integrated this project into our github repository which then automatically builds the projects and runs the tests.
 
+Here is a screenshot of our workflow file used in our pipeline:
+The content of the file describes that whenevner some pushes changes or makes a pull request than the build jobs gets triggered.
+This job contains of 4 steps that are needed to successfully checkout the project, install .NET Core on the machine that runs the job, then setup MSBuild and at last execute the Unit tests.
+
+![grafik](https://github.com/Freaky2164/TowerDefense/assets/64361270/ed6192e0-8d76-4396-8c56-4b5661cbd3cf)
+
+Example view of the pipeline:
+
+![grafik](https://github.com/Freaky2164/TowerDefense/assets/64361270/eceebd7a-0b79-4308-8ad7-667d76dacc2f)
+
+![grafik](https://github.com/Freaky2164/TowerDefense/assets/64361270/2a3f36a7-87af-4b6f-8da1-3e10b7175d00)
+
