@@ -16,7 +16,7 @@ namespace GameHandling
             loadSkillTree();
         }
 
-        private static DirectoryInfo GetSettingFolder()
+        public static DirectoryInfo GetSettingFolder()
         {
             var gameHandlingDir = Directory.GetCurrentDirectory();
             var rootDirectory = new DirectoryInfo(gameHandlingDir);
